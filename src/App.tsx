@@ -41,13 +41,13 @@ const SideProfile = () => (
     <div className="space-y-6">
       <div className="text-center">
         <img
-          src="/avatar.png"
+          src="public/images/avatar.png"
           alt="Profile"
           className="w-32 h-32 mx-auto rounded-full border-4 border-cyan-500/30"
         />
         <h1 className="mt-4 text-2xl font-bold text-gray-100">RedTeamer403</h1>
-        <p className="mt-2 text-gray-400">Red Team Analyst / Pentester</p>
-        <p className="mt-1 text-gray-400">Brazil</p>
+        <p className="mt-2 text-gray-400">Penetration Tester</p>
+        <p className="mt-1 text-gray-400">Czech Republic</p>
       </div>
       
       <div className="flex flex-col space-y-4">
@@ -61,7 +61,7 @@ const SideProfile = () => (
           GitHub
         </a>
         <a 
-          href="https://www.linkedin.com/in/redteamer403" 
+          href="https://www.linkedin.com/in/rustam-fakhrutdinov-1131b96a/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors"
@@ -129,7 +129,7 @@ const App = () => {
       description: "DPAPI, CBA Patch, Template Reconfiguration, Certificate Forgery and More!",
       date: "06 Nov 2024",
       readTime: 35,
-      image: "/adcs.png",
+      image: "public/images/adcs.png",
       link: "/posts/attack-ad-cs"
     },
     {
@@ -137,7 +137,7 @@ const App = () => {
       description: "Pass-the-PRT, Runbooks, cloud to on-prem, Golden SAML and More!",
       date: "27 Jul 2024",
       readTime: 20,
-      image: "/azure.png",
+      image: "public/images/azure.png",
       link: "/posts/azure-lateral-movement"
     },
     {
@@ -145,7 +145,7 @@ const App = () => {
       description: "Detailed walkthrough of recent HackTheBox machine, including exploitation techniques and privilege escalation.",
       date: "15 Oct 2024",
       readTime: 25,
-      image: "/htb.png",
+      image: "public/images/htb.png",
       link: "/posts/htb-walkthrough"
     },
     {
@@ -153,7 +153,7 @@ const App = () => {
       description: "Discovery and exploitation of a cross-site scripting vulnerability in a major web application.",
       date: "01 Sep 2024",
       readTime: 15,
-      image: "/xss.png",
+      image: "public/images/xss.png",
       link: "/posts/bug-bounty-xss"
     }
   ];
@@ -164,7 +164,7 @@ const App = () => {
       description: "Comprehensive guide to Active Directory penetration testing, including attack vectors and defense evasion.",
       date: "Updated regularly",
       readTime: 45,
-      image: "/ad.png",
+      image: "public/images/ad.png",
       link: "/notes/active-directory"
     },
     {
@@ -172,7 +172,7 @@ const App = () => {
       description: "Windows security assessment techniques, privilege escalation, and post-exploitation.",
       date: "Updated regularly",
       readTime: 40,
-      image: "/windows.png",
+      image: "public/images/windows.png",
       link: "/notes/windows"
     },
     {
@@ -180,7 +180,7 @@ const App = () => {
       description: "Linux security fundamentals, privilege escalation techniques, and hardening guides.",
       date: "Updated regularly",
       readTime: 35,
-      image: "/linux.png",
+      image: "public/images/linux.png",
       link: "/notes/linux"
     },
     {
@@ -188,7 +188,7 @@ const App = () => {
       description: "Web application security testing methodology, common vulnerabilities, and exploitation techniques.",
       date: "Updated regularly",
       readTime: 50,
-      image: "/webapp.png",
+      image: "public/images/webapp.png",
       link: "/notes/webapp"
     },
     {
@@ -196,7 +196,7 @@ const App = () => {
       description: "Cloud security assessment guides for AWS, Azure, and GCP environments.",
       date: "Updated regularly",
       readTime: 55,
-      image: "/cloud.png",
+      image: "public/images/cloud.png",
       link: "/notes/cloud"
     },
     {
@@ -204,7 +204,7 @@ const App = () => {
       description: "Quick reference guides for various penetration testing tools and techniques.",
       date: "Updated regularly",
       readTime: 30,
-      image: "/cheatsheet.png",
+      image: "public/images/cheatsheet.png",
       link: "/notes/cheatsheets"
     }
   ];
