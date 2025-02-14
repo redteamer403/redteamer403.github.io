@@ -41,7 +41,7 @@ const SideProfile = () => (
     <div className="space-y-6">
       <div className="text-center">
         <img
-          src="/public/images/avatar.png"
+          src="/images/avatar.png"
           alt="Profile"
           className="w-32 h-32 mx-auto rounded-full border-4 border-cyan-500/30"
         />
@@ -129,7 +129,7 @@ const App = () => {
       description: "DPAPI, CBA Patch, Template Reconfiguration, Certificate Forgery and More!",
       date: "10 Nov 2024",
       readTime: 35,
-      image: "/images/adcs.png",
+      image: "/images/openart-image_GQ8_hkFj_1739392570839_raw.jpg",
       link: "/posts/attack-ad-cs"
     },
     {
@@ -137,7 +137,7 @@ const App = () => {
       description: "Pass-the-PRT, Runbooks, cloud to on-prem, Golden SAML and More!",
       date: "27 Jul 2024",
       readTime: 20,
-      image: "/images/azure.png",
+      image: "/images/openart-image_PpktvOH5_1739392399365_raw.jpg",
       link: "/posts/azure-lateral-movement"
     },
     {
@@ -153,7 +153,7 @@ const App = () => {
       description: "Discovery and exploitation of a cross-site scripting vulnerability in a major web application.",
       date: "01 Sep 2024",
       readTime: 15,
-      image: "/images/xss.png",
+      image: "/images/openart-image_WaJxV_Gn_1739392738435_raw.jpg",
       link: "/posts/bug-bounty-xss"
     }
   ];
