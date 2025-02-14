@@ -84,8 +84,7 @@ const SideProfile = () => (
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-colors"
         >
-          <Coffee className="w-5 h-5" />
-          Buy Me a Coffee
+          <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-2.svg" alt="Buy Me a Coffee" className="h-15" />
         </a>
       </div>
     </div>
@@ -121,7 +120,7 @@ const BlogPost = ({ title, description, date, readTime, image, link }) => (
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState("about");
-  const welcomeText = useTypingEffect("> Welcome to my cybersecurity portfolio_");
+  const welcomeText = useTypingEffect("\>  Welcome to my cybersecurity portfolio_");
   
   const posts = [
     {
@@ -230,7 +229,7 @@ const App = () => {
                 <div>
                   <h2 className="text-xl font-mono font-bold text-cyan-400">🎖️ Certifications</h2>
                   <ul className="list-none space-y-2">
-                    {['eWPTXv2', 'BSCP'].map(cert => (
+                    {['CRTP', 'eWPTXv2', 'BSCP', 'CRTA', 'MCRTA'].map(cert => (
                       <li key={cert} className="flex items-center gap-2">
                         <Code2 className="w-4 h-4 text-cyan-400" />
                         <span>{cert}</span>
