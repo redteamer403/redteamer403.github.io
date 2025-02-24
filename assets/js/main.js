@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('hasVisited')) {
     const initScreen = document.getElementById('init-screen');
-    const loginScreen = document.getElementById('login-screen');
     const mainContent = document.getElementById('main-content');
-    const loginBtn = document.getElementById('login-btn');
     
     // Initialize animation
     const initSteps = document.querySelectorAll('.init-step');
@@ -16,19 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         setTimeout(() => {
           initScreen.classList.add('hidden');
-          loginScreen.classList.remove('hidden');
-        }, 500);
+          mainContent.classList.remove('hidden');
+        }, 2000);
       }
     }
   
     // Start initialization sequence
     setTimeout(showNextStep, 500);
-  
-    // Login button handler
-    loginBtn.addEventListener('click', () => {
-      loginScreen.classList.add('hidden');
-      mainContent.classList.remove('hidden');
-    });
+
+    // Mark that user has visitied
+
+    localStorage.setItem('hasVisited', 'true');
+  } else {
+    document.getElementById('init-screen').classList.add('hidden');
+    document.getElementById('main-content').classList.remove('hidden');
+  }
   
     // Update terminal time
     function updateTime() {
