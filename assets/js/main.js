@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Check if this is the first visit
-  if (!sessionStorage.getItem('hasVisited')) {
+  if (!localStorage.getItem('hasVisited')) {
     const initScreen = document.getElementById('init-screen');
-    const statusScreen = document.getElementById('status-screen');
     const mainContent = document.getElementById('main-content');
     
     // Initialize animation
@@ -15,28 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
         currentStep++;
         setTimeout(showNextStep, 400);
       } else {
+        // After initialization, show main content after 2 seconds
         setTimeout(() => {
           initScreen.classList.add('hidden');
-          statusScreen.classList.remove('hidden');
-          
-          // Show status message briefly, then main content
-          setTimeout(() => {
-            statusScreen.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-          }, 2000);
-        }, 500);
+          mainContent.classList.remove('hidden');
+        }, 2000);
       }
     }
   
     // Start initialization sequence
     setTimeout(showNextStep, 500);
     
-    // Mark that user has visited
-    sessionStorage.setItem('hasVisited', 'true');
+    // Mark that user has visited (using localStorage instead of sessionStorage)
+    localStorage.setItem('hasVisited', 'true');
   } else {
     // If not first visit, show main content immediately
     document.getElementById('init-screen').classList.add('hidden');
-    document.getElementById('status-screen').classList.add('hidden');
     document.getElementById('main-content').classList.remove('hidden');
   }
 
