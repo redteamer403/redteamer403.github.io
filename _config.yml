@@ -1,0 +1,19 @@
+title: Vault-Tec Terminal | Security Professional
+description: Professional penetration tester portfolio
+baseurl: ""
+url: "https://redteamer403.github.io"
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-hacker
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/

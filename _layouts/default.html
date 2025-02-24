@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% seo %}
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="login-screen" class="login-screen hidden">
+    <div class="login-container">
+      <h1>VAULT-TEC TERMINAL</h1>
+      <p class="status">Status: Connected</p>
+      <button id="login-btn" class="login-btn">LOGIN</button>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>{{ site.title }}</h1>
+        <nav>
+          <a href="/" {% if page.url == "/" %}class="active"{% endif %}>ABOUT</a>
+          <a href="/posts" {% if page.url == "/posts" %}class="active"{% endif %}>POSTS</a>
+          <a href="/notes" {% if page.url == "/notes" %}class="active"{% endif %}>NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <div class="terminal-time">{{ site.time | date: "%H:%M:%S" }}</div>
+  </div>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
