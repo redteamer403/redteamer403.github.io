@@ -42,8 +42,8 @@ body {
   transition: opacity 0.3s;
 }
 
-/* Status Screen */
-.status-screen {
+/* Login Screen */
+.login-screen {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,10 +56,25 @@ body {
   z-index: 900;
 }
 
-.status-container {
+.login-container {
   border: 1px solid var(--green);
   padding: 40px;
   text-align: center;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: rgba(80, 250, 123, 0.1);
 }
 
 /* Main Content */
