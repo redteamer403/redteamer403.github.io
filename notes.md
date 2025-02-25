@@ -12,7 +12,7 @@ title: Notes
     <div class="notes-category">
       <h3>Linux</h3>
       <div class="notes-subcategory">
-        <a href="#linux-enum">Enumeration</a>
+        <a href="/notes/enum/">Enumeration</a>
         <a href="#linux-privesc">Privilege Escalation</a>
         <a href="#linux-post">Post Exploitation</a>
         <a href="#linux-checklist">Penetration Testing Checklist</a>
