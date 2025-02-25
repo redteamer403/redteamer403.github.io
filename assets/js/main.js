@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       subcategory.classList.toggle('active');
       
       // If on enum.md, show first section by default when expanding
-      if (window.location.pathname === '/notes/enum/' && category.classList.contains('active')) {
+      if (window.location.pathname === '/notes/linux/enum/' && category.classList.contains('active')) {
         const firstSection = document.querySelector('.note-section');
         if (firstSection) firstSection.classList.add('active');
       }
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
           targetSection.classList.add('active');
         }
       }
-      // If href starts with '/', allow navigation (e.g., to /notes/enum/)
+      // If href starts with '/', allow navigation (e.g., to /notes/linux/enum/)
       // No e.preventDefault() here, so browser handles it naturally
     });
   });
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
           category.querySelector('.notes-subcategory').classList.remove('active');
         });
         // On enum.md, show first section by default
-        if (window.location.pathname === '/notes/enum/') {
+        if (window.location.pathname === '/notes/linux/enum/') {
           const firstSection = document.querySelector('.note-section');
           if (firstSection) {
             firstSection.style.display = 'block';
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Show first section by default on enum.md
-  if (window.location.pathname === '/notes/enum/') {
+  if (window.location.pathname === '/notes/linux/enum/') {
     const firstSection = document.querySelector('.note-section');
     if (firstSection) firstSection.classList.add('active');
   }

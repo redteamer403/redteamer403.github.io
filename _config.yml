@@ -13,7 +13,7 @@ plugins:
 collections:
   notes:                # Define the _notes collection
     output: true        # Render files in _notes as individual pages
-    permalink: /notes/enum/  # Set URL structure, e.g., /notes/enum/
+    permalink: /notes/linux/enum/  # Set URL structure
 
 # Exclude files from processing
 exclude:
