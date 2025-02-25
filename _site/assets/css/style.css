@@ -198,6 +198,10 @@ dt {
   font-weight: bold;
 }
 
+ul li {
+  list-style-image: url("../images/bullet.png");
+}
+
 blockquote {
   color: #aaa;
   padding-left: 10px;
@@ -335,6 +339,10 @@ ul li {
   position: relative;
   padding-left: 20px;
   margin-bottom: 10px;
+}
+
+ul li {
+  list-style-image: none;
 }
 
 ul li::before {
