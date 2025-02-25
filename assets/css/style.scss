@@ -6,6 +6,7 @@
 :root {
   --green: #50fa7b;
   --black: #000000;
+  --dark-green: #2c5a34;
 }
 
 body {
@@ -79,11 +80,22 @@ nav a.active {
   margin-bottom: 30px;
 }
 
-.post-card,
-.note-card {
+.post-card {
   border: 1px solid var(--green);
   padding: 20px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateX(10px);
+  background: rgba(80, 250, 123, 0.05);
+}
+
+.post-metadata {
+  font-size: 0.9em;
+  color: rgba(80, 250, 123, 0.7);
+  margin-bottom: 15px;
 }
 
 .search-container {
@@ -110,28 +122,86 @@ nav a.active {
   display: none;
 }
 
-/* Terminal Effects */
-.terminal-time {
+/* System Info */
+.system-info {
   position: fixed;
   top: 20px;
   right: 20px;
-  opacity: 0.5;
+  opacity: 0.7;
+  text-align: right;
+  font-size: 0.9em;
 }
 
-/* Scan line effect */
-.main-content::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.2) 50%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  z-index: 100;
-  opacity: 0.1;
+.terminal-time,
+.location-info,
+.ip-info {
+  margin-bottom: 5px;
+}
+
+/* Notes Section */
+.notes-container {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 200px);
+}
+
+.notes-sidebar {
+  width: 250px;
+  border-right: 1px solid var(--green);
+  padding-right: 20px;
+  overflow-y: auto;
+}
+
+.notes-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+
+.notes-category {
+  margin-bottom: 20px;
+}
+
+.notes-category h3 {
+  color: var(--green);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.notes-subcategory {
+  padding-left: 20px;
+  display: none;
+}
+
+.notes-subcategory.active {
+  display: block;
+}
+
+.notes-subcategory a {
+  display: block;
+  padding: 5px 0;
+  color: var(--green);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.notes-subcategory a:hover {
+  transform: translateX(10px);
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: var(--green);
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
 }

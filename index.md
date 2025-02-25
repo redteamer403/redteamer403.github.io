@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RedTeamer403
+title: About
 ---
 
 <div class="profile-section">
@@ -27,8 +27,12 @@ title: RedTeamer403
 
 <div class="contact-section">
   <h2>CONTACT PROTOCOLS</h2>
-  <ul>
-    <li><a href="https://github.com/redteamer403">GitHub Repository</a></li>
-    <li><a href="https://www.linkedin.com/in/rustam-fakhrutdinov-1131b96a/">LinkedIn Profile</a></li>
-  </ul>
+  <div class="social-links">
+    <a href="https://github.com/redteamer403" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/rustam-fakhrutdinov-1131b96a/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
 </div>
