@@ -12,12 +12,17 @@ title: Notes
     <div class="notes-category">
       <h3>Linux</h3>
       <div class="notes-subcategory">
-        <a href="#linux-enum">Enumeration</a>
-        <a href="#linux-enum-sysinfo">System Information Gathering</a>
-        <a href="#linux-enum-users">User Enumeration</a>
-        <a href="#linux-enum-network">Network Configuration</a>
-        <a href="#linux-enum-services">Running Services</a>
-        <a href="#linux-enum-commands">Common Commands</a>
+        <!-- Enumeration with nested subcategories -->
+        <div class="subcategory-item">
+          <h4>Enumeration</h4>
+          <div class="sub-subcategory">
+            <a href="#linux-enum-sysinfo">System Information Gathering</a>
+            <a href="#linux-enum-users">User Enumeration</a>
+            <a href="#linux-enum-network">Network Configuration</a>
+            <a href="#linux-enum-services">Running Services</a>
+            <a href="#linux-enum-commands">Common Commands</a>
+          </div>
+        </div>
         <a href="#linux-privesc">Privilege Escalation</a>
         <a href="#linux-post">Post Exploitation</a>
         <a href="#linux-checklist">Penetration Testing Checklist</a>
@@ -65,19 +70,8 @@ title: Notes
     </div>
   </div>
 
-  <div class="notes-content">
-    <!-- Linux Enumeration Sections -->
-    <div id="linux-enum" class="note-section">
-      <h2>Linux Enumeration</h2>
-      <p>Comprehensive guide for Linux system enumeration:</p>
-      <ul>
-        <li>System Information Gathering</li>
-        <li>User Enumeration</li>
-        <li>Network Configuration</li>
-        <li>Running Services</li>
-      </ul>
-    </div>
-
+ <div class="notes-content">
+    <!-- Linux Enumeration Sections (unchanged, just removed #linux-enum) -->
     <div id="linux-enum-sysinfo" class="note-section">
       <h2>System Information Gathering</h2>
       <p>Collecting basic system details to understand the Linux environment:</p>
@@ -148,7 +142,7 @@ ps aux               # Process list
 netstat -tulpn       # Network services</code></pre>
     </div>
 
-    <!-- Other Linux Sections -->
+    <!-- Other Linux Sections (unchanged) -->
     <div id="linux-privesc" class="note-section">
       <h2>Linux Privilege Escalation</h2>
       <p>Methods and techniques for escalating privileges on Linux systems:</p>

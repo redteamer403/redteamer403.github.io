@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const categories = document.querySelectorAll('.notes-category');
   const noteSections = document.querySelectorAll('.note-section');
 
-  // Handle category clicks
+  // Handle main category clicks (Linux, Windows, etc.)
   categories.forEach(category => {
     const heading = category.querySelector('h3');
     const subcategory = category.querySelector('.notes-subcategory');
@@ -85,9 +85,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Handle subcategory links
-  const subcategoryLinks = document.querySelectorAll('.notes-subcategory a');
+  // Handle nested subcategory items (e.g., Enumeration)
+  const subcategoryItems = document.querySelectorAll('.subcategory-item');
+  subcategoryItems.forEach(item => {
+    const heading = item.querySelector('h4');
+    const subSubcategory = item.querySelector('.sub-subcategory');
+    
+    if (heading && subSubcategory) {
+      heading.addEventListener('click', () => {
+        // Toggle nested subcategory active state
+        item.classList.toggle('active');
+        subSubcategory.classList.toggle('active');
+      });
+    }
+  });
+
+  // Handle regular subcategory links (top-level, non-nested)
+  const subcategoryLinks = document.querySelectorAll('.notes-subcategory > a');
   subcategoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Hide all sections
+      noteSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show selected section
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+    });
+  });
+
+  // Handle sub-subcategory links (e.g., System Information Gathering)
+  const subSubcategoryLinks = document.querySelectorAll('.sub-subcategory a');
+  subSubcategoryLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       
@@ -124,6 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
         categories.forEach(category => {
           category.style.display = 'block';
           category.querySelector('.notes-subcategory').classList.remove('active');
+          // Reset nested subcategories
+          category.querySelectorAll('.subcategory-item').forEach(item => {
+            item.classList.remove('active');
+            const subSub = item.querySelector('.sub-subcategory');
+            if (subSub) subSub.classList.remove('active');
+          });
         });
         return;
       }
@@ -137,18 +178,25 @@ document.addEventListener('DOMContentLoaded', () => {
         section.classList.toggle('active', matches);
         if (matches) hasResults = true;
 
-        // Show corresponding category in sidebar
+        // Show corresponding category and subcategory in sidebar
         const categoryId = section.id.split('-')[0];
         const category = sidebar.querySelector(`[href="#${section.id}"]`)?.closest('.notes-category');
         if (category) {
           category.style.display = 'block';
           category.querySelector('.notes-subcategory').classList.add('active');
+          // Show nested subcategory if applicable
+          const subItem = sidebar.querySelector(`[href="#${section.id}"]`)?.closest('.subcategory-item');
+          if (subItem) {
+            subItem.classList.add('active');
+            const subSub = subItem.querySelector('.sub-subcategory');
+            if (subSub) subSub.classList.add('active');
+          }
         }
       });
 
       // Hide categories with no matches
       categories.forEach(category => {
-        const hasVisibleLinks = Array.from(category.querySelectorAll('.notes-subcategory a')).some(link => {
+        const hasVisibleLinks = Array.from(category.querySelectorAll('.notes-subcategory a, .sub-subcategory a')).some(link => {
           const targetSection = document.querySelector(link.getAttribute('href'));
           return targetSection && targetSection.style.display !== 'none';
         });
