@@ -10,11 +10,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-collections:
-  notes:                # Define the _notes collection
-    output: true        # Render files in _notes as individual pages
-    permalink: /notes/linux/enum/  # Set URL structure
-
 # Exclude files from processing
 exclude:
   - Gemfile
