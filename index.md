@@ -8,12 +8,12 @@ title: About
   <p>Passionate penetration tester with expertise in web, cloud, and infrastructure security.</p>
   
   <h3>CERTIFICATIONS</h3>
-  <ul>
+  <ul style="line-height:10%">
     <li>CRTP - Certified Red Team Professional</li>
     <li>eWPTXv2 - eLearnSecurity Web Penetration Tester eXtreme</li>
     <li>BSCP - Burp Suite Certified Professional</li>
     <li>CRTA - Certified Red Team Analyst</li>
-    <li>MCRTA - Multi Cloud Red Team Analyst</li>
+    <li>MCRTA - Multi-Cloud Red Team Analyst</li>
   </ul>
 
   <h3>HACKTHEBOX PRO LABS</h3>
