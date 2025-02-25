@@ -109,7 +109,86 @@
   <div class="notes-content">
     <div id="linux-enum" class="note-section">
       <h2>Linux Enumeration</h2>
-      <p>Will be added soon...</p>
+      <p>Comprehensive guide for Linux system enumeration:</p>
+      <ul>
+        <li>System Information Gathering</li>
+        <li>User Enumeration</li>
+        <li>Network Configuration</li>
+        <li>Running Services</li>
+      </ul>
+      <h3>Common Commands</h3>
+      <pre><code>uname -a
+cat /etc/issue
+cat /etc/*-release
+ps aux
+netstat -tulpn</code></pre>
+    </div>
+
+    <div id="linux-privesc" class="note-section">
+      <h2>Linux Privilege Escalation</h2>
+      <p>Methods and techniques for escalating privileges on Linux systems:</p>
+      <ul>
+        <li>SUID Binary Exploitation</li>
+        <li>Sudo Misconfigurations</li>
+        <li>Kernel Exploits</li>
+        <li>Cron Job Abuse</li>
+      </ul>
+      <h3>Key Tools</h3>
+      <ul>
+        <li>LinPEAS</li>
+        <li>Linux Exploit Suggester</li>
+        <li>pspy</li>
+      </ul>
+    </div>
+
+    <div id="windows-enum" class="note-section">
+      <h2>Windows Enumeration</h2>
+      <p>Essential Windows system enumeration techniques:</p>
+      <ul>
+        <li>System Information</li>
+        <li>User and Group Enumeration</li>
+        <li>Network Shares</li>
+        <li>Running Services</li>
+      </ul>
+      <h3>PowerShell Commands</h3>
+      <pre><code>Get-WmiObject Win32_OperatingSystem
+Get-LocalUser
+Get-LocalGroup
+Get-Service</code></pre>
+    </div>
+
+    <div id="windows-privesc" class="note-section">
+      <h2>Windows Privilege Escalation</h2>
+      <p>Common Windows privilege escalation vectors:</p>
+      <ul>
+        <li>Service Misconfigurations</li>
+        <li>Unquoted Service Paths</li>
+        <li>Token Manipulation</li>
+        <li>Registry Exploits</li>
+      </ul>
+      <h3>Key Tools</h3>
+      <ul>
+        <li>WinPEAS</li>
+        <li>PowerUp</li>
+        <li>SharpUp</li>
+      </ul>
+    </div>
+
+    <div id="ad-enum" class="note-section">
+      <h2>Active Directory Enumeration</h2>
+      <p>Advanced AD enumeration methodology:</p>
+      <ul>
+        <li>Domain Controllers</li>
+        <li>Users and Groups</li>
+        <li>Group Policies</li>
+        <li>Trust Relationships</li>
+      </ul>
+      <h3>Key Tools</h3>
+      <ul>
+        <li>BloodHound</li>
+        <li>PowerView</li>
+        <li>ADExplorer</li>
+      </ul>
     </div>
   </div>
 </div>

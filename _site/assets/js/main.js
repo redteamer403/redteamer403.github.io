@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Mark that user has visited
     localStorage.setItem('hasVisited', 'true');
+
+    // Fetch location data only once on first visit
+    fetch('https://ipapi.co/json/', { mode: 'cors' })
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem('userLocation', JSON.stringify({
+          city: data.city,
+          country_code: data.country_code,
+          ip: data.ip
+        }));
+        updateSystemInfo();
+      })
+      .catch(error => {
+        console.error('Error fetching location data:', error);
+      });
   } else {
     // If not first visit, show main content immediately
     document.getElementById('init-screen').classList.add('hidden');
@@ -43,27 +58,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     timeDisplay.textContent = `TIME: ${now.toLocaleTimeString()}`;
 
-    // Get location and IP
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        locationDisplay.textContent = `LOC: ${data.city}, ${data.country_code}`;
-        ipDisplay.textContent = `IP: ${data.ip}`;
-      })
-      .catch(error => {
-        console.error('Error fetching location data:', error);
-      });
+    // Get stored location data
+    const locationData = JSON.parse(localStorage.getItem('userLocation') || '{}');
+    if (locationData.city && locationData.country_code) {
+      locationDisplay.textContent = `LOC: ${locationData.city}, ${locationData.country_code}`;
+      ipDisplay.textContent = `IP: ${locationData.ip}`;
+    }
   }
 
   updateSystemInfo();
   setInterval(updateSystemInfo, 1000);
 
   // Notes section functionality
-  const categories = document.querySelectorAll('.notes-category h3');
+  const categories = document.querySelectorAll('.notes-category');
+  const noteSections = document.querySelectorAll('.note-section');
+
+  // Handle category clicks
   categories.forEach(category => {
-    category.addEventListener('click', () => {
-      const subcategory = category.nextElementSibling;
+    const heading = category.querySelector('h3');
+    const subcategory = category.querySelector('.notes-subcategory');
+    
+    heading.addEventListener('click', () => {
+      // Toggle category active state
+      category.classList.toggle('active');
       subcategory.classList.toggle('active');
+    });
+  });
+
+  // Handle subcategory links
+  const subcategoryLinks = document.querySelectorAll('.notes-subcategory a');
+  subcategoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Hide all sections
+      noteSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show selected section
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
     });
   });
 
