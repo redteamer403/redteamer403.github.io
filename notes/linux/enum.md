@@ -1,5 +1,6 @@
 ---
 layout: notes
+permalink: /notes/linux/enum/
 title: Linux Enumeration
 ---
 
