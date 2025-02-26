@@ -188,7 +188,7 @@ code {
   color: var(--green);
 }
 
-/* System Info - Fixed in top-right corner */
+/* System Info - Fixed in top-right corner (removed IP) */
 .system-info {
   position: fixed !important; /* Force fixed positioning to override any potential conflicts */
   top: 10px !important; /* Ensure top position */
@@ -201,8 +201,12 @@ code {
   border: 1px solid var(--green) !important; /* Add border for a framed appearance */
   border-radius: 4px !important; /* Slight rounding for a modern look */
   z-index: 1001 !important; /* Ensure it stays above other content */
-  max-width: 200px !important; /* Limit width to keep it small */
-  word-wrap: break-word !important; /* Ensure long IPs or text wrap properly */
+  max-width: 150px; /* Reduced width since we removed IP */
+}
+
+.terminal-time,
+.location-info {
+  margin-bottom: 5px; /* Removed .ip-info margin */
 }
 
 /* Debugging: Check for any overrides or parent styles */
@@ -219,12 +223,6 @@ code {
 body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
   overflow-y: auto; /* Allow vertical scrolling normally */
-}
-
-.terminal-time,
-.location-info,
-.ip-info {
-  margin-bottom: 5px;
 }
 
 /* Initialization Screen */
@@ -286,6 +284,24 @@ nav a.active {
   border: 1px solid var(--green);
   padding: 20px;
   margin-bottom: 30px;
+}
+
+/* Back Button Styling */
+.back-button {
+  display: inline-block;
+  color: var(--green);
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(80, 250, 123, 0.1);
+  color: #fff;
 }
 
 /* Social Icons */

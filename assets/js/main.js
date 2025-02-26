@@ -28,14 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mark that user has visited
     localStorage.setItem('hasVisited', 'true');
 
-    // Store location data only once on first visit
+    // Store location data only once on first visit (without IP)
     fetch('https://ipapi.co/json/', { mode: 'cors' })
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('userLocation', JSON.stringify({
           city: data.city || 'Unknown',
-          country_code: data.country_code || 'XX',
-          ip: data.ip || '0.0.0.0'
+          country_code: data.country_code || 'XX'
         }));
         updateSystemInfo();
       })
@@ -43,8 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error fetching location data:', error);
         localStorage.setItem('userLocation', JSON.stringify({
           city: 'Unknown',
-          country_code: 'XX',
-          ip: '0.0.0.0'
+          country_code: 'XX'
         }));
         updateSystemInfo();
       });
@@ -58,28 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSystemInfo() {
     const timeDisplay = document.querySelector('.terminal-time');
     const locationDisplay = document.querySelector('.location-info');
-    const ipDisplay = document.querySelector('.ip-info');
 
     // Update time
     const now = new Date();
     timeDisplay.textContent = `TIME: ${now.toLocaleTimeString()}`;
 
-    // Get stored location data
+    // Get stored location data (without IP)
     const locationData = JSON.parse(localStorage.getItem('userLocation') || '{}');
     if (locationData.city && locationData.country_code) {
       locationDisplay.textContent = `LOC: ${locationData.city}, ${locationData.country_code}`;
-      
-      // Format IP address (prioritize IPv4 if available, format IPv6 if necessary)
-      let formattedIp = locationData.ip || 'Unknown';
-      if (formattedIp.includes(':')) {
-        // Handle IPv6: clean up by removing unnecessary zeros and ensuring readability
-        formattedIp = formattedIp.split(':').map(segment => segment.replace(/^0+/, '') || '0').join(':').toLowerCase();
-        // Optionally, if you want to shorten IPv6 further, you can implement IPv6 compression, but the current format is already concise
-      } else if (formattedIp.match(/^\d+\.\d+\.\d+\.\d+$/)) {
-        // Ensure IPv4 format (already standard, so no change needed)
-        formattedIp = formattedIp; // Keep as is
-      }
-      ipDisplay.textContent = `IP: ${formattedIp}`;
     }
   }
 
