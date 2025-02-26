@@ -2,6 +2,7 @@ title: Vault-Tec Terminal
 description: Professional penetration tester portfolio
 baseurl: ""
 url: "https://redteamer403.github.io"
+author: RedTeamer403
 
 # Build settings
 markdown: kramdown
@@ -14,6 +15,7 @@ plugins:
 include:
   - _pages
   - notes
+  - posts
 
 sass:
   sass_dir: assets/css
