@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: Home
 ---
 
 <div class="profile-section">
@@ -23,6 +23,17 @@ title: About
     <li>Zephyr</li>
     <li>FullHouse</li>
   </ul>
+
+  <h3>TRYHACKME</h3>
+  <ul style="line-height:10%">
+    <li>Offensive Pentesting</li>
+    <li>Web Application Pentesting</li>
+    <li>Jr Penetration Tester</li>
+    <li>CompTIA Pentest+</li>
+    <li>Web Fundamentals</li>
+    <li>Complete Beginner</li>
+  </ul>
+  <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=665997" style='border:none;' width="330" height="90"></iframe>
 </div>
 
 <div class="contact-section">
@@ -36,3 +47,7 @@ title: About
     </a>
   </div>
 </div>
+
+<a href="https://buymeacoffee.com/redteamer403" target="_blank" title="Buy Me a Coffee">
+  <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-2.svg" alt="Buy Me a Coffee">
+</a>
