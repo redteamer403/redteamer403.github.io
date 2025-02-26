@@ -31,10 +31,6 @@ ul li {
   margin-bottom: 10px;
 }
 
-ul li {
-  list-style-image: none;
-}
-
 ul li::before {
   content: '>';
   position: absolute;
@@ -263,75 +259,4 @@ nav a.active {
 
 .social-links a:hover {
   transform: scale(1.2);
-}
-
-
-/* Nested subcategory item (e.g., Enumeration) */
-.subcategory-item {
-  margin-bottom: 10px;
-}
-
-.subcategory-item h4 {
-  color: var(--green);
-  margin: 0;
-  padding-left: 20px;
-  position: relative;
-  cursor: pointer;
-}
-
-.subcategory-item h4::before {
-  content: '>';
-  position: absolute;
-  left: 0;
-  color: var(--green);
-  transition: transform 0.3s;
-}
-
-.subcategory-item.active h4::before {
-  transform: rotate(90deg);
-}
-
-/* Nested sub-subcategory */
-.sub-subcategory {
-  padding-left: 20px;
-  display: none;
-}
-
-.sub-subcategory.active {
-  display: block;
-}
-
-.sub-subcategory a {
-  display: block;
-  padding: 5px 0;
-  color: var(--green);
-  text-decoration: none;
-  transition: transform 0.2s;
-  position: relative;
-  padding-left: 20px;
-}
-
-.sub-subcategory a::before {
-  content: '>';
-  position: absolute;
-  left: 0;
-  color: var(--green);
-}
-
-/* Regular subcategory links (non-nested) */
-.notes-subcategory a {
-  display: block;
-  padding: 5px 0;
-  color: var(--green);
-  text-decoration: none;
-  transition: transform 0.2s;
-  position: relative;
-  padding-left: 20px;
-}
-
-.notes-subcategory a::before {
-  content: '>';
-  position: absolute;
-  left: 0;
-  color: var(--green);
 }
