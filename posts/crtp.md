@@ -2,7 +2,7 @@
 layout: post
 title: "Breaking Down the CRTP Certification Journey – My Epic Adventure!"
 date: 2025-01-15
-tags: Certification, CRTP, Career
+tags: Certification, CRTP, CRTP Review
 permalink: /posts/crtp/
 author: RedTeamer403
 ---

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Reconnaissance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Network Reconnaissance | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Network Reconnaissance" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/network/recon/" />
+<meta property="og:url" content="http://localhost:4000/notes/network/recon/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Network Reconnaissance" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Network Reconnaissance","url":"http://localhost:4000/notes/network/recon/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" class="active">Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="network-reconnaissance">Network Reconnaissance</h1>
+
+<h2 id="host-discovery">Host Discovery</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ping sweep</span>
+nmap <span class="nt">-sn</span> 192.168.1.0/24
+
+<span class="c"># ARP scan</span>
+arp-scan <span class="nt">-l</span>
+
+<span class="c"># Discover live hosts with masscan</span>
+masscan <span class="nt">-p0-65535</span> 192.168.1.0/24 <span class="nt">--rate</span> 1000
+
+<span class="c"># ICMP echo with hping3</span>
+hping3 <span class="nt">-1</span> 192.168.1.1
+</code></pre></div></div>
+
+<h2 id="dns-enumeration">DNS Enumeration</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enumerate DNS records</span>
+dnsenum example.com
+
+<span class="c"># Zone transfer attempt</span>
+dig axfr example.com @ns1.example.com
+
+<span class="c"># Brute-force subdomains</span>
+subfinder <span class="nt">-d</span> example.com <span class="nt">-o</span> subdomains.txt
+
+<span class="c"># Query DNS with nslookup</span>
+nslookup <span class="nt">-type</span><span class="o">=</span>NS example.com
+</code></pre></div></div>
+
+<h2 id="osint-gathering">OSINT Gathering</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Gather public info</span>
+theHarvester <span class="nt">-d</span> example.com <span class="nt">-b</span> google
+
+<span class="c"># Search LinkedIn</span>
+linkedin2username <span class="nt">-o</span> usernames.txt example.com
+
+<span class="c"># Scan Shodan</span>
+shodan search <span class="s2">"org:example.com"</span>
+
+<span class="c"># Fetch WHOIS data</span>
+whois example.com
+</code></pre></div></div>
+
+<h2 id="service-fingerprinting">Service Fingerprinting</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Identify services with nmap</span>
+nmap <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+
+<span class="c"># Enumerate SNMP</span>
+snmpwalk <span class="nt">-v2c</span> <span class="nt">-c</span> public 192.168.1.1
+
+<span class="c"># Check HTTP headers</span>
+curl <span class="nt">-I</span> http://example.com
+
+<span class="c"># Use enum4linux for SMB</span>
+enum4linux <span class="nt">-a</span> 192.168.1.1
+</code></pre></div></div>
+
+<h2 id="automated-reconnaissance-tools">Automated Reconnaissance Tools</h2>
+<ul>
+  <li>Nmap: <code class="language-plaintext highlighter-rouge">nmap -sn &lt;network&gt;</code></li>
+  <li>Masscan: <code class="language-plaintext highlighter-rouge">masscan -p0-65535 &lt;network&gt;</code></li>
+  <li>dnsrecon: <code class="language-plaintext highlighter-rouge">dnsrecon -d example.com</code></li>
+  <li>Recon-ng: <code class="language-plaintext highlighter-rouge">recon-ng -m recon/domains-hosts</code></li>
+  <li>SpiderFoot: <code class="language-plaintext highlighter-rouge">spiderfoot -d example.com</code></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

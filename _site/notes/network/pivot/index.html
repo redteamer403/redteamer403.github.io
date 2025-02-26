@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Pivoting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Network Pivoting | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Network Pivoting" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/network/pivot/" />
+<meta property="og:url" content="http://localhost:4000/notes/network/pivot/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Network Pivoting" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Network Pivoting","url":"http://localhost:4000/notes/network/pivot/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" class="active">Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="network-pivoting">Network Pivoting</h1>
+
+<h2 id="ssh-tunneling">SSH Tunneling</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Local port forwarding</span>
+ssh <span class="nt">-L</span> 8080:internal_host:80 user@pivot_ip
+
+<span class="c"># Remote port forwarding</span>
+ssh <span class="nt">-R</span> 8080:local_host:80 user@pivot_ip
+
+<span class="c"># Dynamic port forwarding (SOCKS proxy)</span>
+ssh <span class="nt">-D</span> 1080 user@pivot_ip
+
+<span class="c"># Bind to all interfaces</span>
+ssh <span class="nt">-g</span> <span class="nt">-L</span> 0.0.0.0:8080:internal_host:80 user@pivot_ip
+</code></pre></div></div>
+
+<h2 id="proxy-chains">Proxy Chains</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set up proxychains</span>
+proxychains nmap <span class="nt">-sT</span> internal_host
+
+<span class="c"># Configure proxy list</span>
+<span class="nb">echo</span> <span class="s2">"socks5 192.168.1.10 1080"</span> <span class="o">&gt;</span> /etc/proxychains.conf
+
+<span class="c"># Test proxy chain</span>
+proxychains curl internal_host
+
+<span class="c"># Use multiple proxies</span>
+proxychains <span class="nt">-q</span> nmap <span class="nt">-sT</span> internal_host
+</code></pre></div></div>
+
+<h2 id="vpn-pivoting">VPN Pivoting</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Start OpenVPN client</span>
+openvpn client.ovpn
+
+<span class="c"># Route traffic via VPN</span>
+route add &lt;network&gt; &lt;vpn_gateway&gt;
+
+<span class="c"># Verify VPN connection</span>
+ipconfig
+
+<span class="c"># Use SoftEther VPN</span>
+vpnclient /cmd
+</code></pre></div></div>
+
+<h2 id="pivoting-tools">Pivoting Tools</h2>
+<ul>
+  <li>Chisel: <code class="language-plaintext highlighter-rouge">chisel client &lt;attacker_ip&gt;:8080 R:12345:internal_host:80</code></li>
+  <li>Plink: <code class="language-plaintext highlighter-rouge">plink -L 8080:internal_host:80 user@pivot_ip</code></li>
+  <li>SSHuttle: <code class="language-plaintext highlighter-rouge">sshuttle -r user@pivot_ip 192.168.1.0/24</code></li>
+  <li>Proxychains-ng: <code class="language-plaintext highlighter-rouge">proxychains-ng nmap internal_host</code></li>
+  <li>Meterpreter: <code class="language-plaintext highlighter-rouge">use multi/manage/autoroute</code></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

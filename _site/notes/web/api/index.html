@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Application API Testing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Web Application API Testing | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Web Application API Testing" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/web/api/" />
+<meta property="og:url" content="http://localhost:4000/notes/web/api/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Web Application API Testing" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Web Application API Testing","url":"http://localhost:4000/notes/web/api/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" class="active">API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="web-application-api-testing">Web Application API Testing</h1>
+
+<h2 id="api-enumeration">API Enumeration</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Discover endpoints</span>
+curl <span class="nt">-X</span> GET http://example.com/api/
+
+<span class="c"># Brute-force with ffuf</span>
+ffuf <span class="nt">-u</span> http://example.com/api/FUZZ <span class="nt">-w</span> wordlist.txt
+
+<span class="c"># Check OpenAPI spec</span>
+curl http://example.com/api/swagger.json
+
+<span class="c"># Use dirb for API paths</span>
+dirb http://example.com/api/ <span class="nt">-r</span>
+
+<span class="c"># Enumerate with Arjun</span>
+arjun <span class="nt">-u</span> http://example.com/api <span class="nt">-m</span> GET
+</code></pre></div></div>
+
+<h2 id="authentication-testing">Authentication Testing</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test API auth</span>
+curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;token&gt;"</span> http://example.com/api
+
+<span class="c"># Brute-force API key</span>
+hydra <span class="nt">-l</span> apiuser <span class="nt">-P</span> apikeys.txt http://example.com/api <span class="nt">-t</span> 4
+
+<span class="c"># Check token expiration</span>
+jwt_tool &lt;token&gt; <span class="nt">-exp</span>
+
+<span class="c"># Test OAuth flow</span>
+curl <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s2">"grant_type=password"</span> http://example.com/oauth/token
+</code></pre></div></div>
+
+<h2 id="injection-testing">Injection Testing</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test SQL injection</span>
+curl <span class="s2">"http://example.com/api/search?q=' OR 1=1 --"</span>
+
+<span class="c"># Test NoSQL injection</span>
+curl <span class="s2">"http://example.com/api/search?q[]=[{'</span><span class="nv">$gt</span><span class="s2">':''}]"</span>
+
+<span class="c"># Test command injection</span>
+curl <span class="s2">"http://example.com/api/exec?cmd=whoami"</span>
+<span class="c"># Use sqlmap for API</span>
+sqlmap <span class="nt">-u</span> http://example.com/api/search <span class="nt">--data</span><span class="o">=</span><span class="s2">"q=test"</span>
+
+<span class="c"># Test XSS in JSON</span>
+curl <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-d</span> <span class="s1">'{"input":"&lt;script&gt;alert(1)&lt;/script&gt;"}'</span> http://example.com/api
+</code></pre></div></div>
+
+<h2 id="business-logic-testing">Business Logic Testing</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test rate limits</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..100<span class="o">}</span><span class="p">;</span> <span class="k">do </span>curl http://example.com/api<span class="p">;</span> <span class="nb">sleep </span>1<span class="p">;</span> <span class="k">done</span>
+
+<span class="c"># Check privilege escalation</span>
+curl <span class="nt">-H</span> <span class="s2">"role:admin"</span> http://example.com/api/admin
+
+<span class="c"># Test idempotency</span>
+curl <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s2">"action=delete"</span> http://example.com/api
+
+<span class="c"># Validate input bounds</span>
+curl <span class="nt">-d</span> <span class="s2">"amount=1000000"</span> http://example.com/api/transaction
+</code></pre></div></div>
+
+<h2 id="security-headers-and-misconfigurations">Security Headers and Misconfigurations</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check headers</span>
+curl <span class="nt">-I</span> http://example.com/api
+
+<span class="c"># Test CORS</span>
+curl <span class="nt">-H</span> <span class="s2">"Origin: http://attacker.com"</span> <span class="nt">-I</span> http://example.com/api
+
+<span class="c"># Check for exposed endpoints</span>
+nikto <span class="nt">-h</span> http://example.com/api
+
+<span class="c"># Test HSTS bypass</span>
+curl <span class="nt">-k</span> https://example.com/api
+</code></pre></div></div>
+
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>curl: <code class="language-plaintext highlighter-rouge">curl -X GET http://example.com/api</code></li>
+  <li>ffuf: <code class="language-plaintext highlighter-rouge">ffuf -u http://example.com/api/FUZZ -w wordlist.txt</code></li>
+  <li>sqlmap: <code class="language-plaintext highlighter-rouge">sqlmap -u http://example.com/api</code></li>
+  <li>Postman: manual API testing</li>
+  <li>OWASP ZAP: manual API testing</li>
+  <li>Arjun: <code class="language-plaintext highlighter-rouge">arjun -u http://example.com/api</code></li>
+  <li>jwt_tool: <code class="language-plaintext highlighter-rouge">jwt_tool &lt;token&gt;</code></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

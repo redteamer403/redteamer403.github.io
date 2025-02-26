@@ -40,8 +40,8 @@ title: Linux Penetration Testing Checklist
 - [ ] Password hunting
 - [ ] SSH key discovery
 - [ ] Trust relationships
-- [ ] ARP table: ip neighbor
-- [ ] Routing info: route -n
+- [ ] ARP table: ```ip neighbor```
+- [ ] Routing info: ```route -n```
 - [ ] DNS for pivoting: ``` cat /etc/resolv.conf, dig <domain>```
 
 ### Data Exfiltration

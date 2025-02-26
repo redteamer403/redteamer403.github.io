@@ -174,55 +174,59 @@ nav ul li::before {
   color: #fff;
 }
 
-/* Code blocks */
+/* Code blocks - Updated for long commands */
 pre {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--green);
   border-radius: 4px;
   padding: 15px;
-  overflow-x: auto;
+  overflow-x: auto; /* Add horizontal scrolling for long lines */
+  white-space: pre-wrap; /* Allow text wrapping within the scrollable area */
+  max-width: 100%; /* Ensure it fits the container */
+  word-wrap: break-word; /* Break long words if necessary */
 }
 
 code {
   font-family: 'Share Tech Mono', monospace;
   color: var(--green);
+  overflow-x: auto; /* Ensure inline code also handles overflow */
 }
 
-/* System Info - Fixed in top-right corner (removed IP) */
+/* System Info - Fixed in top-right corner */
 .system-info {
-  position: fixed !important; /* Force fixed positioning to override any potential conflicts */
-  top: 10px !important; /* Ensure top position */
-  right: 10px !important; /* Ensure right position */
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
   opacity: 0.7;
   text-align: right;
   font-size: 0.9em;
-  background-color: var(--black) !important; /* Ensure background matches the theme */
-  padding: 5px 10px !important; /* Add padding for a framed look */
-  border: 1px solid var(--green) !important; /* Add border for a framed appearance */
-  border-radius: 4px !important; /* Slight rounding for a modern look */
-  z-index: 1001 !important; /* Ensure it stays above other content */
-  max-width: 150px; /* Reduced width since we removed IP */
+  background-color: var(--black) !important;
+  padding: 5px 10px !important;
+  border: 1px solid var(--green) !important;
+  border-radius: 4px !important;
+  z-index: 1001 !important;
+  max-width: 150px;
 }
 
 .terminal-time,
 .location-info {
-  margin-bottom: 5px; /* Removed .ip-info margin */
+  margin-bottom: 5px;
 }
 
 /* Debugging: Check for any overrides or parent styles */
 .system-info * {
-  position: static !important; /* Prevent child elements from overriding */
+  position: static !important;
 }
 
 /* Ensure .system-info isn’t affected by any parent containers */
 #main-content, .container {
-  overflow: visible !important; /* Prevent clipping or scrolling interference */
+  overflow: visible !important;
 }
 
 /* Ensure body doesn’t interfere with fixed positioning */
 body {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  overflow-y: auto; /* Allow vertical scrolling normally */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Initialization Screen */
