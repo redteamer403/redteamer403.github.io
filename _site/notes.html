@@ -49,150 +49,208 @@
     </header>
 
     <main class="container">
-      <div class="search-container">
-  <input type="text" class="search-input" placeholder="Search notes..." />
-</div>
-
-<div class="notes-container">
-  <div class="notes-sidebar">
+      <div class="notes-container">
+        <!-- _includes/notes-sidebar.html -->
+<div class="notes-sidebar">
     <div class="notes-category">
       <h3>Linux</h3>
       <div class="notes-subcategory">
-        <a href="#linux-enum">Enumeration</a>
-        <a href="#linux-privesc">Privilege Escalation</a>
-        <a href="#linux-post">Post Exploitation</a>
-        <a href="#linux-checklist">Penetration Testing Checklist</a>
+        <a href="/notes/linux/enum/">Enumeration</a>
+        <a href="/notes/#linux-privesc">Privilege Escalation</a>
+        <a href="/notes/#linux-post">Post Exploitation</a>
+        <a href="/notes/#linux-checklist">Penetration Testing Checklist</a>
       </div>
     </div>
-
+  
     <div class="notes-category">
       <h3>Windows</h3>
       <div class="notes-subcategory">
-        <a href="#windows-enum">Enumeration</a>
-        <a href="#windows-privesc">Privilege Escalation</a>
-        <a href="#windows-post">Post Exploitation</a>
-        <a href="#windows-av">AV/EDR Evasion</a>
+        <a href="/notes/#windows-enum">Enumeration</a>
+        <a href="/notes/#windows-privesc">Privilege Escalation</a>
+        <a href="/notes/#windows-post">Post Exploitation</a>
+        <a href="/notes/#windows-av">AV/EDR Evasion</a>
       </div>
     </div>
-
+  
     <div class="notes-category">
       <h3>Active Directory</h3>
       <div class="notes-subcategory">
-        <a href="#ad-enum">Domain Enumeration</a>
-        <a href="#ad-attack">Attack Vectors</a>
-        <a href="#ad-persist">Persistence</a>
-        <a href="#ad-lateral">Lateral Movement</a>
+        <a href="/notes/#ad-enum">Domain Enumeration</a>
+        <a href="/notes/#ad-attack">Attack Vectors</a>
+        <a href="/notes/#ad-persist">Persistence</a>
+        <a href="/notes/#ad-lateral">Lateral Movement</a>
       </div>
     </div>
-
+  
     <div class="notes-category">
       <h3>Network</h3>
       <div class="notes-subcategory">
-        <a href="#network-recon">Reconnaissance</a>
-        <a href="#network-scan">Port Scanning</a>
-        <a href="#network-pivot">Pivoting</a>
-        <a href="#network-sniff">Traffic Analysis</a>
+        <a href="/notes/#network-recon">Reconnaissance</a>
+        <a href="/notes/#network-scan">Port Scanning</a>
+        <a href="/notes/#network-pivot">Pivoting</a>
+        <a href="/notes/#network-sniff">Traffic Analysis</a>
       </div>
     </div>
-
+  
     <div class="notes-category">
       <h3>Web Application</h3>
       <div class="notes-subcategory">
-        <a href="#web-recon">Reconnaissance</a>
-        <a href="#web-vulns">Common Vulnerabilities</a>
-        <a href="#web-auth">Authentication Bypass</a>
-        <a href="#web-api">API Testing</a>
+        <a href="/notes/#web-recon">Reconnaissance</a>
+        <a href="/notes/#web-vulns">Common Vulnerabilities</a>
+        <a href="/notes/#web-auth">Authentication Bypass</a>
+        <a href="/notes/#web-api">API Testing</a>
       </div>
     </div>
   </div>
+        <div class="notes-content">
+          <div class="search-container">
+  <input type="text" class="search-input" placeholder="Search notes..." />
+</div>
 
-  <div class="notes-content">
-    <div id="linux-enum" class="note-section">
-      <h2>Linux Enumeration</h2>
-      <p>Comprehensive guide for Linux system enumeration:</p>
-      <ul>
-        <li>System Information Gathering</li>
-        <li>User Enumeration</li>
-        <li>Network Configuration</li>
-        <li>Running Services</li>
-      </ul>
-      <h3>Common Commands</h3>
-      <pre><code>uname -a
-cat /etc/issue
-cat /etc/*-release
-ps aux
-netstat -tulpn</code></pre>
-    </div>
+<div id="linux-privesc" class="note-section">
+  <h2>Linux Privilege Escalation</h2>
+  <p>Methods and techniques for escalating privileges on Linux systems:</p>
+  <ul>
+    <li>SUID Binary Exploitation</li>
+    <li>Sudo Misconfigurations</li>
+    <li>Kernel Exploits</li>
+    <li>Cron Job Abuse</li>
+  </ul>
+  <h3>Key Tools</h3>
+  <ul>
+    <li>LinPEAS</li>
+    <li>Linux Exploit Suggester</li>
+    <li>pspy</li>
+  </ul>
+</div>
 
-    <div id="linux-privesc" class="note-section">
-      <h2>Linux Privilege Escalation</h2>
-      <p>Methods and techniques for escalating privileges on Linux systems:</p>
-      <ul>
-        <li>SUID Binary Exploitation</li>
-        <li>Sudo Misconfigurations</li>
-        <li>Kernel Exploits</li>
-        <li>Cron Job Abuse</li>
-      </ul>
-      <h3>Key Tools</h3>
-      <ul>
-        <li>LinPEAS</li>
-        <li>Linux Exploit Suggester</li>
-        <li>pspy</li>
-      </ul>
-    </div>
+<div id="linux-post" class="note-section">
+  <h2>Linux Post Exploitation</h2>
+  <p>Placeholder for post-exploitation techniques.</p>
+</div>
 
-    <div id="windows-enum" class="note-section">
-      <h2>Windows Enumeration</h2>
-      <p>Essential Windows system enumeration techniques:</p>
-      <ul>
-        <li>System Information</li>
-        <li>User and Group Enumeration</li>
-        <li>Network Shares</li>
-        <li>Running Services</li>
-      </ul>
-      <h3>PowerShell Commands</h3>
-      <pre><code>Get-WmiObject Win32_OperatingSystem
+<div id="linux-checklist" class="note-section">
+  <h2>Penetration Testing Checklist</h2>
+  <p>Placeholder for Linux pentesting checklist.</p>
+</div>
+
+<div id="windows-enum" class="note-section">
+  <h2>Windows Enumeration</h2>
+  <p>Essential Windows system enumeration techniques:</p>
+  <ul>
+    <li>System Information</li>
+    <li>User and Group Enumeration</li>
+    <li>Network Shares</li>
+    <li>Running Services</li>
+  </ul>
+  <h3>PowerShell Commands</h3>
+  <pre><code>Get-WmiObject Win32_OperatingSystem
 Get-LocalUser
 Get-LocalGroup
 Get-Service</code></pre>
-    </div>
-
-    <div id="windows-privesc" class="note-section">
-      <h2>Windows Privilege Escalation</h2>
-      <p>Common Windows privilege escalation vectors:</p>
-      <ul>
-        <li>Service Misconfigurations</li>
-        <li>Unquoted Service Paths</li>
-        <li>Token Manipulation</li>
-        <li>Registry Exploits</li>
-      </ul>
-      <h3>Key Tools</h3>
-      <ul>
-        <li>WinPEAS</li>
-        <li>PowerUp</li>
-        <li>SharpUp</li>
-      </ul>
-    </div>
-
-    <div id="ad-enum" class="note-section">
-      <h2>Active Directory Enumeration</h2>
-      <p>Advanced AD enumeration methodology:</p>
-      <ul>
-        <li>Domain Controllers</li>
-        <li>Users and Groups</li>
-        <li>Group Policies</li>
-        <li>Trust Relationships</li>
-      </ul>
-      <h3>Key Tools</h3>
-      <ul>
-        <li>BloodHound</li>
-        <li>PowerView</li>
-        <li>ADExplorer</li>
-      </ul>
-    </div>
-  </div>
 </div>
 
+<div id="windows-privesc" class="note-section">
+  <h2>Windows Privilege Escalation</h2>
+  <p>Common Windows privilege escalation vectors:</p>
+  <ul>
+    <li>Service Misconfigurations</li>
+    <li>Unquoted Service Paths</li>
+    <li>Token Manipulation</li>
+    <li>Registry Exploits</li>
+  </ul>
+  <h3>Key Tools</h3>
+  <ul>
+    <li>WinPEAS</li>
+    <li>PowerUp</li>
+    <li>SharpUp</li>
+  </ul>
+</div>
+
+<div id="windows-post" class="note-section">
+  <h2>Windows Post Exploitation</h2>
+  <p>Placeholder for post-exploitation techniques.</p>
+</div>
+
+<div id="windows-av" class="note-section">
+  <h2>AV/EDR Evasion</h2>
+  <p>Placeholder for AV/EDR evasion techniques.</p>
+</div>
+
+<div id="ad-enum" class="note-section">
+  <h2>Active Directory Enumeration</h2>
+  <p>Advanced AD enumeration methodology:</p>
+  <ul>
+    <li>Domain Controllers</li>
+    <li>Users and Groups</li>
+    <li>Group Policies</li>
+    <li>Trust Relationships</li>
+  </ul>
+  <h3>Key Tools</h3>
+  <ul>
+    <li>BloodHound</li>
+    <li>PowerView</li>
+    <li>ADExplorer</li>
+  </ul>
+</div>
+
+<div id="ad-attack" class="note-section">
+  <h2>Attack Vectors</h2>
+  <p>Placeholder for AD attack vectors.</p>
+</div>
+
+<div id="ad-persist" class="note-section">
+  <h2>Persistence</h2>
+  <p>Placeholder for AD persistence techniques.</p>
+</div>
+
+<div id="ad-lateral" class="note-section">
+  <h2>Lateral Movement</h2>
+  <p>Placeholder for AD lateral movement techniques.</p>
+</div>
+
+<div id="network-recon" class="note-section">
+  <h2>Network Reconnaissance</h2>
+  <p>Placeholder for network reconnaissance techniques.</p>
+</div>
+
+<div id="network-scan" class="note-section">
+  <h2>Port Scanning</h2>
+  <p>Placeholder for port scanning techniques.</p>
+</div>
+
+<div id="network-pivot" class="note-section">
+  <h2>Pivoting</h2>
+  <p>Placeholder for network pivoting techniques.</p>
+</div>
+
+<div id="network-sniff" class="note-section">
+  <h2>Traffic Analysis</h2>
+  <p>Placeholder for traffic analysis techniques.</p>
+</div>
+
+<div id="web-recon" class="note-section">
+  <h2>Web Reconnaissance</h2>
+  <p>Placeholder for web reconnaissance techniques.</p>
+</div>
+
+<div id="web-vulns" class="note-section">
+  <h2>Common Vulnerabilities</h2>
+  <p>Placeholder for web vulnerabilities.</p>
+</div>
+
+<div id="web-auth" class="note-section">
+  <h2>Authentication Bypass</h2>
+  <p>Placeholder for auth bypass techniques.</p>
+</div>
+
+<div id="web-api" class="note-section">
+  <h2>API Testing</h2>
+  <p>Placeholder for API testing techniques.</p>
+</div>
+
+        </div>
+      </div>
     </main>
 
     <div class="system-info">

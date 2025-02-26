@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% seo %}
 </head>
@@ -33,19 +32,10 @@
     </header>
 
     <main class="container">
-      <div class="notes-container">
-        {% include notes-sidebar.html %}
-        <div class="notes-content">
-          {{ content }}
-        </div>
-      </div>
+      {{ content }}
     </main>
 
-    <div class="system-info">
-      <div class="terminal-time"></div>
-      <div class="location-info"></div>
-      <div class="ip-info"></div>
-    </div>
+    <div class="terminal-time">{{ site.time | date: "%H:%M:%S" }}</div>
   </div>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>

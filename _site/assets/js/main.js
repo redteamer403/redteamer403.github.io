@@ -82,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Toggle category active state
       category.classList.toggle('active');
       subcategory.classList.toggle('active');
+      
+      // If on enum.md, show first section by default when expanding
+      if (window.location.pathname === '/notes/linux/enum/' && category.classList.contains('active')) {
+        const firstSection = document.querySelector('.note-section');
+        if (firstSection) firstSection.classList.add('active');
+      }
     });
   });
 
@@ -89,19 +95,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const subcategoryLinks = document.querySelectorAll('.notes-subcategory a');
   subcategoryLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
+      const href = link.getAttribute('href');
       
-      // Hide all sections
-      noteSections.forEach(section => {
-        section.classList.remove('active');
-      });
-      
-      // Show selected section
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.classList.add('active');
+      // If href starts with '#', treat as internal anchor link
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        
+        // Hide all sections
+        noteSections.forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Show selected section
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.classList.add('active');
+        }
       }
+      // If href starts with '/', allow navigation (e.g., to /enum/)
     });
   });
 
@@ -125,6 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
           category.style.display = 'block';
           category.querySelector('.notes-subcategory').classList.remove('active');
         });
+        // On enum.md, show first section by default
+        if (window.location.pathname === '/notes/linux/enum/') {
+          const firstSection = document.querySelector('.note-section');
+          if (firstSection) {
+            firstSection.style.display = 'block';
+            firstSection.classList.add('active');
+          }
+        }
         return;
       }
 
@@ -155,5 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
         category.style.display = hasVisibleLinks ? 'block' : 'none';
       });
     });
+  }
+
+  // Show first section by default on enum.md
+  if (window.location.pathname === '/notes/linux/enum/') {
+    const firstSection = document.querySelector('.note-section');
+    if (firstSection) firstSection.classList.add('active');
   }
 });
