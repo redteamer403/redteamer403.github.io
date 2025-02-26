@@ -28,19 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mark that user has visited
     localStorage.setItem('hasVisited', 'true');
 
-    // Fetch location data only once on first visit
+    // Store location data only once on first visit
     fetch('https://ipapi.co/json/', { mode: 'cors' })
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('userLocation', JSON.stringify({
-          city: data.city,
-          country_code: data.country_code,
-          ip: data.ip
+          city: data.city || 'Unknown',
+          country_code: data.country_code || 'XX',
+          ip: data.ip || '0.0.0.0'
         }));
         updateSystemInfo();
       })
       .catch(error => {
         console.error('Error fetching location data:', error);
+        localStorage.setItem('userLocation', JSON.stringify({
+          city: 'Unknown',
+          country_code: 'XX',
+          ip: '0.0.0.0'
+        }));
+        updateSystemInfo();
       });
   } else {
     // If not first visit, show main content immediately
@@ -71,89 +77,119 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Notes section functionality
   const categories = document.querySelectorAll('.notes-category');
-  const noteSections = document.querySelectorAll('.note-section');
-
+  
   // Handle category clicks
   categories.forEach(category => {
     const heading = category.querySelector('h3');
     const subcategory = category.querySelector('.notes-subcategory');
     
     heading.addEventListener('click', () => {
-      // Toggle category active state
-      category.classList.toggle('active');
-      subcategory.classList.toggle('active');
+      const wasActive = category.classList.contains('active');
+      
+      // Close all categories
+      categories.forEach(c => {
+        c.classList.remove('active');
+        c.querySelector('.notes-subcategory').style.display = 'none';
+      });
+      
+      // Toggle clicked category
+      if (!wasActive) {
+        category.classList.add('active');
+        subcategory.style.display = 'block';
+      }
     });
   });
 
   // Handle subcategory links
   const subcategoryLinks = document.querySelectorAll('.notes-subcategory a');
   subcategoryLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', async (e) => {
       e.preventDefault();
       
-      // Hide all sections
-      noteSections.forEach(section => {
-        section.classList.remove('active');
-      });
-      
-      // Show selected section
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.classList.add('active');
+      // Remove active class from all links
+      subcategoryLinks.forEach(l => l.classList.remove('active'));
+      // Add active class to clicked link
+      link.classList.add('active');
+
+      try {
+        const response = await fetch(link.href);
+        if (!response.ok) throw new Error('Failed to fetch content');
+        
+        const content = await response.text();
+        document.getElementById('note-content').innerHTML = content;
+        document.getElementById('search-results').innerHTML = '';
+      } catch (error) {
+        console.error('Error loading content:', error);
       }
     });
   });
 
-  // Enhanced search functionality for notes
+  // Search functionality
   const searchInput = document.querySelector('.search-input');
   if (searchInput) {
+    let searchTimeout;
+    
     searchInput.addEventListener('input', (e) => {
-      const searchTerm = e.target.value.toLowerCase();
-      const notesContent = document.querySelector('.notes-content');
-      const noteSections = notesContent.querySelectorAll('.note-section');
-      const sidebar = document.querySelector('.notes-sidebar');
-      const categories = sidebar.querySelectorAll('.notes-category');
+      clearTimeout(searchTimeout);
       
-      if (searchTerm === '') {
-        // Reset to default state when search is empty
-        noteSections.forEach(section => {
-          section.style.display = 'none';
-          section.classList.remove('active');
-        });
-        categories.forEach(category => {
-          category.style.display = 'block';
-          category.querySelector('.notes-subcategory').classList.remove('active');
-        });
-        return;
-      }
-
-      // Search through all sections
-      let hasResults = false;
-      noteSections.forEach(section => {
-        const text = section.textContent.toLowerCase();
-        const matches = text.includes(searchTerm);
-        section.style.display = matches ? 'block' : 'none';
-        section.classList.toggle('active', matches);
-        if (matches) hasResults = true;
-
-        // Show corresponding category in sidebar
-        const categoryId = section.id.split('-')[0];
-        const category = sidebar.querySelector(`[href="#${section.id}"]`)?.closest('.notes-category');
-        if (category) {
-          category.style.display = 'block';
-          category.querySelector('.notes-subcategory').classList.add('active');
+      searchTimeout = setTimeout(async () => {
+        const searchTerm = e.target.value.toLowerCase();
+        const searchResults = document.getElementById('search-results');
+        const noteContent = document.getElementById('note-content');
+        
+        if (!searchTerm) {
+          searchResults.innerHTML = '';
+          noteContent.style.display = 'block';
+          return;
         }
-      });
 
-      // Hide categories with no matches
-      categories.forEach(category => {
-        const hasVisibleLinks = Array.from(category.querySelectorAll('.notes-subcategory a')).some(link => {
-          const targetSection = document.querySelector(link.getAttribute('href'));
-          return targetSection && targetSection.style.display !== 'none';
-        });
-        category.style.display = hasVisibleLinks ? 'block' : 'none';
-      });
+        try {
+          const results = [];
+          const links = document.querySelectorAll('.notes-subcategory a');
+          
+          for (const link of links) {
+            const response = await fetch(link.href);
+            const text = await response.text();
+            
+            if (text.toLowerCase().includes(searchTerm)) {
+              // Get category name
+              const category = link.closest('.notes-category').querySelector('h3').textContent;
+              
+              results.push({
+                title: link.textContent,
+                category: category,
+                url: link.href,
+                content: text
+              });
+            }
+          }
+
+          // Display search results
+          noteContent.style.display = 'none';
+          if (results.length > 0) {
+            searchResults.innerHTML = `
+              <h2>Search Results for "${searchTerm}"</h2>
+              ${results.map(result => `
+                <div class="search-result">
+                  <h3><a href="${result.url}">${result.title}</a></h3>
+                  <div class="category">Category: ${result.category}</div>
+                  <div class="result-preview">
+                    ${result.content.substring(0, 200)}...
+                  </div>
+                </div>
+              `).join('')}
+            `;
+          } else {
+            searchResults.innerHTML = `
+              <h2>No results found for "${searchTerm}"</h2>
+              <p>Try different keywords or browse the categories in the sidebar.</p>
+            `;
+          }
+        } catch (error) {
+          console.error('Search error:', error);
+          searchResults.innerHTML = '<h2>Error performing search</h2>';
+        }
+      }, 300);
     });
   }
 });

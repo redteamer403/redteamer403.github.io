@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notes</title>
+  <title>Linux Privilege Escalation</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Notes | Vault-Tec Terminal</title>
+<title>Linux Privilege Escalation | Vault-Tec Terminal</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Notes" />
+<meta property="og:title" content="Linux Privilege Escalation" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Professional penetration tester portfolio" />
 <meta property="og:description" content="Professional penetration tester portfolio" />
-<link rel="canonical" href="http://localhost:4000/notes/" />
-<meta property="og:url" content="http://localhost:4000/notes/" />
+<link rel="canonical" href="http://localhost:4000/notes/linux/privesc/" />
+<meta property="og:url" content="http://localhost:4000/notes/linux/privesc/" />
 <meta property="og:site_name" content="Vault-Tec Terminal" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Notes" />
+<meta property="twitter:title" content="Linux Privilege Escalation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Professional penetration tester portfolio","headline":"Notes","url":"http://localhost:4000/notes/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Professional penetration tester portfolio","headline":"Linux Privilege Escalation","url":"http://localhost:4000/notes/linux/privesc/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -55,7 +55,7 @@
             <h3>Linux</h3>
             <div class="notes-subcategory">
               <a href="/notes/linux/enum/" >Enumeration</a>
-              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/privesc/" class="active">Privilege Escalation</a>
               <a href="/notes/linux/post/" >Post Exploitation</a>
               <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
             </div>
@@ -108,14 +108,54 @@
           </div>
           <div id="search-results"></div>
           <div id="note-content">
-            <div class="search-container">
-  <input type="text" class="search-input" placeholder="Search notes..." />
-</div>
+            <h1 id="linux-privilege-escalation">Linux Privilege Escalation</h1>
 
-<div class="note-section">
-  <h2>Select a topic from the sidebar to view notes</h2>
-  <p>The detailed notes for each topic will be loaded when you select a specific section.</p>
-</div>
+<h2 id="common-vectors">Common Vectors</h2>
+
+<h3 id="suid-binaries">SUID Binaries</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Find SUID binaries</span>
+find / <span class="nt">-perm</span> <span class="nt">-4000</span> 2&gt;/dev/null
+
+<span class="c"># Common SUID binaries to check</span>
+- /usr/bin/sudo
+- /usr/bin/pkexec
+- /usr/bin/passwd
+- /usr/bin/gpasswd
+- /usr/bin/newgrp
+</code></pre></div></div>
+
+<h3 id="sudo-misconfigurations">Sudo Misconfigurations</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check sudo permissions</span>
+<span class="nb">sudo</span> <span class="nt">-l</span>
+
+<span class="c"># Common sudo exploits</span>
+- LD_PRELOAD
+- SETENV
+- NOPASSWD
+- Wildcards
+</code></pre></div></div>
+
+<h3 id="kernel-exploits">Kernel Exploits</h3>
+<ul>
+  <li>DirtyPipe (Linux Kernel 5.8+)</li>
+  <li>DirtyC0w (Linux Kernel &lt; 4.8.3)</li>
+  <li>Overlayfs (Ubuntu &lt; 15.04)</li>
+</ul>
+
+<h3 id="service-misconfigurations">Service Misconfigurations</h3>
+<ul>
+  <li>Writable service files</li>
+  <li>Unquoted service paths</li>
+  <li>Weak permissions on service binaries</li>
+</ul>
+
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>LinPEAS</li>
+  <li>Linux Exploit Suggester</li>
+  <li>Linux Smart Enumeration</li>
+  <li>pspy64</li>
+</ul>
 
           </div>
         </div>
