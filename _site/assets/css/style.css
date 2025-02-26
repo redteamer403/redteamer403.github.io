@@ -569,4 +569,8 @@ nav a.active {
   transform: scale(1.2);
 }
 
+ul li {
+  list-style-image: none;
+}
+
 /*# sourceMappingURL=style.css.map */
