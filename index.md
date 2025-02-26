@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RedTeamer403
+title: About
 ---
 
 <div class="profile-section">
@@ -8,16 +8,16 @@ title: RedTeamer403
   <p>Passionate penetration tester with expertise in web, cloud, and infrastructure security.</p>
   
   <h3>CERTIFICATIONS</h3>
-  <ul>
+  <ul style="line-height:10%">
     <li>CRTP - Certified Red Team Professional</li>
     <li>eWPTXv2 - eLearnSecurity Web Penetration Tester eXtreme</li>
     <li>BSCP - Burp Suite Certified Professional</li>
     <li>CRTA - Certified Red Team Analyst</li>
-    <li>MCRTA - Multi Cloud Red Team Analyst</li>
+    <li>MCRTA - Multi-Cloud Red Team Analyst</li>
   </ul>
 
   <h3>HACKTHEBOX PRO LABS</h3>
-  <ul>
+  <ul style="line-height:10%">
     <li>BlackSky Cyclone</li>
     <li>BlackSky Hailstorm</li>
     <li>Zephyr</li>
@@ -27,8 +27,12 @@ title: RedTeamer403
 
 <div class="contact-section">
   <h2>CONTACT PROTOCOLS</h2>
-  <ul>
-    <li><a href="https://github.com/redteamer403">GitHub Repository</a></li>
-    <li><a href="https://www.linkedin.com/in/rustam-fakhrutdinov-1131b96a/">LinkedIn Profile</a></li>
-  </ul>
+  <div class="social-links">
+    <a href="https://github.com/redteamer403" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/rustam-fakhrutdinov-1131b96a/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
 </div>
