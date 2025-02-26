@@ -68,7 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const locationData = JSON.parse(localStorage.getItem('userLocation') || '{}');
     if (locationData.city && locationData.country_code) {
       locationDisplay.textContent = `LOC: ${locationData.city}, ${locationData.country_code}`;
-      ipDisplay.textContent = `IP: ${locationData.ip}`;
+      
+      // Format IP address (prioritize IPv4 if available, format IPv6 if necessary)
+      let formattedIp = locationData.ip || 'Unknown';
+      if (formattedIp.includes(':')) {
+        // Handle IPv6: clean up by removing unnecessary zeros and ensuring readability
+        formattedIp = formattedIp.split(':').map(segment => segment.replace(/^0+/, '') || '0').join(':').toLowerCase();
+        // Optionally, if you want to shorten IPv6 further, you can implement IPv6 compression, but the current format is already concise
+      } else if (formattedIp.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+        // Ensure IPv4 format (already standard, so no change needed)
+        formattedIp = formattedIp; // Keep as is
+      }
+      ipDisplay.textContent = `IP: ${formattedIp}`;
     }
   }
 
