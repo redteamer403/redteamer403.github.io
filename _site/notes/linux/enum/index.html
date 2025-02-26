@@ -113,7 +113,7 @@
 
 <h2 id="system-information-gathering">System Information Gathering</h2>
 
-<p>Essential commands for initial system enumeration:</p>
+<h3 id="essential-commands-for-initial-system-enumeration">Essential commands for initial system enumeration:</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Basic System Info</span>
 <span class="nb">uname</span> <span class="nt">-a</span>
@@ -135,28 +135,29 @@ netstat <span class="nt">-tulpn</span>
 ss <span class="nt">-tulpn</span>
 iptables <span class="nt">-L</span>
 </code></pre></div></div>
+<h3 id="additional-system-information-gathering">Additional System Information Gathering</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Additional system details</span>
+<span class="nb">cat</span> /proc/version
+lsb_release <span class="nt">-a</span>
+dmesg | <span class="nb">grep</span> <span class="nt">-i</span> linux
+</code></pre></div></div>
 
-<h2 id="privilege-escalation-vectors">Privilege Escalation Vectors</h2>
+<h3 id="additional-network-configuration">Additional Network Configuration</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ARP table and routing</span>
+ip neighbor
+route <span class="nt">-n</span>
+<span class="nb">cat</span> /etc/resolv.conf
 
-<p>Common areas to check:</p>
-
-<ol>
-  <li>SUID Binaries</li>
-  <li>Sudo Rights</li>
-  <li>Cron Jobs</li>
-  <li>World-Writable Files</li>
-  <li>Kernel Exploits</li>
-  <li>Service Misconfigurations</li>
-</ol>
+<span class="c"># External port scanning</span>
+nmap <span class="nt">-sT</span> <span class="nt">-p-</span> &lt;target&gt;
+masscan <span class="nt">-p0-65535</span> &lt;target&gt;
+</code></pre></div></div>
 
 <h2 id="automated-enumeration-tools">Automated Enumeration Tools</h2>
-
 <ul>
-  <li>LinPEAS</li>
-  <li>LinEnum</li>
-  <li>Linux Exploit Suggester</li>
-  <li>Linux Smart Enumeration</li>
-  <li>Unix Privesc Check</li>
+  <li><a href="https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS">LinPEAS</a></li>
+  <li><a href="https://github.com/rebootuser/LinEnum">LinEnum</a></li>
+  <li><a href="https://github.com/wildkindcc/Exploitation/blob/master/00.PostExp_Linux/pspy/pspy64">pspy64</a></li>
 </ul>
 
           </div>
