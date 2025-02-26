@@ -15,6 +15,10 @@ include:
   - _pages
   - notes
 
+sass:
+  sass_dir: assets/css
+  style: compressed
+
 # Exclude files from processing
 exclude:
   - Gemfile
