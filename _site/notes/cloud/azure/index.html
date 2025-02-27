@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure Pentesting Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Azure Pentesting Notes | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Azure Pentesting Notes" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/cloud/azure/" />
+<meta property="og:url" content="http://localhost:4000/notes/cloud/azure/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Azure Pentesting Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Azure Pentesting Notes","url":"http://localhost:4000/notes/cloud/azure/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" class="active">Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="azure-pentesting-notes">Azure Pentesting Notes</h1>
+<p>Azure portal URL:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://portal.azure.com/
+</code></pre></div></div>
+<p>Office365 Admin Portal:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://admin.microsoft.com/
+</code></pre></div></div>
+<p>Office365 User Portal:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://office.com/
+</code></pre></div></div>
+
+<h3 id="ssrf">SSRF</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -H "Metadata:true" "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;resource=https://management.azure.com/"
+
+http://169.254.169.254/metadata/instance/network/interface/0
+</code></pre></div></div>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>Using username + password:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az login
+</code></pre></div></div>
+<p>Using Service Principal (App ID + Password):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az login —service-principal -u ApplicationID -p Password —tenant TenantID
+</code></pre></div></div>
+<p>AZ Powershell (Username + Password)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connect-AzAccount
+</code></pre></div></div>
+<p>AZ Powershell Service Principal (App ID + Secret)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$cred = Get-Credential [ Where, Username = Application ID &amp; Password = Client Secret ]
+
+Connect-AzAccount -ServicePrincipal -Tenant TenantID -Credential $cred
+</code></pre></div></div>
+<p>AZ Powershell Authentication Access Token (AccountID + Access Token)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az account get-access-token —resource=https://management.azure.com
+
+Connect-AzAccount -AccessToken AADAccessToken
+</code></pre></div></div>
+<p>MgGraph Powershell (Username + Password)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connect-MgGraph -Scopes “Directory.Read.All”
+
+Get-MgContext
+</code></pre></div></div>
+
+<h2 id="enumeration">Enumeration</h2>
+
+<p>Check if target organization is using Entra ID (Azure ID) as a IDP [Identiy Provider]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://login.microsoftonline.com/getuserrealm.srf?login=Username@DomainName&amp;xml=1
+</code></pre></div></div>
+<blockquote>
+  <p>⚠️ If NameSpaceType is Managed - that means it is using Azure ID (Entra ID) as a Identity Provider, we can perform password spraying/bruteforce attack</p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ If Federated - that means it is using other authentication (OneLogin, OKKTA, ActiveDirectory etc.)</p>
+</blockquote>
+
+<p>Connect with credentials using MgGraph</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwsh
+
+Connect-MgGraph -Scopes “Directory.Read.All”
+</code></pre></div></div>
+<p>Get currently logged-in session information</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgContect
+</code></pre></div></div>
+
+<h3 id="entra-id-directory-role">Entra ID Directory Role</h3>
+<p>Get a List of all directory roles</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgDirectoryRole | ConvertTo-Json
+</code></pre></div></div>
+<p>Get a list of members of a directory roles</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgDirectoryRoleMember -DirectoryRoleId [Directory RoleID] -All | ConvertTo-Json
+</code></pre></div></div>
+
+<h3 id="entra-id-users">Entra ID Users</h3>
+<p>Get a lists of users in Entra ID</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgUser
+</code></pre></div></div>
+<p>Get a list of group, specified member part of</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgUserMemberOf -UserId [UserID]
+</code></pre></div></div>
+
+<h3 id="entra-id-groups">Entra ID Groups</h3>
+
+<p>Get a lists of all groups in Entra ID</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgGroup
+</code></pre></div></div>
+<p>Get a List of members of a group</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgGroupMember -GroupId [GroupID] | ConvertTo-Json
+</code></pre></div></div>
+
+<h3 id="entra-id-application--service-principal">Entra ID Application / Service Principal</h3>
+
+<p>Get the list of all applications.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgApplication
+</code></pre></div></div>
+<p>Get the details about a specific applications.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgApplication -ApplicationId [ApplicationObjectID] | ConvertTo-Json
+</code></pre></div></div>
+<p>Get the detail about owner of the specified applications.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MgApplicationOwner -ApplicationId [ApplicationObjectID] | ConvertTo-Json
+</code></pre></div></div>
+<p>Get the details about application permission for an application.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$app= Get-MgApplication -ApplicationId [ApplicationObjectID]
+
+$app.RequiredResourceAccess
+</code></pre></div></div>
+<p>Get the details of App Role for Microsoft Graph API.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$res=Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Graph'"
+
+$res.AppRoles | Where-Object {$_.ID -eq 'AppRoleID’} | ConvertTo-Json
+</code></pre></div></div>
+<p>Get the details about delegation permission for an application.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$app= Get-MgApplication -ApplicationId [ApplicationObjectID]
+
+$app.Oauth2RequirePostResponse | ConvertTo-Json
+</code></pre></div></div>
+
+<h2 id="enumeration-azure-resource-manager">Enumeration: Azure Resource Manager</h2>
+
+<h3 id="az-cli-configuration">Az Cli Configuration</h3>
+
+<p>Get details about currently logged in session</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az account show
+</code></pre></div></div>
+<p>Get the list of all available subscriptions</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az account list --all
+</code></pre></div></div>
+<p>Get the details of a subscription</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az account show -s Subscription-ID/Name
+</code></pre></div></div>
+
+<h3 id="resource-group">Resource Group</h3>
+
+<p>Get the list of available resource group in current subscription</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az group list -s Subscription-ID/Name
+</code></pre></div></div>
+<p>Get the list of available resource group in a specified subscription</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az group list -s Subscription-ID/Name
+</code></pre></div></div>
+
+<h3 id="azure-resources">Azure Resources</h3>
+
+<p>Get the list of available resources in a current subscription</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az resource list
+</code></pre></div></div>
+<p>Get the list of available resources in a specified resource group</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az resource list --resource-group ResourceGroupName
+</code></pre></div></div>
+
+<h3 id="role-assignment">Role Assignment</h3>
+
+<p>Lists of roles assigned in specified subscription.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role assignment list --subscription Subscription-ID/Name 
+</code></pre></div></div>
+<p>Lists of roles assigned in current subscription and inherited</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role assignment list -all
+</code></pre></div></div>
+<p>List of all roles assigned to an identity [user, service principal, identity]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role assignment list --assignee ObjectID/Sign-InEmail/ServicePrincipal --all
+</code></pre></div></div>
+
+<h3 id="role-definition">Role Definition</h3>
+
+<p>Lists of roles with assigned permission [Role Definition - For Inbuilt and Custom Role]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role definition list
+</code></pre></div></div>
+<p>Get the full information about a specified role</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role definition list -n RoleName
+</code></pre></div></div>
+<p>Lists of custom role with assigned permissions</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az role definition list --custom-role-only
+</code></pre></div></div>
+
+<h2 id="references-and-more-techniques">References and more techniques</h2>
+<p><a href="https://hackingthe.cloud/">Hacking the Cloud</a></p>
+
+<h2 id="automated-enumeration-tools">Automated Enumeration Tools</h2>
+
+<h3 id="enumeration-1">Enumeration</h3>
+
+<ul>
+  <li><a href="https://github.com/LMGsec/o365creeper">o365creeper</a> - Enumerate valid email addresses</li>
+  <li><a href="https://github.com/0xsha/CloudBrute">CloudBrute</a> - Tool to find a cloud infrastructure of a company on top Cloud providers</li>
+  <li><a href="https://github.com/initstring/cloud_enum">cloud_enum</a> - Multi-cloud OSINT tool. Enumerate public resources in AWS, Azure, and Google Cloud</li>
+  <li><a href="https://github.com/nccgroup/azucar">Azucar</a> - Security auditing tool for Azure environments</li>
+  <li><a href="https://github.com/CrowdStrike/CRT">CrowdStrike Reporting Tool for Azure (CRT)</a> - Query Azure AD/O365 tenants for hard to find permissions and configuration settings</li>
+  <li><a href="https://github.com/nccgroup/ScoutSuite">ScoutSuite</a> - Multi-cloud security auditing tool. Security posture assessment of different cloud environments.</li>
+  <li><a href="https://github.com/cyberark/blobhunter">BlobHunter</a> - A tool for scanning Azure blob storage accounts for publicly opened blobs</li>
+  <li><a href="https://buckets.grayhatwarfare.com/">Grayhat Warfare</a> - Open Azure blobs and AWS bucket search</li>
+  <li><a href="https://github.com/gremwell/o365enum">Office 365 User Enumeration</a> - Enumerate valid usernames from Office 365 using ActiveSync, Autodiscover v1 or office.com login page</li>
+  <li><a href="https://github.com/BishopFox/cloudfox">CloudFox</a> - Automating situational awareness for cloud penetration tests</li>
+  <li><a href="https://github.com/silverhack/monkey365">Monkey365</a> - Conduct Microsoft 365, Azure subscriptions and Azure Active Directory security configuration reviews</li>
+  <li><a href="https://github.com/csandker/Azure-AccessPermissions">Azure-AccessPermissions</a> - PowerShell script to enumerate access permissions in an Azure AD environment</li>
+  <li><a href="https://github.com/prowler-cloud/prowler">Prowler</a> - Perform AWS and Azure security best practices assessments, audits, incident response, continuous monitoring, hardening and forensics readiness</li>
+</ul>
+
+<h3 id="information-gathering">Information Gathering</h3>
+
+<ul>
+  <li><a href="https://github.com/nyxgeek/o365recon">o365recon</a> - Information gathering with valid credentials to Azure</li>
+  <li><a href="https://gist.github.com/ciphertxt/2036e614edf4bf920796059017fbbc3d">Get-MsolRolesAndMembers.ps1</a> - Retrieve list of roles and associated role members</li>
+  <li><a href="https://github.com/dirkjanm/ROADtools">ROADtools</a> - Framework to interact with Azure AD</li>
+  <li><a href="https://github.com/hausec/PowerZure">PowerZure</a> - PowerShell framework to assess Azure security</li>
+  <li><a href="https://github.com/FSecureLABS/Azurite">Azurite</a> - Enumeration and reconnaissance activities in the Microsoft Azure Cloud</li>
+  <li><a href="https://github.com/cisagov/Sparrow">Sparrow.ps1</a> - Helps to detect possible compromised accounts and applications in the Azure/M365 environment</li>
+  <li><a href="https://github.com/T0pCyber/hawk">Hawk</a> - Powershell based tool for gathering information related to O365 intrusions and potential breaches</li>
+  <li><a href="https://github.com/AzureAD/AzureADAssessment">Microsoft Azure AD Assessment</a> - Tooling for assessing an Azure AD tenant state and configuration</li>
+  <li><a href="https://github.com/Azure/Cloud-Katana">Cloud Katana</a> - Unlocking Serverless Computing to Assess Security Controls</li>
+  <li><a href="https://github.com/cisagov/ScubaGear">SCuBA M365 Security Baseline Assessment Tool</a> - Automation to assess the state of your M365 tenant against CISA’s baselines</li>
+</ul>
+
+<h3 id="lateral-movement">Lateral Movement</h3>
+
+<ul>
+  <li><a href="https://github.com/Azure/Stormspotter">Stormspotter</a> - Azure Red Team tool for graphing Azure and Azure Active Directory objects</li>
+  <li><a href="https://github.com/talmaor/AzureADLateralMovement">AzureADLateralMovement</a> - Lateral Movement graph for Azure Active Directory</li>
+  <li><a href="https://github.com/cyberark/SkyArk">SkyArk</a> - Discover, assess and secure the most privileged entities in Azure and AWS</li>
+  <li><a href="https://github.com/marcosimioni/omigood">omigood (OM I GOOD?)</a> - Scanner to detect VMs vulnerable to one of the “OMIGOD” vulnerabilities</li>
+</ul>
+
+<h3 id="exploitation">Exploitation</h3>
+
+<ul>
+  <li><a href="https://github.com/NetSPI/MicroBurst">MicroBurst</a> - A collection of scripts for assessing Microsoft Azure security</li>
+  <li><a href="https://gist.github.com/xpn/f12b145dba16c2eebdd1c6829267b90c">azuread_decrypt_msol_v2.ps1</a> - Decrypt Azure AD MSOL service account</li>
+  <li><a href="https://github.com/bobbyrsec/Microsoft-Teams-GIFShell">Microsoft-Teams-GIFShell</a> - Microsoft Teams can be leveraged by an attacker, to execute a reverse shell between an attacker and victim piped through malicious GIFs sent in Teams messages</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

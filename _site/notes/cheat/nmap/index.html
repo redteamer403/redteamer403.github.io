@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nmap Cheat Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>nmap Cheat Sheet | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="nmap Cheat Sheet" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/cheat/nmap/" />
+<meta property="og:url" content="http://localhost:4000/notes/cheat/nmap/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="nmap Cheat Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"nmap Cheat Sheet","url":"http://localhost:4000/notes/cheat/nmap/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" class="active">NMAP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="nmap-cheat-sheet">nmap Cheat Sheet</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Ping Sweep</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sP</span> 192.168.0.1-24
+
+<span class="c">#Ping Sweep No DNS</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sP</span> 192.168.0.1-24 <span class="nt">-n</span>
+
+<span class="c">#TCP Scan All Ports</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sT</span> <span class="nt">-p0-</span> 192.169.0.1
+
+<span class="c">#UDP Scan All Port</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sU</span> <span class="nt">-p0-</span> 192.168.0.1
+
+<span class="c">#Version and Operating System Detection</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-p0-</span> 192.168.0.1
+
+<span class="c">#XMAS Scan</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sX</span> <span class="nt">-p0-</span> <span class="nt">-Pn</span> 192.168.0.1
+
+<span class="c">#Locate Nmap Scripts</span>
+<span class="nb">sudo </span>locate <span class="k">*</span>.nse | <span class="nb">grep </span>string
+
+<span class="c">#Update Nmap Scripts</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script-updatedb</span>
+
+<span class="c">#Banner Grab</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span><span class="o">=</span>banner 192.168.0.1
+
+<span class="c">#SSL Certificate</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span> ssl-cert <span class="nt">-p</span> 443 domain.com
+
+<span class="c">#SSL Ciphers</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sV</span> <span class="nt">--script</span> ssl-enum-ciphers <span class="nt">-p</span> 443
+
+<span class="c">#DNS Zone Transfer</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span> dns-zone-transfer.nse <span class="nt">--script-args</span> dns-zonetransfer.domain<span class="o">=</span>zonetransfer.me <span class="nt">-p53</span> nsztm1.digi.ninja
+
+<span class="c">#SMB Share Enumeration</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span> smb-enum-shares.nse <span class="nt">-p445</span> 192.168.0.1
+
+<span class="c">#SMB User Enumeration</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span> smb-enum-users.nse <span class="nt">-p445</span> 192.168.0.1
+
+<span class="c">#FTP Brute Force</span>
+<span class="nb">sudo </span>nmap <span class="nt">--script</span> ftp-brute <span class="nt">-p21</span> 192.168.0.1 <span class="nt">--script-args</span> <span class="nv">userdb</span><span class="o">=</span>ftp_defuser.lst,passdb<span class="o">=</span>ftp_defuser.lst
+
+<span class="c">#SSH Brute Force</span>
+<span class="nb">sudo </span>nmap <span class="nt">-p</span> 22 <span class="nt">--script</span> ssh-brute <span class="nt">--script-args</span> <span class="nv">userdb</span><span class="o">=</span>sshuser.txt,passdb<span class="o">=</span>ssh-password.txt 192.168.0.1
+
+<span class="c">#Network Layer Authentication</span>
+<span class="nb">sudo </span>nmap <span class="nt">-p</span> 3389 <span class="nt">--script</span> rdp-enum-encryption 192.168.0.1
+
+<span class="c">#SMB Signing</span>
+<span class="nb">sudo </span>nmap <span class="nt">-p137</span>,139,445 <span class="nt">--script</span> smb-security-mode 192.168.0.1
+
+<span class="c">#Ping Sweep To File</span>
+<span class="nb">sudo </span>nmap <span class="nt">-n</span> <span class="nt">-sn</span> <span class="nt">-vv</span> 10.51.0.0/16 | <span class="nb">grep</span> <span class="s1">'Host is up'</span> <span class="nt">-B</span> 1 | <span class="nb">grep </span>Nmap | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f</span> 5 <span class="o">&gt;</span> liveips.txt
+
+<span class="c">#Increase Speed</span>
+<span class="nt">-T1</span>, <span class="nt">-T2</span>, <span class="nt">-T3</span>, <span class="nt">-T4</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sT</span> <span class="nt">-p0-</span> 192.169.0.1 <span class="nt">-T4</span>
+
+<span class="c">#Increase Verbosity</span>
+<span class="nt">-v1</span>, <span class="nt">-v2</span>, <span class="nt">-v3</span>, <span class="nt">-v4</span>
+<span class="nb">sudo </span>nmap <span class="nt">-sT</span> <span class="nt">-p0-</span> 192.169.0.1 <span class="nt">-v4</span>
+
+<span class="c">#Input List</span>
+<span class="nb">sudo </span>nmap <span class="nt">-iL</span> targets.txt
+
+<span class="c">#Save To File</span>
+<span class="nb">sudo </span>nmap 192.168.0.1 <span class="nt">-oN</span> scan.txt
+
+<span class="c">#Save To XML</span>
+<span class="nb">sudo </span>nmap 192.168.0.1 <span class="nt">-oX</span> scan.xml
+
+<span class="c">#Save To Grepable</span>
+<span class="nb">sudo </span>nmap 192.168.0.1 <span class="nt">-oG</span> scan.grep.txt
+</code></pre></div></div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

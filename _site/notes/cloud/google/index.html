@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Cloud Pentesting Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Google Cloud Pentesting Notes | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Google Cloud Pentesting Notes" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/cloud/google/" />
+<meta property="og:url" content="http://localhost:4000/notes/cloud/google/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Google Cloud Pentesting Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Google Cloud Pentesting Notes","url":"http://localhost:4000/notes/cloud/google/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" class="active">Google</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="google-cloud-pentesting-notes">Google Cloud Pentesting Notes</h1>
+
+<p>URLs:</p>
+<ul>
+  <li>Google Workspace API : https://www.googleapis.com/</li>
+  <li>Mail API : https://mail.googleapis.com/*</li>
+  <li>Drive API : https://drive.googleapis.com/*</li>
+  <li>Calendar API : https://calendar.googleapis.com</li>
+</ul>
+
+<h3 id="ssrf">SSRF</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/233003792018-compute@developer.gserviceaccount.com/token
+curl "http://metadata.google.internal/computeMetadata/v1/?recursive=true&amp;alt=text" -H "Metadata-Flavor: Google"
+curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/?recursive=true&amp;alt=text" -H "Metadata-Flavor: Google"
+curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/?recursive=true&amp;alt=text" -H "Metadata-Flavor: Google"
+
+http://169.254.169.254/computeMetadata/v1/
+http://metadata.google.internal/computeMetadata/v1/
+http://metadata/computeMetadata/v1/
+http://metadata.google.internal/computeMetadata/v1/instance/hostname
+http://metadata.google.internal/computeMetadata/v1/instance/id
+http://metadata.google.internal/computeMetadata/v1/project/project-id
+</code></pre></div></div>
+
+<h3 id="metadata-endpoints">Metadata endpoints</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/computeMetadata/v1/project/numeric-project-id	<span class="c">#The project number assigned to your project.</span>
+/computeMetadata/v1/project/project-id	<span class="c">#The project ID assigned to your project.</span>
+/computeMetadata/v1/instance/zone	<span class="c">#The zone the instance is running in.</span>
+/computeMetadata/v1/instance/service-accounts/default/aliases	<span class="c">#None</span>
+/computeMetadata/v1/instance/service-accounts/default/email	<span class="c">#The default service account email assigned to your project.</span>
+/computeMetadata/v1/instance/service-accounts/default/	<span class="c">#Lists all the default service accounts for your project.</span>
+/computeMetadata/v1/instance/service-accounts/default/scopes	<span class="c">#Lists all the supported scopes for the default service accounts.</span>
+/computeMetadata/v1/instance/service-accounts/default/token	<span class="c">#Returns the auth token that can be used to authenticate your application to other Google Cloud APIs.</span>
+</code></pre></div></div>
+
+<h3 id="configure-initial-compromised-service-account-credential">Configure Initial Compromised Service Account Credential:</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth activate-service-account --key-file alert-nimbus-335411-4ee19bc40a65.json
+</code></pre></div></div>
+
+<h3 id="cli-access">CLI Access</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth login
+</code></pre></div></div>
+<p>Get the information about authenticated accounts with gcloud cli</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth list
+</code></pre></div></div>
+<p>Login with Service Account ( App ID + JSON Key File )</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth activate-service-account --key-file KeyFile
+</code></pre></div></div>
+
+<h3 id="stored-credentials">Stored Credentials</h3>
+<p>Windows</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Users\UserName\AppData\Roaming\gcloud\
+</code></pre></div></div>
+<p>Linux</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/home/UserName/.config/gcloud/
+</code></pre></div></div>
+
+<h3 id="content-of-stored-google-cloud-cli-secrets">Content of Stored Google Cloud CLI Secrets</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Database : access_tokens.db:</span>
+Table: access_tokens
+Columns : account_id, access_token, token_expiry, rapt_token
+
+<span class="c">#Database : credentials.db:</span>
+Table: credentials
+Columns: account_id, value
+</code></pre></div></div>
+
+<h2 id="enumeration">Enumeration</h2>
+<p>login via service account</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth activate-service-account --key-file devops-srvacc-key.json
+</code></pre></div></div>
+<p>List of Active User / Service accounts in Google Cloud CLI:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud auth list
+</code></pre></div></div>
+<h3 id="google-cloud-cli-configuration">Google Cloud CLI Configuration</h3>
+
+<p>Get the configuration of Gcloud CLI[ user / service account &amp; project ]:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud config list
+</code></pre></div></div>
+
+<h3 id="gcp-organizations">GCP Organizations</h3>
+
+<p>List of organizations, logged-in user / service account can access:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud organizations list
+</code></pre></div></div>
+<p>Lists of iam policy attached to the specified organization:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud organizations get-iam-policy [OrganizationID]
+</code></pre></div></div>
+
+<h3 id="gcp-projects">GCP Projects</h3>
+
+<p>List of projects in an organization:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud projects list
+</code></pre></div></div>
+<p>Lists of iam policy attached to the specified project:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud projects get-iam-policy [ProjectID]
+</code></pre></div></div>
+
+<h3 id="gcp-service-account">GCP Service Account</h3>
+
+<p>List all of service accounts in a project:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam service-accounts list
+</code></pre></div></div>
+<blockquote>
+  <p>iam in email - means it was created by the user, otherwise - it is default service account</p>
+</blockquote>
+
+<p>Get the IAM policy for a service account:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam service-accounts get-iam-policy [Service Account Email ID]
+</code></pre></div></div>
+<p>List of credential [keys] for a service account:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam service-accounts keys list --iam-account [service Account Email ID]
+</code></pre></div></div>
+
+<h3 id="gcp-pre-defined-role">GCP Pre-defined Role</h3>
+
+<p>Lists of roles in an origination / project:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam roles list
+</code></pre></div></div>
+<p>Lists of permissions in a specified role:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam roles describe [roles/owner]
+</code></pre></div></div>
+<h3 id="gcp-custom-role">GCP Custom Role</h3>
+
+<p>Lists of roles in an origination / project:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam roles list --project [alert-nimbus-335411]
+</code></pre></div></div>
+<p>Lists of permissions in a specified role:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcloud iam roles describe [RoleName] --project [alert-nimbus-335411]
+</code></pre></div></div>
+
+<h2 id="references-and-more-techniques">References and more techniques</h2>
+<p><a href="https://hackingthe.cloud/">Hacking the Cloud</a></p>
+
+<h2 id="automated-tools">Automated tools</h2>
+<p><a href="https://github.com/initstring/cloud_enum/">Cloud Enum</a></p>
+
+<p>Perform authenticated enumeration using “gcp_enum” script.</p>
+
+<p><a href="https://gitlab.com/gitlab-com/gl-security/threatmanagement/redteam/redteam-public/gcp_enum">gcp_enum</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gcp_enum.sh
+</code></pre></div></div>
+<p>Identity possible privilege escalation ways in gcp project.</p>
+
+<p><a href="https://github.com/RhinoSecurityLabs/GCP-IAM-Privilege-Escalation">GCP-IAM-Privilege-Escalation</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 enumerate_member_permissions.py -p alert-nimbus-335411
+python3 check_for_privesc.py
+</code></pre></div></div>
+<p>Exploit identified misconfigured iam permission for privilege escalation.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 ExploitScripts/iam.roles.update.py
+</code></pre></div></div>
+
+<h2 id="other-tools">Other tools</h2>
+
+<h3 id="gain-access">Gain Access</h3>
+<p><a href="https://github.com/RhinoSecurityLabs/GCPBucketBrute">GCPBucketBrute</a></p>
+
+<p><a href="https://github.com/oldrho/ip2provider">ip2provider</a></p>
+
+<h3 id="enumeration-1">Enumeration</h3>
+<p><a href="https://github.com/nccgroup/ScoutSuite">ScoutSuite</a></p>
+
+<p><a href="https://github.com/darkbitio/gcp-iam-role-permissions">gcp-iam-role-permissions</a></p>
+
+<p><a href="https://github.com/bartcode/gcp-iam-viz">gcp-iam-viz</a></p>
+
+<p><a href="https://github.com/lyft/cartography">cartography</a></p>
+
+<p><a href="https://gitlab.com/gitlab-com/gl-security/threatmanagement/redteam/redteam-public/gcp_misc">gcp_misc</a></p>
+
+<p><a href="https://gitlab.com/gitlab-com/gl-security/threatmanagement/redteam/redteam-public/gcp_firewall_enum">gcp_firewall_enum</a></p>
+
+<p><a href="https://github.com/NotSoSecure/cloud-service-enum">cloud-service-enum</a></p>
+
+<h3 id="priv-esc">Priv Esc</h3>
+<p><a href="https://github.com/dxa4481/gcploit">gcploit</a></p>
+
+<p><a href="https://github.com/google/gcp_scanner">gcp_scanner</a></p>
+
+<p><a href="https://github.com/carlospolop/PurplePanda">PurplePanda</a></p>
+
+<h3 id="persistence-and-lateral">Persistence and Lateral</h3>
+<p><a href="https://github.com/rek7/patchy">patchy</a></p>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
