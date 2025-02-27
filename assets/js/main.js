@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(searchTimeout);
       
       searchTimeout = setTimeout(async () => {
-        const searchTerm = e.target.value.toLowerCase();
+        const searchTerm = e.target.value.toLowerCase().trim();
         const searchResults = document.getElementById('search-results');
         const noteContent = document.getElementById('note-content');
         
@@ -185,21 +185,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (text.toLowerCase().includes(searchTerm)) {
               // Get category name
-              const category = link.closest('.notes-category').querySelector('h3').textContent;
+              const category = link.closest('.notes-category').querySelector('h3').textContent.trim();
               
               // Find a relevant excerpt containing the search term
               const lowerText = text.toLowerCase();
               const index = lowerText.indexOf(searchTerm);
               const start = Math.max(0, index - 100);
               const end = Math.min(text.length, index + 200);
-              let excerpt = text.substring(start, end);
+              let excerpt = text.substring(start, end).trim();
+              
+              // Clean excerpt but preserve links (remove only specific HTML tags, not <a>)
+              excerpt = excerpt.replace(/<(?!a\s)[^>]+>/gi, ''); // Remove all tags except <a>
               
               // Add ellipsis if needed
               if (start > 0) excerpt = '...' + excerpt;
               if (end < text.length) excerpt = excerpt + '...';
-              
+
               results.push({
-                title: link.textContent,
+                title: link.textContent.trim(),
                 category: category,
                 url: link.href,
                 content: excerpt

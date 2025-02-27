@@ -107,28 +107,52 @@ nav ul li::before {
   margin-top: 20px;
 }
 
+#search-results h2 {
+  margin-bottom: 15px;
+  color: var(--green);
+}
+
 .search-result {
-  margin-bottom: 20px;
-  padding: 15px;
   border: 1px solid var(--green);
+  padding: 15px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  background: rgba(80, 250, 123, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-result:hover {
+  background: rgba(80, 250, 123, 0.1);
+  box-shadow: 0 0 10px rgba(80, 250, 123, 0.3);
 }
 
 .search-result h3 {
   margin-top: 0;
   margin-bottom: 10px;
-}
-
-.search-result .category {
   color: var(--green);
-  font-size: 0.9em;
-  margin-bottom: 10px;
 }
 
-.search-result .result-preview {
+.search-result h3 a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.search-result h3 a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.category {
+  font-size: 0.9em;
+  color: rgba(80, 250, 123, 0.7);
+  margin-bottom: 5px;
+}
+
+.result-preview {
   font-size: 0.95em;
   line-height: 1.5;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 /* Notes Navigation */
@@ -333,16 +357,16 @@ nav a.active {
 .post-card {
   border: 1px solid var(--green);
   padding: 15px;
-  margin-bottom: 30px; /* Increased space between posts */
-  background: rgba(0, 0, 0, 0.3); /* Slight transparency for Fallout vibe */
+  margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  transition: all 0.3s ease; /* Smooth transition for hover */
+  transition: all 0.3s ease;
 }
 
 .post-card:hover {
-  background: rgba(80, 250, 123, 0.1); /* Green highlight on hover */
-  box-shadow: 0 0 15px rgba(80, 250, 123, 0.5); /* Green glow effect */
-  transform: translateX(10px); /* Slight shift for emphasis */
+  background: rgba(80, 250, 123, 0.1);
+  box-shadow: 0 0 15px rgba(80, 250, 123, 0.5);
+  transform: translateX(10px);
 }
 
 .post-card h2 {
@@ -365,9 +389,9 @@ nav a.active {
 }
 
 .read-more {
-  color: none;
+  color: var(--green);
   text-decoration: none;
-  font-weight: none;
+  font-weight: bold;
 }
 
 .read-more:hover {
