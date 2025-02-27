@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-          const results = [];
+          const results = new Set(); // Use Set to prevent duplicates
           const links = document.querySelectorAll('.notes-subcategory a');
           
           for (const link of links) {
@@ -185,8 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Parse HTML to extract only note content (ignore headers, meta tags, etc.)
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
-            const noteContentElement = doc.querySelector('#note-content') || doc.body;
-            let noteText = noteContentElement.textContent || noteContentElement.innerText;
+            const noteContentElement = doc.querySelector('#note-content');
+            let noteText = noteContentElement ? noteContentElement.textContent || noteContentElement.innerText : '';
+            
+            // If no #note-content, fall back to body but clean aggressively
+            if (!noteText) {
+              noteText = (doc.body.textContent || doc.body.innerText || '').trim();
+            }
             
             // Remove code block content and irrelevant structural text
             noteText = noteText.replace(/```[\s\S]*?```/g, '').trim()
@@ -206,31 +211,45 @@ document.addEventListener('DOMContentLoaded', () => {
               const end = Math.min(noteText.length, index + 200);
               let excerpt = noteText.substring(start, end).trim();
               
-              // Clean excerpt, preserving links but removing all other HTML tags
-              excerpt = excerpt.replace(/<(?!(a\s|\/a>))[^>]+>/gi, '');
+              // Highlight the search term in the excerpt
+              if (searchTerm) {
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                excerpt = excerpt.replace(regex, '<span class="search-highlight">$1</span>');
+              }
               
-              // Add ellipsis if needed and ensure no nested divs
+              // Highlight the search term in the title
+              let title = link.textContent.trim();
+              if (searchTerm) {
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                title = title.replace(regex, '<span class="search-highlight">$1</span>');
+              }
+              
+              // Clean excerpt, preserving links but removing all other HTML tags
+              excerpt = excerpt.replace(/<(?!(a\s|\/a>|span\sclass="search-highlight"|\/span>))[^>]+>/gi, '');
+              
+              // Add ellipsis if needed
               if (start > 0) excerpt = '...' + excerpt;
               if (end < noteText.length) excerpt = excerpt + '...';
 
-              // Only add result if it’s not a duplicate (check by URL)
-              if (!results.some(result => result.url === link.href)) {
-                results.push({
-                  title: link.textContent.trim(),
-                  category: category,
-                  url: link.href,
-                  content: excerpt
-                });
-              }
+              // Add to Set as a unique object to prevent duplicates
+              results.add(JSON.stringify({
+                title: title,
+                category: category,
+                url: link.href,
+                content: excerpt
+              }));
             }
           }
 
+          // Convert Set back to array of objects
+          const uniqueResults = Array.from(results).map(item => JSON.parse(item));
+
           // Display search results
           noteContent.style.display = 'none';
-          if (results.length > 0) {
+          if (uniqueResults.length > 0) {
             searchResults.innerHTML = `
               <h2>Search Results for "${searchTerm}"</h2>
-              ${results.map(result => `
+              ${uniqueResults.map(result => `
                 <div class="search-result">
                   <h3><a href="${result.url}">${result.title}</a></h3>
                   <div class="category">Category: ${result.category}</div>

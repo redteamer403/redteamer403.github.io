@@ -7,6 +7,7 @@
   --green: #50fa7b;
   --black: #000000;
   --dark-green: #2c5a34;
+  --yellow: #c2bf00; /* Fallout-inspired yellow, matching ./Vault-Tec Terminal */
 }
 
 /* Base styles */
@@ -125,6 +126,7 @@ nav ul li::before {
   transition: all 0.3s ease;
   position: relative; /* Ensure proper positioning */
   z-index: 1; /* Prevent stacking */
+  display: block; /* Ensure single-level display */
 }
 
 .search-result:hover {
@@ -139,13 +141,20 @@ nav ul li::before {
 }
 
 .search-result h3 a {
-  color: inherit; /* Inherit var(--green) but not explicitly green for links */
+  color: none; /* No explicit color, blends with green text */
   text-decoration: none;
 }
 
 .search-result h3 a:hover {
   text-decoration: underline;
-  color: #fff;
+  color: #fff; /* White on hover for contrast */
+}
+
+.search-highlight {
+  background-color: var(--yellow); /* Yellow highlight for search term */
+  padding: 2px; /* Slight padding for visibility */
+  border-radius: 2px; /* Optional rounding for aesthetics */
+  font-weight: none; /* Optional: make it stand out more */
 }
 
 .category {
@@ -297,6 +306,12 @@ body {
   padding: 20px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
+  text-align: center; /* Center-align text */
+}
+
+.note-section h2,
+.note-section p {
+  margin: 10px 0; /* Add spacing between lines */
 }
 
 header {
