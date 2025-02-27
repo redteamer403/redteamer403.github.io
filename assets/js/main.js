@@ -182,31 +182,46 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) continue;
             
             const text = await response.text();
+            // Parse HTML to extract only note content (ignore headers, meta tags, etc.)
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const noteContentElement = doc.querySelector('#note-content') || doc.body;
+            let noteText = noteContentElement.textContent || noteContentElement.innerText;
             
-            if (text.toLowerCase().includes(searchTerm)) {
+            // Remove code block content and irrelevant structural text
+            noteText = noteText.replace(/```[\s\S]*?```/g, '').trim()
+                             .replace(/^\s*<!DOCTYPE html>[\s\S]*?<body>|<\/body>[\s\S]*$/gi, '').trim()
+                             .replace(/<script>[\s\S]*?<\/script>/gi, '').trim()
+                             .replace(/<style>[\s\S]*?<\/style>/gi, '').trim()
+                             .replace(/<head>[\s\S]*?<\/head>/gi, '').trim();
+
+            if (noteText.toLowerCase().includes(searchTerm)) {
               // Get category name
               const category = link.closest('.notes-category').querySelector('h3').textContent.trim();
               
-              // Find a relevant excerpt containing the search term
-              const lowerText = text.toLowerCase();
+              // Find a relevant excerpt containing the search term, from note content only
+              const lowerText = noteText.toLowerCase();
               const index = lowerText.indexOf(searchTerm);
               const start = Math.max(0, index - 100);
-              const end = Math.min(text.length, index + 200);
-              let excerpt = text.substring(start, end).trim();
+              const end = Math.min(noteText.length, index + 200);
+              let excerpt = noteText.substring(start, end).trim();
               
-              // Clean excerpt but preserve links (remove only specific HTML tags, not <a>)
-              excerpt = excerpt.replace(/<(?!a\s)[^>]+>/gi, ''); // Remove all tags except <a>
+              // Clean excerpt, preserving links but removing all other HTML tags
+              excerpt = excerpt.replace(/<(?!(a\s|\/a>))[^>]+>/gi, '');
               
-              // Add ellipsis if needed
+              // Add ellipsis if needed and ensure no nested divs
               if (start > 0) excerpt = '...' + excerpt;
-              if (end < text.length) excerpt = excerpt + '...';
+              if (end < noteText.length) excerpt = excerpt + '...';
 
-              results.push({
-                title: link.textContent.trim(),
-                category: category,
-                url: link.href,
-                content: excerpt
-              });
+              // Only add result if it’s not a duplicate (check by URL)
+              if (!results.some(result => result.url === link.href)) {
+                results.push({
+                  title: link.textContent.trim(),
+                  category: category,
+                  url: link.href,
+                  content: excerpt
+                });
+              }
             }
           }
 
@@ -291,14 +306,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // If we're on /notes/, show the default content from notes.md without redirecting
     if (currentPath === '/notes/' || currentPath === '/notes') {
       const noteContent = document.getElementById('note-content');
-      noteContent.innerHTML = `
-        <div class="note-section">
-          <h2>Select a topic from the sidebar to view notes</h2>
-          <p>The detailed notes for each topic will be loaded when you select a specific section.</p>
-        </div>
-      `;
-      noteContent.style.display = 'block';
-      document.getElementById('search-results').innerHTML = '';
+      if (noteContent) {
+        noteContent.innerHTML = `
+          <div class="note-section">
+            <h2>Select a topic from the sidebar to view notes</h2>
+            <p>The detailed notes for each topic will be loaded when you select a specific section.</p>
+          </div>
+        `;
+        noteContent.style.display = 'block';
+        document.getElementById('search-results').innerHTML = '';
+      }
       return; // Exit function to prevent default subcategory navigation
     }
 

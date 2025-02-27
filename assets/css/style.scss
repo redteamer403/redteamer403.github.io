@@ -88,18 +88,22 @@ nav ul li::before {
   gap: 20px;
   min-height: calc(100vh - 300px);
   margin-top: 20px;
+  background: transparent;
 }
 
+/* Notes Sidebar */
 .notes-sidebar {
   width: 250px;
   border-right: 1px solid var(--green);
   padding-right: 20px;
 }
 
+/* Notes Content */
 .notes-content {
   flex: 1;
   padding: 20px;
   background: transparent;
+  overflow: auto;
 }
 
 /* Search Results */
@@ -119,6 +123,8 @@ nav ul li::before {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   transition: all 0.3s ease;
+  position: relative; /* Ensure proper positioning */
+  z-index: 1; /* Prevent stacking */
 }
 
 .search-result:hover {
@@ -133,7 +139,7 @@ nav ul li::before {
 }
 
 .search-result h3 a {
-  color: var(--green);
+  color: inherit; /* Inherit var(--green) but not explicitly green for links */
   text-decoration: none;
 }
 
@@ -281,6 +287,16 @@ body {
 .main-content {
   min-height: 100vh;
   padding: 20px 0;
+  background: transparent; /* Revert to transparent, letting body’s black background show */
+  color: inherit; /* Revert to inherit, letting body’s green text apply */
+}
+
+/* Note Section */
+.note-section {
+  border: 1px solid var(--green);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 }
 
 header {
@@ -389,9 +405,9 @@ nav a.active {
 }
 
 .read-more {
-  color: var(--green);
-  text-decoration: none;
-  font-weight: bold;
+  color: none; /* No color (inherit or default to none) */
+  text-decoration: none; /* No underline by default */
+  font-weight: none; /* No bold (normal weight) */
 }
 
 .read-more:hover {
