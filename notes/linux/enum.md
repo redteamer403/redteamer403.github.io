@@ -53,5 +53,10 @@ masscan -p0-65535 <target>
 
 ## Automated Enumeration Tools
 - [LinPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS)
+```bash
+#One line start
+curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh
+```
+
 - [LinEnum](https://github.com/rebootuser/LinEnum)
 - [pspy64](https://github.com/wildkindcc/Exploitation/blob/master/00.PostExp_Linux/pspy/pspy64)

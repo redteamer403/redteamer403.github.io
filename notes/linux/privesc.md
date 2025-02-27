@@ -6,6 +6,9 @@ title: Linux Privilege Escalation
 
 ## Privilege Escalation Vectors
 
+### Unix Binaries
+[GTFOBins](https://gtfobins.github.io/)
+
 ### SUID Binaries
 ```bash
 # Find SUID binaries
