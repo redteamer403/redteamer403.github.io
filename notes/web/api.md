@@ -9,7 +9,7 @@ title: Web Application API Testing
 ## API Enumeration
 ```bash
 # Discover endpoints
-curl -X GET http://example.com/api/
+curl -X GET http://example.com/api/<API_ENDPOINT>
 
 # Brute-force with ffuf
 ffuf -u http://example.com/api/FUZZ -w wordlist.txt
@@ -49,6 +49,7 @@ curl "http://example.com/api/search?q[]=[{'$gt':''}]"
 
 # Test command injection
 curl "http://example.com/api/exec?cmd=whoami"
+
 # Use sqlmap for API
 sqlmap -u http://example.com/api/search --data="q=test"
 
@@ -87,10 +88,8 @@ curl -k https://example.com/api
 ```
 
 ## Tools
-- curl: ```curl -X GET http://example.com/api```
 - ffuf: ```ffuf -u http://example.com/api/FUZZ -w wordlist.txt```
 - sqlmap: ```sqlmap -u http://example.com/api```
 - Postman: manual API testing
-- OWASP ZAP: manual API testing
 - Arjun: ```arjun -u http://example.com/api```
 - jwt_tool: ```jwt_tool <token>```

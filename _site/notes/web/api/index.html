@@ -145,7 +145,7 @@
 
 <h2 id="api-enumeration">API Enumeration</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Discover endpoints</span>
-curl <span class="nt">-X</span> GET http://example.com/api/
+curl <span class="nt">-X</span> GET http://example.com/api/&lt;API_ENDPOINT&gt;
 
 <span class="c"># Brute-force with ffuf</span>
 ffuf <span class="nt">-u</span> http://example.com/api/FUZZ <span class="nt">-w</span> wordlist.txt
@@ -183,6 +183,7 @@ curl <span class="s2">"http://example.com/api/search?q[]=[{'</span><span class="
 
 <span class="c"># Test command injection</span>
 curl <span class="s2">"http://example.com/api/exec?cmd=whoami"</span>
+
 <span class="c"># Use sqlmap for API</span>
 sqlmap <span class="nt">-u</span> http://example.com/api/search <span class="nt">--data</span><span class="o">=</span><span class="s2">"q=test"</span>
 
@@ -220,11 +221,9 @@ curl <span class="nt">-k</span> https://example.com/api
 
 <h2 id="tools">Tools</h2>
 <ul>
-  <li>curl: <code class="language-plaintext highlighter-rouge">curl -X GET http://example.com/api</code></li>
   <li>ffuf: <code class="language-plaintext highlighter-rouge">ffuf -u http://example.com/api/FUZZ -w wordlist.txt</code></li>
   <li>sqlmap: <code class="language-plaintext highlighter-rouge">sqlmap -u http://example.com/api</code></li>
   <li>Postman: manual API testing</li>
-  <li>OWASP ZAP: manual API testing</li>
   <li>Arjun: <code class="language-plaintext highlighter-rouge">arjun -u http://example.com/api</code></li>
   <li>jwt_tool: <code class="language-plaintext highlighter-rouge">jwt_tool &lt;token&gt;</code></li>
 </ul>

@@ -180,16 +180,16 @@ pre {
   border: 1px solid var(--green);
   border-radius: 4px;
   padding: 15px;
-  overflow-x: auto; /* Add horizontal scrolling for long lines */
-  white-space: pre-wrap; /* Allow text wrapping within the scrollable area */
-  max-width: 100%; /* Ensure it fits the container */
-  word-wrap: break-word; /* Break long words if necessary */
+  overflow-x: auto;
+  white-space: pre-wrap;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 code {
   font-family: 'Share Tech Mono', monospace;
   color: var(--green);
-  overflow-x: auto; /* Ensure inline code also handles overflow */
+  overflow-x: auto;
 }
 
 /* System Info - Fixed in top-right corner */
@@ -323,4 +323,54 @@ nav a.active {
 
 .social-links a:hover {
   transform: scale(1.2);
+}
+
+/* Post Card Styling - Updated for separation and hover */
+.posts-container {
+  margin-top: 20px;
+}
+
+.post-card {
+  border: 1px solid var(--green);
+  padding: 15px;
+  margin-bottom: 30px; /* Increased space between posts */
+  background: rgba(0, 0, 0, 0.3); /* Slight transparency for Fallout vibe */
+  border-radius: 4px;
+  transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+.post-card:hover {
+  background: rgba(80, 250, 123, 0.1); /* Green highlight on hover */
+  box-shadow: 0 0 15px rgba(80, 250, 123, 0.5); /* Green glow effect */
+  transform: translateX(10px); /* Slight shift for emphasis */
+}
+
+.post-card h2 {
+  margin-top: 0;
+  color: var(--green);
+}
+
+.post-metadata {
+  font-size: 0.9em;
+  color: rgba(80, 250, 123, 0.7);
+  margin-bottom: 10px;
+}
+
+.post-metadata i {
+  margin-right: 5px;
+}
+
+.post-tags {
+  margin-left: 10px;
+}
+
+.read-more {
+  color: none;
+  text-decoration: none;
+  font-weight: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  color: #fff;
 }
