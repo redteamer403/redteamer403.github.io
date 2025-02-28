@@ -16,6 +16,7 @@ include:
   - _pages
   - notes
   - posts
+  - tools
 
 sass:
   sass_dir: assets/css

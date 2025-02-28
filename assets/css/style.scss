@@ -429,3 +429,153 @@ nav a.active {
   text-decoration: underline;
   color: #fff;
 }
+
+/* /notes/network/exfil Images */
+img[alt=TCP] { width: 870px; }
+img[alt=SSH] { width: 870px; }
+img[alt=ICMP] { width: 870px; }
+
+/* Tools Tab and Terminal Window Styling */
+nav a[href="/tools"] {
+  color: var(--green);
+  text-decoration: none;
+  margin-right: 20px;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+nav a[href="/tools"]:hover,
+nav a[href="/tools"].active {
+  background-color: rgba(80, 250, 123, 0.1);
+}
+
+.tools-container {
+  margin-top: 20px;
+}
+
+/* Terminal Interface Styling */
+.terminal-window {
+  background: var(--black);
+  padding: 20px;
+  border-radius: 0; /* Remove rounding */
+  box-shadow: 0 0 10px rgba(80, 250, 123, 0.5); /* Keep shadow for depth */
+  border: none; /* Remove border */
+  margin: 0 auto; /* Center align the terminal */
+  max-width: 800px; /* Optional: Limit width for centering */
+}
+
+.terminal-window h2 {
+  color: var(--yellow); /* Fallout terminal title yellow */
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.terminal-content {
+  border: 1px solid var(--green); /* Static green border */
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  animation: none; /* Remove any animations */
+}
+
+.terminal-output {
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  line-height: 1.4;
+
+  /* Fallout-themed scrollbar */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--black);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 4px;
+    border: 2px solid var(--black);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(80, 250, 123, 0.8);
+  }
+}
+
+.terminal-input {
+  width: 100%; /* Full width, left-aligned */
+  background: transparent;
+  border: none; /* Remove all borders completely */
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  padding: 10px 10px 10px 30px; /* Adjust padding: left=30px for ">", others=10px */
+  margin-top: 10px;
+  border-radius: 0; /* Remove rounding */
+  resize: none;
+  overflow: hidden;
+  min-height: 20px;
+  outline: none; /* Remove outline on focus */
+  display: block; /* Ensure it’s a block element */
+  position: relative; /* For positioning the prompt */
+  z-index: 1; /* Ensure it’s above other elements */
+  line-height: 1.4; /* Match output line height for consistency */
+}
+
+/* Add ">" prompt before input */
+.terminal-input::before {
+  content: '>';
+  color: var(--green);
+  position: absolute;
+  left: 10px; /* Position closer to the left edge */
+  top: 12px; /* Adjust top position for better alignment with text */
+  pointer-events: none; /* Prevent interfering with input */
+  z-index: 2; /* Ensure it’s above the input */
+  font-size: 1em; /* Match input font size */
+  line-height: 1.4; /* Match input line height */
+}
+
+/* Adjust padding to accommodate the prompt (already in .terminal-input) */
+.terminal-input {
+  padding-left: 30px; /* Move text right to avoid overlapping with ">" */
+}
+
+/* Keep flashing cursor after input */
+.terminal-input::after {
+  content: '_';
+  color: var(--green);
+  position: absolute;
+  left: calc(30px + 10px + 1ch); /* Position after ">" and padding, adjust for font size */
+  top: 12px; /* Align with text top */
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Blinking cursor */
+.terminal-output::after {
+  content: '_';
+  color: var(--green);
+  animation: blink 1s step-end infinite;
+}
+
+/* Remove existing tool-specific styles if they conflict */
+.tool,
+.tool-input,
+.tool-button,
+.tool-output,
+.terminal-messages {
+  display: none; /* Hide old tool elements since we’re using the terminal */
+}

@@ -28,6 +28,7 @@
           <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>ABOUT</a>
           <a href="{{ '/posts' | relative_url }}" {% if page.url == "/posts" %}class="active"{% endif %}>POSTS</a>
           <a href="{{ '/notes' | relative_url }}" {% if page.url contains "/notes" %}class="active"{% endif %}>NOTES</a>
+          <a href="{{ '/tools' | relative_url }}" {% if page.url contains "/tools" %}class="active"{% endif %}>TOOLS</a>
         </nav>
       </div>
     </header>
@@ -87,6 +88,7 @@
               <a href="{{ '/notes/linux/privesc/' | relative_url }}" {% if page.url contains "/notes/linux/privesc" %}class="active"{% endif %}>Privilege Escalation</a>
               <a href="{{ '/notes/linux/post/' | relative_url }}" {% if page.url contains "/notes/linux/post" %}class="active"{% endif %}>Post Exploitation</a>
               <a href="{{ '/notes/linux/checklist/' | relative_url }}" {% if page.url contains "/notes/linux/checklist" %}class="active"{% endif %}>Penetration Testing Checklist</a>
+              <a href="{{ '/notes/linux/tools/' | relative_url }}" {% if page.url contains "/notes/linux/tools" %}class="active"{% endif %}>Tools</a>
             </div>
           </div>
 
@@ -97,6 +99,7 @@
               <a href="{{ '/notes/network/scan/' | relative_url }}" {% if page.url contains "/notes/network/scan" %}class="active"{% endif %}>Port Scanning</a>
               <a href="{{ '/notes/network/pivot/' | relative_url }}" {% if page.url contains "/notes/network/pivot" %}class="active"{% endif %}>Pivoting</a>
               <a href="{{ '/notes/network/sniff/' | relative_url }}" {% if page.url contains "/notes/network/sniff" %}class="active"{% endif %}>Traffic Analysis</a>
+              <a href="{{ '/notes/network/exfil/' | relative_url }}" {% if page.url contains "/notes/network/exfil" %}class="active"{% endif %}>Data Exfiltration</a>
             </div>
           </div>
 

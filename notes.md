@@ -10,4 +10,4 @@ title: Notes
       <p>The detailed notes for each topic will be loaded when you select a specific section.</p>
     </div>
     <div id="search-results"></div>
-  </div>
+</div>

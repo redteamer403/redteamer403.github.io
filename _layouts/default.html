@@ -28,6 +28,7 @@
           <a href="/" {% if page.url == "/" %}class="active"{% endif %}>ABOUT</a>
           <a href="/posts" {% if page.url == "/posts" %}class="active"{% endif %}>POSTS</a>
           <a href="/notes" {% if page.url == "/notes" %}class="active"{% endif %}>NOTES</a>
+          <a href="/tools" {% if page.url == "/tools" %}class="active"{% endif %}>TOOLS</a>
         </nav>
       </div>
     </header>
@@ -43,5 +44,6 @@
   </div>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/tools.js' | relative_url }}"></script>
 </body>
 </html>

@@ -338,14 +338,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return; // Exit function to prevent default subcategory navigation
     }
 
-    // Otherwise, find and simulate a click on the matching subcategory link
+    // If we're on /tools/, show the default content from tools.md without redirecting
+    if (currentPath === '/tools/' || currentPath === '/tools') {
+      // No default content needed for tools, as it’s already in tools.md
+      return;
+    }
+
+    // Otherwise, find and simulate a click on the matching subcategory link for /notes/
     const link = document.querySelector(`.notes-subcategory a[href="${currentPath}"]`);
     
     if (link) {
       link.click(); // Simulate click to load content
     } else {
-      // Default to first category if no match (but not for /notes/)
-      if (currentPath !== '/notes/' && currentPath !== '/notes') {
+      // Default to first category if no match (but not for /notes/ or /tools/)
+      if (currentPath !== '/notes/' && currentPath !== '/notes' && currentPath !== '/tools/' && currentPath !== '/tools') {
         const firstLink = document.querySelector('.notes-subcategory a');
         if (firstLink) firstLink.click();
       }
