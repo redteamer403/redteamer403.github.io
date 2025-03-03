@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kubernetes Pentesting Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Kubernetes Pentesting Notes | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Kubernetes Pentesting Notes" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Professional penetration tester portfolio" />
+<meta property="og:description" content="Professional penetration tester portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/container/k8s/" />
+<meta property="og:url" content="http://localhost:4000/notes/container/k8s/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Kubernetes Pentesting Notes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"Professional penetration tester portfolio","headline":"Kubernetes Pentesting Notes","url":"http://localhost:4000/notes/container/k8s/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" class="active">Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/server/" >Servers</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="kubernetes-pentesting-notes">Kubernetes Pentesting Notes</h1>
+
+<h2 id="commands">Commands</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Get Kubernetes client and server versions</span>
+kubectl version
+
+<span class="c"># Get cluster info</span>
+kubectl cluster-info
+
+<span class="c"># List all nodes</span>
+kubectl get nodes
+
+<span class="c"># Describe a specific node</span>
+kubectl describe node &lt;node-name&gt;
+
+<span class="c"># List all pods in all namespaces</span>
+kubectl get pods <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a pod</span>
+kubectl describe pod &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Get pod logs</span>
+kubectl logs &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Exec into a pod</span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt; <span class="nt">--</span> /bin/bash
+
+<span class="c"># List all deployments</span>
+kubectl get deployments <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a deployment</span>
+kubectl describe deployment &lt;deployment-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Scale a deployment</span>
+kubectl scale deployment &lt;deployment-name&gt; <span class="nt">--replicas</span><span class="o">=</span>3 <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># List all services</span>
+kubectl get services <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a service</span>
+kubectl describe service &lt;service-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># List all secrets</span>
+kubectl get secrets <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a secret</span>
+kubectl describe secret &lt;secret-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Decode a secret</span>
+kubectl get secret &lt;secret-name&gt; <span class="nt">-n</span> &lt;namespace&gt; <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.data}"</span> | <span class="nb">base64</span> <span class="nt">-d</span>
+
+<span class="c"># List all configmaps</span>
+kubectl get configmaps <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a configmap</span>
+kubectl describe configmap &lt;configmap-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># List all namespaces</span>
+kubectl get namespaces
+
+<span class="c"># Switch context</span>
+kubectl config use-context &lt;context-name&gt;
+
+<span class="c"># List contexts</span>
+kubectl config get-contexts
+
+<span class="c"># Check cluster roles</span>
+kubectl get clusterroles
+
+<span class="c"># Check role bindings</span>
+kubectl get rolebindings <span class="nt">--all-namespaces</span>
+
+<span class="c"># Check cluster role bindings</span>
+kubectl get clusterrolebindings
+
+<span class="c"># List all jobs</span>
+kubectl get <span class="nb">jobs</span> <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a job</span>
+kubectl describe job &lt;job-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># List all cronjobs</span>
+kubectl get cronjobs <span class="nt">--all-namespaces</span>
+
+<span class="c"># Describe a cronjob</span>
+kubectl describe cronjob &lt;cronjob-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Delete a resource</span>
+kubectl delete pod &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Apply a manifest</span>
+kubectl apply <span class="nt">-f</span> manifest.yaml
+
+<span class="c"># Check resource usage</span>
+kubectl top nodes
+kubectl top pods <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Port-forward to a pod</span>
+kubectl port-forward pod/&lt;pod-name&gt; 8080:80 <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Copy files to/from pod</span>
+kubectl <span class="nb">cp</span> &lt;local-path&gt; &lt;pod-name&gt;:&lt;pod-path&gt; <span class="nt">-n</span> &lt;namespace&gt;
+
+<span class="c"># Check events</span>
+kubectl get events <span class="nt">--all-namespaces</span>
+
+<span class="c"># Debug a resource</span>
+kubectl debug pod/&lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt;
+</code></pre></div></div>
+
+<h2 id="kubernetes-manifests-examples">Kubernetes Manifests (Examples)</h2>
+<h3 id="pod-manifest">Pod Manifest</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-pod</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:latest</span>
+    <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+    <span class="na">securityContext</span><span class="pi">:</span>
+      <span class="na">runAsUser</span><span class="pi">:</span> <span class="m">1000</span>
+      <span class="na">runAsGroup</span><span class="pi">:</span> <span class="m">1000</span>
+      <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
+
+<h3 id="deployment-manifest">Deployment Manifest</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-deployment</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:latest</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+        <span class="na">securityContext</span><span class="pi">:</span>
+          <span class="na">capabilities</span><span class="pi">:</span>
+            <span class="na">drop</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">ALL</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<h3 id="service-manifest">Service Manifest</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-service</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="m">80</span>
+    <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
+</code></pre></div></div>
+
+<h3 id="security-focused-manifest-pod-with-rbac">Security-Focused Manifest (Pod with RBAC)</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">secure-pod</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="na">security.alpha.kubernetes.io/seccomp</span><span class="pi">:</span> <span class="s">runtime/default</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">myapp:1.0</span>
+    <span class="na">securityContext</span><span class="pi">:</span>
+      <span class="na">runAsNonRoot</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">readOnlyRootFilesystem</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">allowPrivilegeEscalation</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">serviceAccountName</span><span class="pi">:</span> <span class="s">restricted-sa</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">pod-reader</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">rules</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">"</span><span class="pi">]</span>
+  <span class="na">resources</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">pods"</span><span class="pi">]</span>
+  <span class="na">verbs</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">get"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">list"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">watch"</span><span class="pi">]</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">RoleBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">pod-reader-binding</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">subjects</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">restricted-sa</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">pod-reader</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+</code></pre></div></div>
+
+<h2 id="security-testing-red-team-focus">Security Testing (Red Team Focus)</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enumerate pods for sensitive data </span>
+kubectl get pods <span class="nt">--all-namespaces</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{range .items[*]}{.metadata.name}{'</span><span class="se">\t</span><span class="s2">'}{.spec.containers[*].image}{'</span><span class="se">\n</span><span class="s2">'}{end}"</span> 
+
+<span class="c"># Check for privileged pods </span>
+kubectl get pods <span class="nt">--all-namespaces</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{range .items[*]}{.metadata.name}{'</span><span class="se">\t</span><span class="s2">'}{.spec.containers[*].securityContext.privileged}{'</span><span class="se">\n</span><span class="s2">'}{end}"</span> | <span class="nb">grep true</span> 
+
+<span class="c"># Find exposed secrets </span>
+kubectl get secrets <span class="nt">--all-namespaces</span> <span class="nt">-o</span> json | jq <span class="s1">'.data'</span> 
+
+<span class="c"># Test RBAC permissions </span>
+kubectl auth can-i create pods <span class="nt">-n</span> &lt;namespace&gt; 
+
+<span class="c"># Check service accounts </span>
+kubectl get serviceaccounts <span class="nt">--all-namespaces</span> 
+
+<span class="c"># Scan for misconfigured RBAC </span>
+kubectl get clusterrolebindings,rolebindings <span class="nt">--all-namespaces</span> 
+
+<span class="c"># Extract configmaps for secrets </span>
+kubectl get configmaps <span class="nt">--all-namespaces</span> <span class="nt">-o</span> json | jq <span class="s1">'.data'</span> 
+
+<span class="c"># Test network policies </span>
+kubectl get networkpolicies <span class="nt">--all-namespaces</span> 
+
+<span class="c"># Check for hostPath mounts </span>
+kubectl get pods <span class="nt">--all-namespaces</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{range .items[*]}{.metadata.name}{'</span><span class="se">\t</span><span class="s2">'}{.spec.volumes[*].hostPath}{'</span><span class="se">\n</span><span class="s2">'}{end}"</span> | <span class="nb">grep </span>hostPath 
+
+<span class="c"># Inspect pod security context </span>
+kubectl describe pod &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt; | <span class="nb">grep</span> <span class="nt">-i</span> security 
+
+<span class="c"># Test pod exec for privilege escalation </span>
+kubectl <span class="nb">exec</span> <span class="nt">-it</span> &lt;pod-name&gt; <span class="nt">-n</span> &lt;namespace&gt; <span class="nt">--</span> <span class="nb">whoami</span> &lt;/CODE&gt;
+</code></pre></div></div>
+
+<h3 id="automated-security-tools">Automated Security Tools</h3>
+<p>Kubescape: <code class="language-plaintext highlighter-rouge">kubescape scan</code></p>
+
+<p>Kube-Hunter: <code class="language-plaintext highlighter-rouge">kube-hunter</code></p>
+
+<p>Trivy: <code class="language-plaintext highlighter-rouge">trivy image &lt;image-name&gt;</code></p>
+
+<p>Falco: <code class="language-plaintext highlighter-rouge">falco --pid &lt;pid&gt;</code></p>
+
+<p>Kubesec: <code class="language-plaintext highlighter-rouge">kubesec scan &lt;manifest.yaml&gt;</code></p>
+
+<p>Polaris: <code class="language-plaintext highlighter-rouge">polaris audit -f manifest.yaml</code></p>
+
+<p>Sysdig Falco: <code class="language-plaintext highlighter-rouge">sysdig falco</code></p>
+
+<p>Aqua Security: <code class="language-plaintext highlighter-rouge">aqua scan &lt;cluster&gt;</code></p>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
