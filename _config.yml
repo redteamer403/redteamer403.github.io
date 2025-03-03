@@ -1,4 +1,4 @@
-title: Vault-Tec Terminal
+title: Vault-Tec Terminal 
 description: Professional penetration tester portfolio
 baseurl: ""
 url: "https://redteamer403.github.io"
@@ -13,7 +13,7 @@ plugins:
 
 # Include notes directory
 include:
-  - _pages
+  - _layouts
   - notes
   - posts
   - tools
