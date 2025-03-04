@@ -50,6 +50,7 @@
               <a href="{{ '/notes/cheat/ncat/' | relative_url }}" {% if page.url contains "/notes/cheat/ncat" %}class="active"{% endif %}>NCAT</a>
               <a href="{{ '/notes/cheat/nmap/' | relative_url }}" {% if page.url contains "/notes/cheat/nmap" %}class="active"{% endif %}>NMAP</a>
               <a href="{{ '/notes/cheat/shell/' | relative_url }}" {% if page.url contains "/notes/cheat/shell" %}class="active"{% endif %}>Reverse Shell</a>
+              <a href="{{ '/notes/cheat/wordlists/' | relative_url }}" {% if page.url contains "/notes/cheat/wordlists" %}class="active"{% endif %}>Wordlists</a>
             </div>
           </div>
 
@@ -84,10 +85,11 @@
           <div class="notes-category">
             <h3>Linux</h3>
             <div class="notes-subcategory">
+              <a href="{{ '/notes/linux/checklist/' | relative_url }}" {% if page.url contains "/notes/linux/checklist" %}class="active"{% endif %}>Penetration Testing Checklist</a>
               <a href="{{ '/notes/linux/enum/' | relative_url }}" {% if page.url contains "/notes/linux/enum" %}class="active"{% endif %}>Enumeration</a>
               <a href="{{ '/notes/linux/privesc/' | relative_url }}" {% if page.url contains "/notes/linux/privesc" %}class="active"{% endif %}>Privilege Escalation</a>
               <a href="{{ '/notes/linux/post/' | relative_url }}" {% if page.url contains "/notes/linux/post" %}class="active"{% endif %}>Post Exploitation</a>
-              <a href="{{ '/notes/linux/checklist/' | relative_url }}" {% if page.url contains "/notes/linux/checklist" %}class="active"{% endif %}>Penetration Testing Checklist</a>
+              <a href="{{ '/notes/linux/services/' | relative_url }}" {% if page.url contains "/notes/linux/services" %}class="active"{% endif %}>Services</a>
               <a href="{{ '/notes/linux/tools/' | relative_url }}" {% if page.url contains "/notes/linux/tools" %}class="active"{% endif %}>Tools</a>
             </div>
           </div>
@@ -95,11 +97,12 @@
           <div class="notes-category">
             <h3>Network</h3>
             <div class="notes-subcategory">
-              <a href="{{ '/notes/network/recon/' | relative_url }}" {% if page.url contains "/notes/network/recon" %}class="active"{% endif %}>Reconnaissance</a>
-              <a href="{{ '/notes/network/scan/' | relative_url }}" {% if page.url contains "/notes/network/scan" %}class="active"{% endif %}>Port Scanning</a>
-              <a href="{{ '/notes/network/pivot/' | relative_url }}" {% if page.url contains "/notes/network/pivot" %}class="active"{% endif %}>Pivoting</a>
-              <a href="{{ '/notes/network/sniff/' | relative_url }}" {% if page.url contains "/notes/network/sniff" %}class="active"{% endif %}>Traffic Analysis</a>
               <a href="{{ '/notes/network/exfil/' | relative_url }}" {% if page.url contains "/notes/network/exfil" %}class="active"{% endif %}>Data Exfiltration</a>
+              <a href="{{ '/notes/network/scan/' | relative_url }}" {% if page.url contains "/notes/network/scan" %}class="active"{% endif %}>Port Scanning</a>
+              <a href="{{ '/notes/network/recon/' | relative_url }}" {% if page.url contains "/notes/network/recon" %}class="active"{% endif %}>Reconnaissance</a>
+              <a href="{{ '/notes/network/pivot/' | relative_url }}" {% if page.url contains "/notes/network/pivot" %}class="active"{% endif %}>Pivoting</a>
+              <a href="{{ '/notes/network/services/' | relative_url }}" {% if page.url contains "/notes/network/services" %}class="active"{% endif %}>Services</a>
+              <a href="{{ '/notes/network/sniff/' | relative_url }}" {% if page.url contains "/notes/network/sniff" %}class="active"{% endif %}>Traffic Analysis</a>
             </div>
           </div>
 
@@ -113,18 +116,18 @@
               <a href="{{ '/notes/tech/iam/' | relative_url }}" {% if page.url contains "/notes/tech/iam" %}class="active"{% endif %}>IAM</a>
               <a href="{{ '/notes/tech/mon/' | relative_url }}" {% if page.url contains "/notes/tech/mon" %}class="active"{% endif %}>Monitoring</a>
               <a href="{{ '/notes/tech/open/' | relative_url }}" {% if page.url contains "/notes/tech/open" %}class="active"{% endif %}>Open-Source</a>
-              <a href="{{ '/notes/tech/server/' | relative_url }}" {% if page.url contains "/notes/tech/server" %}class="active"{% endif %}>Servers</a>
               <a href="{{ '/notes/tech/util/' | relative_url }}" {% if page.url contains "/notes/tech/util" %}class="active"{% endif %}>Utilities</a>
+              <a href="{{ '/notes/tech/server/' | relative_url }}" {% if page.url contains "/notes/tech/server" %}class="active"{% endif %}>Web Servers</a>
             </div>
           </div>
 
           <div class="notes-category">
             <h3>Windows</h3>
             <div class="notes-subcategory">
+              <a href="{{ '/notes/windows/av/' | relative_url }}" {% if page.url contains "/notes/windows/av" %}class="active"{% endif %}>AV/EDR Evasion</a>
               <a href="{{ '/notes/windows/enum/' | relative_url }}" {% if page.url contains "/notes/windows/enum" %}class="active"{% endif %}>Enumeration</a>
               <a href="{{ '/notes/windows/privesc/' | relative_url }}" {% if page.url contains "/notes/windows/privesc" %}class="active"{% endif %}>Privilege Escalation</a>
               <a href="{{ '/notes/windows/post/' | relative_url }}" {% if page.url contains "/notes/windows/post" %}class="active"{% endif %}>Post Exploitation</a>
-              <a href="{{ '/notes/windows/av/' | relative_url }}" {% if page.url contains "/notes/windows/av" %}class="active"{% endif %}>AV/EDR Evasion</a>
             </div>
           </div>
 

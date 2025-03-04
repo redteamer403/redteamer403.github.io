@@ -1,5 +1,5 @@
 title: Vault-Tec Terminal 
-description: Professional penetration tester portfolio
+description: RedTeamer403 Security Portfolio
 baseurl: ""
 url: "https://redteamer403.github.io"
 author: RedTeamer403
@@ -10,6 +10,10 @@ theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: bash
 
 # Include notes directory
 include:
@@ -17,6 +21,8 @@ include:
   - notes
   - posts
   - tools
+  - assets/file
+  - assets/images
 
 sass:
   sass_dir: assets/css
