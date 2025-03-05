@@ -604,11 +604,125 @@ impacket-GetUserSPNs.py -request -dc-ip {IP} active.htb/svc_tgs
 
 
 <details markdown="1">
-<summary>POP (110/995)</summary>
+<summary>POP3 (110/995)</summary>
 <p></p>
 
+### Enumeration
 ```bash
+# Banner grab
+nc -nv {IP} 110
 
+# Retrieve POP3 server capabilities (CAPA, TOP, USER, SASL, RESP-CODES, LOGIN-DELAY, PIPELINING, EXPIRE, UIDL, IMPLEMENTATION)	
+nmap -v -sV --version-intensity=5 --script pop3-capabilities -p T:110 IP
+
+# Try to bruteforce POP3 accounts
+nmap --script pop3-brute --script-args pop3loginmethod=SASL-LOGIN -p T:110 IP
+nmap --script pop3-brute --script-args pop3loginmethod=SASL-CRAM-MD5 -p T:110 IP
+nmap --script pop3-brute --script-args pop3loginmethod=APOP -p T:110 IP
+
+#Hydra Bruteforce (need username)
+hydra -l {Username} -P {Big_Passwordlist} -f {IP} pop3 -V
+```
+
+### Commands
+```bash
+# Login
+USER <username>
+PASS <password>
+
+# Number and total size of all messages
+STAT
+# List messages and size
+LIST
+# Retrieve the message of given number
+RETR <number>
+# Delete the message of given number
+DELE <number>
+# Reset the mailbox
+RSET
+# Exit the mail server
+QUIT
+```
+</details>
+
+
+<!-- ------------------------------------------------RPC NOTES----------------------------------------------------------- -->
+
+
+<details markdown="1">
+<summary>RPC (135/593)</summary>
+<p></p>
+
+### Enumeration
+```bash
+#nmap
+nmap --script msrpc-enum -p 135 <target-ip>
+
+#rpcdump
+rpcdump.py <IP> -p 135
+impacket-rpcdump -port 135 <target-ip> | grep -E 'MS-EFSRPC|MS-RPRN|MS-PAR'
+
+#metasploit
+use auxiliary/scanner/dcerpc/endpoint_mapper
+use auxiliary/scanner/dcerpc/hidden
+use auxiliary/scanner/dcerpc/management
+use auxiliary/scanner/dcerpc/tcp_dcerpc_auditor
+
+#enum4linux
+# Do everything
+enum4linux -a target-ip
+# List users
+enum4linux -U target-ip
+# If you've managed to obtain credentials, you can pull a full list of users regardless of the RestrictAnonymous option
+enum4linux -u administrator -p password -U target-ip
+# Get username from the defaut RID range (500-550, 1000-1050)
+enum4linux -r target-ip
+# Get username using a custom RID range
+enum4linux -R 600-660 target-ip
+# List groups
+enum4linux -G target-ip
+# List shares
+enum4linux -S target-ip
+# Perform a dictionary attack, if the server doesn't let you retrieve a share list 
+enum4linux -s shares.txt target-ip
+# Pulls OS information using smbclient, this can pull the service pack version on some versions of Windows
+enum4linux -o target-ip
+# Pull information about printers known to the remove device.
+enum4linux -i target-ip
+```
+
+### Connect
+```bash
+# Anonymous logon
+rpcclient -N -U "" <target-ip>
+rpcclient -N -U "" -p 593 <target-ip>
+rpcclient -N -U "" dc.example.local
+
+# Specify username
+# -W: Workgroup
+# -N: No password
+rpcclient -U username <target-ip>
+rpcclient -W WORKGROUP -U username <target-ip>
+rpcclient -U username -N <target-ip>
+
+# -k: Kerberos authentication
+rpcclient -k <target-ip>
+```
+
+### Commands
+```bash
+# Server info
+rpcclient $> srvinfo
+# Enumerate domains
+rpcclient $> enumdomains
+# Enumerate domain users
+rpcclient $> enumdomusers
+# Enumerate domain groups
+rpcclient $> enumdomgroups
+# Domain info
+rpcclient $> querydominfo
+# Current username
+rpcclient $> getusername
 ```
 </details>
 
@@ -851,8 +965,43 @@ python zzz_exploit.py -target-ip <target-ip> -port 445 'username:password@target
 <summary>IMAP (143/993)</summary>
 <p></p>
 
+### Enumeration
 ```bash
+nc -nv <IP> 143
+openssl s_client -connect <IP>:993 -quiet
+nmap --script imap-capabilities -p 143 <target-ip>
 
+#metasploit
+use auxiliary/scanner/imap/imap_version
+set RHOSTS {IP}
+set RPORT 143
+```
+
+### Connect
+```bash
+telnet 10.0.0.1 143
+```
+
+### Commands
+```bash
+# Login
+a1 login "<username>" "<password>"
+#List Folders/Mailboxes
+A1 LIST "" *
+A1 LIST INBOX *
+A1 LIST "Archive" *
+#Select a mailbox
+A1 SELECT INBOX
+#List messages
+A1 FETCH 1:* (FLAGS)
+A1 UID FETCH 1:* (FLAGS)
+#Retrieve Message Content
+A1 FETCH 2 body[text]
+A1 FETCH 2 all
+# Logout
+a1 logout
+# Close mailbox
+a1 close
 ```
 </details>
 
@@ -864,33 +1013,66 @@ python zzz_exploit.py -target-ip <target-ip> -port 445 'username:password@target
 <summary>LDAP (389/636/3268/3269)</summary>
 <p></p>
 
+### Enumeration
 ```bash
+# Nmap
+nmap --script ldap-brute --script-args ldap.base='"cn=users,dc=cqure,dc=net"' -p 389 <target-ip>
+nmap --script ldap-search -p 389 <target-ip>
+nmap --script ldap-* -p 389 <target-ip>
+nmap --script "ldap* and not brute" -p 389 <target-ip>
+nmap -n -sV --script "ldap* and not brute" <IP> #Using anonymous credentials
 
+
+# NetExec
+# -k: Use Kerberos authentication
+netexec ldap <target-ip> -u usernames.txt -p '' -k
+# --trusted-for-delegation: Enumerate computers and users with the flag `TRUSTED_FOR_DELEGATION`
+# reference: https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/useraccountcontrol-manipulate-account-properties#property-flag-descriptions
+netexec ldap <target-ip> -u username -p password --trusted-for-delegation
 ```
-</details>
 
-
-<!-- ------------------------------------------------MSSQL NOTES----------------------------------------------------------- -->
-
-
-<details markdown="1">
-<summary>MSSQL (1433)</summary>
-<p></p>
-
+### ldapsearch
 ```bash
+# -x: Simple authentication
+# -b: base dn for search
+ldapsearch -x -H ldap://10.0.0.1 -b "dc=example,dc=com"
+ldapsearch -x -H ldaps://10.0.0.1:636 -b "dc=example,dc=com"
 
+# As administrator
+# -D: bind DN
+# -w: bind password
+ldapsearch -x -H ldap://10.0.0.1 -b "dc=example,dc=com" -D "cn=admin,dc=example,dc=com" -w password
+ldapsearch -x -H ldap://10.0.0.1 -b "dc=example,dc=com" -D "cn=admin,dc=example,dc=com" -W
+
+# Search sAMAccountName
+ldapsearch -x -H ldap://10.0.0.1 -b "dc=example,dc=com" -D "workspace\\ldap" -w 'password' "(objectclass=*)" "sAMAccountName"
+ldapsearch -x -H ldap://10.0.0.1 -b "dc=example,dc=com" -D "workspace\\ldap" -w 'password' "(objectclass=*)" "sAMAccountName" | grep sAMAccountName
+
+# Get information
+ldapsearch -x -H ldap://10.0.0.1 -b "cn=sample,cn=Users,dc=example,dc=com" -w 'password' "(objectclass=*)" -D "example\\name"
 ```
-</details>
 
-
-<!-- ------------------------------------------------MYSQL NOTES----------------------------------------------------------- -->
-
-<details markdown="1">
-<summary>MysQL (3306)</summary>
-<p></p>
-
+### Against AD
 ```bash
+# --no-html: Disable html output
+# --no-grep: Disable greppable output
+# -o: Output dir
+ldapdomaindump -u 'DOMAIN\username' -p password <target-ip> --no-html --no-grep -o dumped
 
+# Research
+ldapsearch -LLL -x -H ldap://pdc01.lab.ropnop.com -b ‘’ -s base ‘(objectclass=*)’
+
+# Windapsearch is a good tool to automate the job (https://github.com/ropnop/windapsearch)
+# Get computers
+python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --computers
+# Get groups
+python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --groups
+# Get users
+python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --da
+# Get Domain Admins
+python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --da
+# Get Privileged Users
+python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --privileged-users
 ```
 </details>
 
