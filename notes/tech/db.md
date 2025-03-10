@@ -733,36 +733,139 @@ string pgadmin4.db
 ```
 </details>
 
-
-<!----------------------------------------------------------MongoDB---------------------------------------------------------------->
-
-
-
-<details markdown="1">
-<summary>MongoDB</summary>
-<p></p>
-
 <!----------------------------------------------------------Firebase---------------------------------------------------------------->
 
-## Firebase
-[FirebaseExploiter](https://github.com/securebinary/firebaseExploiter)
+<details markdown="1">
+<summary>Firebase</summary>
+<p></p>
+
+## Tools
+```bash
+# https://github.com/Turr0n/firebase
+python3 firebase.py -p 4 --dnsdumpster -l file
+
+# https://github.com/MuhammadKhizerJaved/Insecure-Firebase-Exploit
+Firebase_Exploit.py
+
+# https://github.com/viperbluff/Firebase-Extractor
+firebase.py xyz.firebaseio.com
+
+# https://github.com/securebinary/firebaseExploiter
+firebaseExploiter -u URL -exploit
+```
+
 </details>
 
 
 <!----------------------------------------------------------MongoDB---------------------------------------------------------------->
 
+
 <details markdown="1">
-<summary>MongoDB</summary>
+<summary>MongoDB (27017,27018)</summary>
 <p></p>
 
-## 
+## Enumeration
 ```bash
+nmap --script mongodb-info -p 27017 <target-ip>
+nmap --script mongodb-databases -p 27017 <target-ip>
+```
+
+## Bruteforce
+```bash
+hydra -l username -P passwords.txt <target-ip> mysql
+hydra -L usernames.txt -p password <target-ip> mysql
+```
+
+## Connection
+```bash
+# Local
+mongo
+mongo --port 27017
+
+# Remote
+mongo --host <target-ip> --port 27017 -u username -p password
+mongo "mongodb://<target-ip>:27017"
+mongo "mongodb://username:password@<target-ip>:27017/?authSource=admin"
 mongo --username "USER" --password --authenticationDatabase "DBNAME" --host "HOSTNAME" --port 27017
+```
+
+## Credentials/Config
+```bash
+/opt/bitnami/mongodb/mongodb.conf
+grep "noauth.*true" /opt/bitnami/mongodb/mongodb.conf | grep -v "^#" #Not needed
+grep "auth.*true" /opt/bitnami/mongodb/mongodb.conf | grep -v "^#\|noauth" #Not needed
+```
+
+## Commands
+```bash
+# All databases
+> show dbs
+# Current database
+> db
+# Switch database if it exists, or create new if not exist
+> use db_name
+# Collections
+> show collections
+# Run javascript file
+> load("example.js")
+
+# List users in the current database
+> show users
+> db.admin.find()
+
+# Create new collection in current database
+> db.createCollection("users")
+```
+
+## CRUD
+```bash
+# Create
+> db.<collection_name>.insert({id: "1", username: "admin"})
+# Read
+> db.<collection_name>.find()
+> db.<collection_name>.findOne({"username":"michael"})
+# Update
+> db.<collection_name>.update({id: "1"}, {$set: {username: "king"}})
+# Delete
+> db.<collection_name>.remove({"name": "Micael"})
+# Delete all documents
+> db.<collection_name>.remove({})
+```
+
+## Operators
+```bash
+# $eq: equal
+# ex. username is "admin"
+db.<collection_name>.findOne({username: {"$eq": "admin"}})
+
+# $ne: not equal
+# ex. password is not "xyz"
+db.<collection_name>.findOne({id: "1"}, {password: {"$ne": "xyz"}})
+
+# $gt: greater than
+# ex. id is greater than 2
+db.<collection_name>.findOne({id: {"$gt": "2"}})
+
+# $match: filter the documents to pass only the documents that match the specified conditions to the next pipeline stage.
+{$match: { username: "admin" }}
+
+# $lookup: join to a collection in the same database to filter in documents from the "joined" collection for processing.
+{
+    $lookup:
+        {
+            from: "users",
+            localField: "_id",
+            foreignField: "_id",
+            as: "test"
+        }
+}
 ```
 </details>
 
 
-</details>
+<!-- --------------------------------------------------------Redis-------------------------------------------------------------- -->
+
+
 <details markdown="1">
 <summary>Redis (6379)</summary>
 <p></p>
@@ -912,22 +1015,26 @@ sudo impacket-smbserver share ./share/ -smb2support
 </details>
 
 
+<!----------------------------------------------------------NoSQL---------------------------------------------------------------->
+
 
 <details markdown="1">
 <summary>NoSQL (Resources)</summary>
 <p></p>
 
-## NoSQL
-[Hacktricks](https://book.hacktricks.xyz/pentesting-web/nosql-injection)\
-[PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection)\
-[MongoDB Payloads](https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt)\
-[MongoDB Pentest](http://securitysynapse.blogspot.com/2015/07/intro-to-hacking-mongo-db.html)\
-[Injection CheatSheet 1](https://nullsweep.com/nosql-injection-cheatsheet/)\
-[Injection CheatSheet 2](https://nullsweep.com/a-nosql-injection-primer-with-mongo/)\
-[Injection CheatSheet 3](https://www.infoq.com/articles/nosql-injections-analysis/)\
-[Injection CheatSheet 4](https://rdsec.net/securec0ding/2019/NoSQL_Injection.html)\
-[Injection CheatSheet 5](https://www.stjoern.com/menu-db/nosql)\
-[Injection CheatSheet 6](https://securityintelligence.com/does-nosql-equal-no-injection/)\
-[Blog part1](https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html)\
-[Blog part2](https://blog.websecurify.com/2014/08/attacks-nodejs-and-mongodb-part-to.html)
+## Online Resources
+
+- [Hacktricks](https://book.hacktricks.xyz/pentesting-web/nosql-injection)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection)
+- [MongoDB Payloads](https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt)
+- [MongoDB Pentest](http://securitysynapse.blogspot.com/2015/07/intro-to-hacking-mongo-db.html)
+- [Injection CheatSheet 1](https://nullsweep.com/nosql-injection-cheatsheet/)
+- [Injection CheatSheet 2](https://nullsweep.com/a-nosql-injection-primer-with-mongo/)
+- [Injection CheatSheet 3](https://www.infoq.com/articles/nosql-injections-analysis/)
+- [Injection CheatSheet 4](https://rdsec.net/securec0ding/2019/NoSQL_Injection.html)
+- [Injection CheatSheet 5](https://www.stjoern.com/menu-db/nosql)
+- [Injection CheatSheet 6](https://securityintelligence.com/does-nosql-equal-no-injection/)
+- [Blog part1](https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html)
+- [Blog part2](https://blog.websecurify.com/2014/08/attacks-nodejs-and-mongodb-part-to.html)
+
 </details>

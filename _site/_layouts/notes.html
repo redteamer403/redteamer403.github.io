@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% seo %}
+</head>
+<body>
+  <div id="init-screen" class="init-screen">
+    <div class="init-content">
+      <div class="init-step">Initializing VAULT-TEC OS...</div>
+      <div class="init-step">Loading security protocols...</div>
+      <div class="init-step">Establishing secure connection...</div>
+      <div class="init-step">Connection established.</div>
+      <div class="init-step">SYSTEM READY</div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+    <header>
+      <div class="container">
+        <h1>{{ site.title }}</h1>
+        <nav>
+          <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>ABOUT</a>
+          <a href="{{ '/posts' | relative_url }}" {% if page.url == "/posts" %}class="active"{% endif %}>POSTS</a>
+          <a href="{{ '/notes' | relative_url }}" {% if page.url contains "/notes" %}class="active"{% endif %}>NOTES</a>
+          <a href="{{ '/tools' | relative_url }}" {% if page.url contains "/tools" %}class="active"{% endif %}>TOOLS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search notes...">
+      </div>
+      <div class="notes-container">
+        <div class="notes-sidebar">
+          <div class="notes-category">
+            <h3>CheatSheets</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/cheat/curl/' | relative_url }}" {% if page.url contains "/notes/cheat/curl" %}class="active"{% endif %}>CURL</a>
+              <a href="{{ '/notes/cheat/DNS/' | relative_url }}" {% if page.url contains "/notes/cheat/DNS" %}class="active"{% endif %}>DNS</a>
+              <a href="{{ '/notes/cheat/file/' | relative_url }}" {% if page.url contains "/notes/cheat/file" %}class="active"{% endif %}>File Transfer</a>
+              <a href="{{ '/notes/cheat/hydra/' | relative_url }}" {% if page.url contains "/notes/cheat/hydra" %}class="active"{% endif %}>Hydra</a>
+              <a href="{{ '/notes/cheat/impacket/' | relative_url }}" {% if page.url contains "/notes/cheat/impacket" %}class="active"{% endif %}>Impacket</a>
+              <a href="{{ '/notes/cheat/john/' | relative_url }}" {% if page.url contains "/notes/cheat/john" %}class="active"{% endif %}>JohnTheRipper</a>
+              <a href="{{ '/notes/cheat/ncat/' | relative_url }}" {% if page.url contains "/notes/cheat/ncat" %}class="active"{% endif %}>NCAT</a>
+              <a href="{{ '/notes/cheat/nmap/' | relative_url }}" {% if page.url contains "/notes/cheat/nmap" %}class="active"{% endif %}>NMAP</a>
+              <a href="{{ '/notes/cheat/useful/' | relative_url }}" {% if page.url contains "/notes/cheat/useful" %}class="active"{% endif %}>Online Resources</a>
+              <a href="{{ '/notes/cheat/shell/' | relative_url }}" {% if page.url contains "/notes/cheat/shell" %}class="active"{% endif %}>Reverse Shell</a>
+              <a href="{{ '/notes/cheat/wordlists/' | relative_url }}" {% if page.url contains "/notes/cheat/wordlists" %}class="active"{% endif %}>Wordlists</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Active Directory</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/ad/enum/' | relative_url }}" {% if page.url contains "/notes/ad/enum" %}class="active"{% endif %}>Domain Enumeration</a>
+              <a href="{{ '/notes/ad/attack/' | relative_url }}" {% if page.url contains "/notes/ad/attack" %}class="active"{% endif %}>Attack Vectors</a>
+              <a href="{{ '/notes/ad/persist/' | relative_url }}" {% if page.url contains "/notes/ad/persist" %}class="active"{% endif %}>Persistence</a>
+              <a href="{{ '/notes/ad/lateral/' | relative_url }}" {% if page.url contains "/notes/ad/lateral" %}class="active"{% endif %}>Lateral Movement</a>
+            </div>
+          </div>
+          
+          <div class="notes-category">
+            <h3>Cloud</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/cloud/aws/' | relative_url }}" {% if page.url contains "/notes/cloud/aws" %}class="active"{% endif %}>AWS</a>
+              <a href="{{ '/notes/cloud/azure/' | relative_url }}" {% if page.url contains "/notes/cloud/azure" %}class="active"{% endif %}>Azure</a>
+              <a href="{{ '/notes/cloud/google/' | relative_url }}" {% if page.url contains "/notes/cloud/google" %}class="active"{% endif %}>Google</a>
+              <a href="{{ '/notes/cloud/terra/' | relative_url }}" {% if page.url contains "/notes/cloud/terra" %}class="active"{% endif %}>Terraform</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Container</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/container/docker/' | relative_url }}" {% if page.url contains "/notes/container/docker" %}class="active"{% endif %}>Docker</a>
+              <a href="{{ '/notes/container/k8s/' | relative_url }}" {% if page.url contains "/notes/container/k8s" %}class="active"{% endif %}>Kubernetes</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Linux</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/linux/checklist/' | relative_url }}" {% if page.url contains "/notes/linux/checklist" %}class="active"{% endif %}>Penetration Testing Checklist</a>
+              <a href="{{ '/notes/linux/enum/' | relative_url }}" {% if page.url contains "/notes/linux/enum" %}class="active"{% endif %}>Enumeration</a>
+              <a href="{{ '/notes/linux/privesc/' | relative_url }}" {% if page.url contains "/notes/linux/privesc" %}class="active"{% endif %}>Privilege Escalation</a>
+              <a href="{{ '/notes/linux/post/' | relative_url }}" {% if page.url contains "/notes/linux/post" %}class="active"{% endif %}>Post Exploitation</a>
+              <a href="{{ '/notes/linux/services/' | relative_url }}" {% if page.url contains "/notes/linux/services" %}class="active"{% endif %}>Services</a>
+              <a href="{{ '/notes/linux/tools/' | relative_url }}" {% if page.url contains "/notes/linux/tools" %}class="active"{% endif %}>Tools</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Network</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/network/exfil/' | relative_url }}" {% if page.url contains "/notes/network/exfil" %}class="active"{% endif %}>Data Exfiltration</a>
+              <a href="{{ '/notes/network/scan/' | relative_url }}" {% if page.url contains "/notes/network/scan" %}class="active"{% endif %}>Port Scanning</a>
+              <a href="{{ '/notes/network/recon/' | relative_url }}" {% if page.url contains "/notes/network/recon" %}class="active"{% endif %}>Reconnaissance</a>
+              <a href="{{ '/notes/network/pivot/' | relative_url }}" {% if page.url contains "/notes/network/pivot" %}class="active"{% endif %}>Pivoting</a>
+              <a href="{{ '/notes/network/services/' | relative_url }}" {% if page.url contains "/notes/network/services" %}class="active"{% endif %}>Services</a>
+              <a href="{{ '/notes/network/sniff/' | relative_url }}" {% if page.url contains "/notes/network/sniff" %}class="active"{% endif %}>Traffic Analysis</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Tech Stack</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/tech/cms/' | relative_url }}" {% if page.url contains "/notes/tech/cms" %}class="active"{% endif %}>CMS</a>
+              <a href="{{ '/notes/tech/db/' | relative_url }}" {% if page.url contains "/notes/tech/db" %}class="active"{% endif %}>Databases</a>
+              <a href="{{ '/notes/tech/devops/' | relative_url }}" {% if page.url contains "/notes/tech/devops" %}class="active"{% endif %}>DevOps</a>
+              <a href="{{ '/notes/tech/enterprise/' | relative_url }}" {% if page.url contains "/notes/tech/enterprise" %}class="active"{% endif %}>Enterprise Apps</a>
+              <a href="{{ '/notes/tech/iam/' | relative_url }}" {% if page.url contains "/notes/tech/iam" %}class="active"{% endif %}>IAM</a>
+              <a href="{{ '/notes/tech/mon/' | relative_url }}" {% if page.url contains "/notes/tech/mon" %}class="active"{% endif %}>Monitoring</a>
+              <a href="{{ '/notes/tech/open/' | relative_url }}" {% if page.url contains "/notes/tech/open" %}class="active"{% endif %}>Open-Source</a>
+              <a href="{{ '/notes/tech/util/' | relative_url }}" {% if page.url contains "/notes/tech/util" %}class="active"{% endif %}>Utilities</a>
+              <a href="{{ '/notes/tech/server/' | relative_url }}" {% if page.url contains "/notes/tech/server" %}class="active"{% endif %}>Web Servers</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Windows</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/windows/av/' | relative_url }}" {% if page.url contains "/notes/windows/av" %}class="active"{% endif %}>AV/EDR Evasion</a>
+              <a href="{{ '/notes/windows/enum/' | relative_url }}" {% if page.url contains "/notes/windows/enum" %}class="active"{% endif %}>Enumeration</a>
+              <a href="{{ '/notes/windows/privesc/' | relative_url }}" {% if page.url contains "/notes/windows/privesc" %}class="active"{% endif %}>Privilege Escalation</a>
+              <a href="{{ '/notes/windows/post/' | relative_url }}" {% if page.url contains "/notes/windows/post" %}class="active"{% endif %}>Post Exploitation</a>
+            </div>
+          </div>
+
+          <div class="notes-category">
+            <h3>Web Application</h3>
+            <div class="notes-subcategory">
+              <a href="{{ '/notes/web/recon/' | relative_url }}" {% if page.url contains "/notes/web/recon" %}class="active"{% endif %}>Reconnaissance</a>
+              <a href="{{ '/notes/web/vulns/' | relative_url }}" {% if page.url contains "/notes/web/vulns" %}class="active"{% endif %}>Common Vulnerabilities</a>
+              <a href="{{ '/notes/web/auth/' | relative_url }}" {% if page.url contains "/notes/web/auth" %}class="active"{% endif %}>Authentication Bypass</a>
+              <a href="{{ '/notes/web/api/' | relative_url }}" {% if page.url contains "/notes/web/api" %}class="active"{% endif %}>API Testing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-content">
+          <div id="search-results"></div>
+          <div id="note-content">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="system-info">
+      <div class="terminal-time"></div>
+      <div class="location-info"></div>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
