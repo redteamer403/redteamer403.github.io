@@ -7,6 +7,7 @@ title: Web Application Reconnaissance
 # Web Application Reconnaissance
 
 ## Footprinting
+
 ```bash
 # Fetch HTTP headers
 curl -I http://example.com
