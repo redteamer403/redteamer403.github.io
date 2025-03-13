@@ -18,6 +18,10 @@ This page lists useful online tools and resources for pentesting
     <td style="border: 1px solid black; padding: 8px;">Disposable Root Servers. Segfault offers free unlimited Root Servers. A new server is created for every SSH connection.</td>
   </tr>
   <tr style="border: 1px solid black;">
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://sploitify.haxx.it/">Splotify</a></td>
+    <td style="border: 1px solid black; padding: 8px;">Sploitify is an interactive cheat sheet, containing a curated list of public server-side exploits</td>
+  </tr>
+  <tr style="border: 1px solid black;">
     <td style="border: 1px solid black; padding: 8px;"><a href="https://wadcoms.github.io/">WADComs</a></td>
     <td style="border: 1px solid black; padding: 8px;">WADComs is an interactive cheat sheet with a curated list of offensive security tools and commands for Windows/AD environments.</td>
   </tr>

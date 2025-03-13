@@ -51,6 +51,16 @@ ipconfig
 vpnclient /cmd
 ```
 
+## Using ncat
+```bash
+#Victim: 
+ncat -lvnp 8008 -c "ncat localhost 80"
+#Kali:
+nc 10.10.99.203 8008 (Connected)
+# Type any commands
+# GET /
+```
+
 ## Pivoting Tools
 - Chisel: ```chisel client <attacker_ip>:8080 R:12345:internal_host:80```
 - Plink: ```plink -L 8080:internal_host:80 user@pivot_ip```

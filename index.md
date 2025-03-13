@@ -26,6 +26,7 @@ title: Home
 
   <h3>TRYHACKME</h3>
   <ul style="line-height:10%">
+    <li>Red Teaming</li>
     <li>Offensive Pentesting</li>
     <li>Web Application Pentesting</li>
     <li>Jr Penetration Tester</li>

