@@ -59,7 +59,7 @@
           <div class="notes-category">
             <h3>Active Directory</h3>
             <div class="notes-subcategory">
-              <a href="{{ '/notes/ad/map/' | relative_url }}" {% if page.url contains "/notes/ad/map" %}class="active"{% endif %}>Mindmap</a>
+              <a href="{{ '/notes/ad/map' | relative_url }}" {% if page.url contains "/notes/ad/map" %}class="active"{% endif %}>Mindmap</a>
               <a href="{{ '/notes/ad/enum/' | relative_url }}" {% if page.url contains "/notes/ad/enum" %}class="active"{% endif %}>Domain Enumeration</a>
               <a href="{{ '/notes/ad/attack/' | relative_url }}" {% if page.url contains "/notes/ad/attack" %}class="active"{% endif %}>Attack Vectors</a>
               <a href="{{ '/notes/ad/persist/' | relative_url }}" {% if page.url contains "/notes/ad/persist" %}class="active"{% endif %}>Persistence</a>
@@ -161,7 +161,7 @@
   </div>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/mindmap.js' | relative_url }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+  <script src="{{ '/assets/js/mindmap.js' | relative_url }}"></script>
 </body>
 </html>

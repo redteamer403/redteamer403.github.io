@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mindmap Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+  <style>
+    body { margin: 0; padding: 0; overflow: hidden; background: rgba(0,0,0,0.8); }
+    #mindmap-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+    #pannable-area { cursor: move; }
+    img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  </style>
+</head>
+<body>
+  <div id="mindmap-container">
+    <div id="pannable-area">
+      <img id="mindmap-svg">
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get SVG path from URL query parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const svgPath = urlParams.get('svg') || '/assets/images/mindmap_ad_dark_classic_2025.03.excalidraw.svg'; // Default SVG if none provided
+
+      // Set the SVG source
+      const svgImg = document.getElementById('mindmap-svg');
+      svgImg.src = svgPath;
+
+      // Initialize Panzoom
+      const pannableArea = document.getElementById('pannable-area');
+      const panzoomInstance = Panzoom(pannableArea, {
+        contain: 'outside',
+        cursor: 'move',
+        minScale: 0.5,
+        maxScale: 10,
+        step: 0.3,
+        panOnlyWhenZoomed: false
+      });
+
+      // Enable zooming with mouse wheel
+      document.getElementById('mindmap-container').addEventListener('wheel', function(e) {
+        panzoomInstance.zoomWithWheel(e);
+        e.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>
