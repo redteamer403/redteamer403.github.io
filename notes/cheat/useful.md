@@ -62,7 +62,23 @@ This page lists useful online tools and resources for pentesting
     <td style="border: 1px solid black; padding: 8px;">A simple, intuitive web app for analysing and decoding data without having to deal with complex tools or programming languages.</td>
   </tr>
   <tr style="border: 1px solid black;">
-    <td style="border: 1px solid black; padding: 8px;"><a href="https://adsecurity.org/">ADSecurity</a></td>
-    <td style="border: 1px solid black; padding: 8px;">Focused on Active Directory security, offering tools and insights for pentesting LDAP and AD.</td>
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://github.com/0xsyr0/OSCP">OSCP Cheat Sheet.</a></td>
+    <td style="border: 1px solid black; padding: 8px;">Comprehensive OSCP Preparation Cheat Sheet.</td>
+  </tr>
+  <tr style="border: 1px solid black;">
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://github.com/Ignitetechnologies/Mindmap">Mindmaps</a></td>
+    <td style="border: 1px solid black; padding: 8px;">Many mindmaps for cyber security technologies, methodologies, courses, and certifications.</td>
+  </tr>
+  <tr style="border: 1px solid black;">
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://exploit-notes.hdks.org/">Explpoit Notes</a></td>
+    <td style="border: 1px solid black; padding: 8px;">Sticky notes for pentesting. Search hacking techniques and tools for penetration testings, bug bounty, CTFs.</td>
+  </tr>
+  <tr style="border: 1px solid black;">
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://cheatsheet.haax.fr/">Offensive Security Cheat Sheet</a></td>
+    <td style="border: 1px solid black; padding: 8px;">Offensive Security Cheatsheet.</td>
+  </tr>
+  <tr style="border: 1px solid black;">
+    <td style="border: 1px solid black; padding: 8px;"><a href="https://www.thehacker.recipes/">Hacker Recipes</a></td>
+    <td style="border: 1px solid black; padding: 8px;">This project is aimed at providing technical guides on various hacking topics.</td>
   </tr>
 </table>

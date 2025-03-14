@@ -14,18 +14,18 @@
 <body>
   <div id="mindmap-container">
     <div id="pannable-area">
-      <img id="mindmap-svg">
+      <img id="mindmap-image">
     </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Get SVG path from URL query parameter
+      // Get image path from URL query parameter
       const urlParams = new URLSearchParams(window.location.search);
-      const svgPath = urlParams.get('svg') || '/assets/images/AD-Mindmap.svg'; // Default SVG if none provided
+      const imagePath = urlParams.get('image') || '/assets/images/AD-Mindmap.svg'; // Default image if none provided
 
-      // Set the SVG source
-      const svgImg = document.getElementById('mindmap-svg');
-      svgImg.src = svgPath;
+      // Set the image source
+      const mindmapImg = document.getElementById('mindmap-image');
+      mindmapImg.src = imagePath;
 
       // Initialize Panzoom
       const pannableArea = document.getElementById('pannable-area');

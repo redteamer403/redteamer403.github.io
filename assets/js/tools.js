@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else {
           try {
             const [ip, prefix] = trimmedInput.split('/');
@@ -208,17 +209,18 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else if (['1', '2', '3'].includes(trimmedInput)) {
           let password, message;
           if (trimmedInput === '1') {
             password = generatePassword(8, 1, 1);
             message = 'Generated an Easy passcode for noobs';
           } else if (trimmedInput === '2') {
-            password = generatePassword(12, 2, 2);
-            message = 'Generated a Strong passcode';
+            password = generatePassword(15, 2, 2);
+            message = 'Generated a Strong passcode for user';
           } else if (trimmedInput === '3') {
-            password = generatePassword(20, 4, 4);
-            message = 'Are you okay? Why you need this Insane passcode?';
+            password = generatePassword(25, 4, 4);
+            message = 'Generated an Insane passcode for nerd';
           }
           printToTerminal(''); // Empty line
           printToTerminal(message);
@@ -237,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else if (['1', '2', '3'].includes(trimmedInput)) {
           currentState = `encode${trimmedInput}`;
           printToTerminal(trimmedInput === '1' ? 'Loading URL Encoder for Wasteland Navigation...' :
@@ -260,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else {
           let encoded;
           if (currentState === 'encode1') { // URL Encode
@@ -311,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else {
           printToTerminal('Please enter Y/N, Wanderer—don’t make Pip-Boy confused!');
         }
@@ -322,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
           printToTerminal('1) CIDR to IP Range');
           printToTerminal('2) Password Generator');
           printToTerminal('3) Encoder');
+          printToTerminal('Please enter 1, 2, or 3');
         } else {
           printToTerminal('Invalid command. Type "exit" to return to menu.');
         }
@@ -333,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     printToTerminal('1) CIDR to IP Range');
     printToTerminal('2) Password Generator');
     printToTerminal('3) Encoder');
+    printToTerminal('Please enter 1, 2, or 3');
 
     // Handle terminal input with preventDefault to stop newline
     terminalInput.addEventListener('keypress', (e) => {

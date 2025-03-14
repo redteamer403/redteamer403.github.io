@@ -81,3 +81,6 @@ reg add HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer /v AlwaysInstall
 - PowerSploit: ``` Import-Module .\PowerSploit.ps1; Get-ProcessTokenPrivilege ```
 - UACme: ``` uacme.exe ```
 - PrintSpoofer: ``` PrintSpoofer.exe -i -c cmd ```
+
+## Local PrivEsc MindMap
+<iframe src='https://www.xmind.app/embed/YFFcN8/' width='750' height='422' frameborder='0' scrolling='no' allowfullscreen="true"></iframe>
