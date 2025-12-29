@@ -1,5 +1,5 @@
 # Personal Portfolio with Comprehensive Notes and Resources
-<a href="https://redteamer403.github.io/">RedTeamer403</a>
+<a href="https://redteamer403.github.io/">https://redteamer403.github.io</a>
 
 ## :notebook: This project contains information in the cybersecurity field:
 
