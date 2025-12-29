@@ -9,11 +9,13 @@ title: Home
   
   <h3>CERTIFICATIONS</h3>
   <ul style="line-height:10%">
-    <li>CRTP - Certified Red Team Professional</li>
-    <li>eWPTXv2 - eLearnSecurity Web Penetration Tester eXtreme</li>
-    <li>BSCP - Burp Suite Certified Professional</li>
-    <li>CRTA - Certified Red Team Analyst</li>
-    <li>MCRTA - Multi-Cloud Red Team Analyst</li>
+    <li><a href="https://credentials.offsec.com/3dd656db-ff1b-4cdc-93f4-0cd5a1a46cca" target="_blank" rel="noopener">OSCP+ - OffSec Certified Proffesional Plus</a></li>
+    <li><a href="https://credentials.offsec.com/52fe02ad-dadb-428b-9f2a-960a6182209d" target="_blank" rel="noopener">OSCP - OffSec Certified Proffesional</a></li>
+    <li><a href="https://www.credential.net/bf0de24f-63fd-4041-8d52-23351a6066ff" target="_blank" rel="noopener">CRTP - Certified Red Team Professional</a></li>
+    <li><a href="https://certs.ine.com/0fe51daf-7d05-43f9-b5dd-4b06027be696" target="_blank" rel="noopener">eWPTXv2 - eLearnSecurity Web Penetration Tester eXtreme</a></li>
+    <li><a href="https://portswigger.net/web-security/e/c/d57e592c6a98ed13?utm_source=office&utm_medium=email&utm_campaign=burp-prac-cert-pass-success" target="_blank" rel="noopener">BSCP - Burp Suite Certified Professional</a></li>
+    <li><a href="https://www.credential.net/2d882ed5-1ccf-4f7a-a1bc-248fb0dfef81" target="_blank" rel="noopener">CRTA - Certified Red Team Analyst</a></li>
+    <li><a href="https://labs.cyberwarfare.live/credential/achievement/676eafd5f6d2b394d9794135" target="_blank" rel="noopener">MCRTA - Multi-Cloud Red Team Analyst</a></li>
   </ul>
 
   <h3>HACKTHEBOX PRO LABS</h3>
