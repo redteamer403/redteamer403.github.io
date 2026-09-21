@@ -1,29 +1,24 @@
-# Personal Portfolio with Comprehensive Notes and Resources
-<a href="https://redteamer403.github.io/">https://redteamer403.github.io</a>
+# redteamer403.github.io
 
-## :notebook: This project contains information in the cybersecurity field:
+Personal portfolio — Rustam Fakhrutdinov, Offensive Security Engineer.
 
-- CheatSheets
-- Active Directory
-- Cloud
-- Container
-- Database
-- Linux
-- Network
-- Windows
-- Web
-- and other things
+Static site served via GitHub Pages. No build step.
 
-## :warning: Disclaimer
+## Structure
+```
+index.html        # entire site (HTML + inline CSS/JS)
+assets/cv.pdf     # CV — drop your file here, the Download CV buttons point to it
+README.md
+```
 
-Notes are only for educational purpose or penetration testing, not attacking servers that you're not authorized. This site will not take any responsibility even if you attack the server illegally or cause damage unintentionally. Please use this contents at your own risk.
+## Deploy
+Push to the default branch. GitHub Pages serves it at https://redteamer403.github.io/ automatically.
 
-The contents are not original, but based on the information on the internet.
+## Updating the numbers
+All Bugcrowd stats are hardcoded in `index.html`:
+- Metric cards: search for `class="metric"`
+- Severity bar: search for `class="sevbar"` (widths are percentages of 40)
+- Vulnerability classes: search for `class="vrow"`
 
-I'm not a security expert, just an enthusiast, so the contents are not necessarily accurate.
-
-## :coffee: Donate Me
-
-If you find this site helpful, please consider supporting my ongoing efforts through a donation.
-
-<a href="https://buymeacoffee.com/redteamer403" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 42px !important;" ></a>
+## CV
+The `Download CV` buttons link to `assets/cv.pdf`. Add that file and they start working. Keep the exact filename or update the two `href="assets/cv.pdf"` references.
