@@ -124,6 +124,7 @@ section{padding:56px 0;border-top:1px solid var(--line-soft)}
 .metric .big.acc{color:var(--accent)}
 .metric .cap{color:var(--ink-dim);font-size:.85rem;margin-top:9px;line-height:1.35}
 .metric .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:3px}
+.disclaim{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:16px;line-height:1.5}
 
 /* severity panel */
 .sev-panel{background:var(--bg-panel);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:14px}
@@ -167,6 +168,16 @@ section{padding:56px 0;border-top:1px solid var(--line-soft)}
 .stack-col li:last-child{border-bottom:none}
 .stack-col li::before{content:"";width:5px;height:5px;background:var(--ink-faint);border-radius:50%;flex-shrink:0}
 
+/* ---------- core skills grid ---------- */
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.skillgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.skillgrid{grid-template-columns:1fr}}
+.skillcol{background:var(--bg-panel);border:1px solid var(--line);border-radius:10px;padding:18px 18px 14px}
+.skillcol h4{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:11px;font-weight:500}
+.skillcol ul{list-style:none}
+.skillcol li{font-size:.87rem;color:var(--ink);padding:5px 0;display:flex;align-items:center;gap:8px}
+.skillcol li::before{content:"";width:4px;height:4px;background:var(--ink-faint);border-radius:50%;flex-shrink:0}
+
 /* ---------- platforms/links ---------- */
 .plat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:640px){.plat{grid-template-columns:1fr}}
@@ -203,11 +214,11 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <a href="#top" class="brand">R3dteamer403<span class="dot">.</span></a>
     <div class="navlinks">
-      <a href="#results">Results</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#stack">Stack</a>
+      <a href="#results">Impact</a>
+      <a href="#skills">Skills</a>
+      <a href="#capabilities">What I do</a>
+      <a href="#stack">Environments</a>
       <a href="#platforms">Profiles</a>
-      <a href="#contact">Contact</a>
     </div>
     <a href="assets/cv.pdf" class="nav-cta" download>Download CV</a>
   </div>
@@ -249,11 +260,46 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">01</span>
-      <span class="sec-title">Bug bounty track record</span>
-      <span class="sec-sub">A snapshot from Bugcrowd. Additional work runs across other bug bounty platforms and private engagements</span>
+      <span class="sec-title">Impact</span>
+      <span class="sec-sub">Cumulative results across in-house roles, consulting, and bug bounty over six years</span>
     </div>
 
     <div class="metrics">
+      <div class="metric">
+        <div class="big acc">1000<span style="font-size:1.4rem">+</span></div>
+        <div class="cap">Vulnerabilities found &amp; reported</div>
+        <div class="sub">across a 6-year career</div>
+      </div>
+      <div class="metric">
+        <div class="big">200<span style="font-size:1.4rem">+</span></div>
+        <div class="cap">Products &amp; applications tested</div>
+        <div class="sub">web, API, cloud, infra</div>
+      </div>
+      <div class="metric">
+        <div class="big">30<span style="font-size:1.4rem">+</span></div>
+        <div class="cap">Organizations assessed</div>
+        <div class="sub">BigTech, FinTech, Telecom, IaaS</div>
+      </div>
+      <div class="metric">
+        <div class="big">6<span style="font-size:1.4rem">+</span></div>
+        <div class="cap">Years in offensive &amp; app security</div>
+        <div class="sub">enterprise · bug bounty · consulting · internal</div>
+      </div>
+    </div>
+    <p class="disclaim">Aggregate figures span six years of in-house security roles, consulting engagements, and public and private bug bounty programs, including confidential client work under NDA. Verifiable public results are shown below.</p>
+  </div>
+</section>
+
+<!-- ============ BUG BOUNTY (was 01) ============ -->
+<section id="bugbounty">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Bug bounty track record</span>
+      <span class="sec-sub">Publicly verifiable snapshot from Bugcrowd. Work continues across other platforms and private programs</span>
+    </div>
+
+    <div class="metrics metrics-4">
       <div class="metric">
         <div class="big acc">40</div>
         <div class="cap">Valid vulnerabilities on Bugcrowd</div>
@@ -312,11 +358,90 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
+<!-- ============ CORE SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Core skills</span>
+      <span class="sec-sub">The toolkit I bring to a security engineering role</span>
+    </div>
+    <div class="skillgrid">
+      <div class="skillcol">
+        <h4>offensive_testing</h4>
+        <ul>
+          <li>Web &amp; API penetration testing</li>
+          <li>Black-box, grey-box, white-box</li>
+          <li>Manual-first exploitation</li>
+          <li>OWASP Top 10 · ASVS · WSTG</li>
+          <li>API Security Top 10</li>
+          <li>CVSS v3.1 scoring &amp; risk rating</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>security_engineering</h4>
+        <ul>
+          <li>Secure code review (whitebox)</li>
+          <li>Threat modeling (STRIDE)</li>
+          <li>Architecture &amp; design review</li>
+          <li>SAST / DAST / SCA tooling</li>
+          <li>Remediation tracking &amp; retest</li>
+          <li>Developer collaboration</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>identity_and_access</h4>
+        <ul>
+          <li>SSO integration testing</li>
+          <li>OAuth 2.0 / OIDC</li>
+          <li>SAML &amp; JWT</li>
+          <li>Active Directory attack paths</li>
+          <li>Privilege escalation</li>
+          <li>Access control review</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>scripting_and_data</h4>
+        <ul>
+          <li>Python security automation</li>
+          <li>Bash / PowerShell</li>
+          <li>Java / .NET / JavaScript review</li>
+          <li>SQL / NoSQL / Snowflake</li>
+          <li>Regex</li>
+          <li>Tunneling &amp; proxying</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>tooling</h4>
+        <ul>
+          <li>Burp Suite Pro</li>
+          <li>Caido</li>
+          <li>SonarQube</li>
+          <li>OWASP ZAP</li>
+          <li>SIEM (QRadar)</li>
+          <li>VMware</li>
+        </ul>
+      </div>
+      <div class="skillcol">
+        <h4>ai_workflows</h4>
+        <ul>
+          <li>Custom prompt engineering</li>
+          <li>Skills authoring</li>
+          <li>MCP-connected workflows</li>
+          <li>AI-assisted recon &amp; triage</li>
+          <li>Rapid tooling in Python</li>
+          <li>Manual verification of output</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CAPABILITIES ============ -->
 <section id="capabilities">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">04</span>
       <span class="sec-title">What I do</span>
       <span class="sec-sub">Security engineering across the SDLC, from offensive testing to fixing issues at the source with dev teams</span>
     </div>
@@ -354,7 +479,7 @@ footer a:hover{color:var(--ink)}
 <section id="stack">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">05</span>
       <span class="sec-title">Tested environments</span>
       <span class="sec-sub">Systems, platforms, and stacks assessed on real engagements</span>
     </div>
@@ -377,7 +502,7 @@ footer a:hover{color:var(--ink)}
           <li>React / Angular / Vue</li>
           <li>Next.js</li>
           <li>Containerized microservices</li>
-          <li>Web &amp; API integrations</li>
+          <li>REST &amp; GraphQL APIs</li>
         </ul>
       </div>
       <div class="stack-col">
@@ -387,8 +512,37 @@ footer a:hover{color:var(--ink)}
           <li>OAuth / OIDC</li>
           <li>SAML</li>
           <li>Active Directory</li>
-          <li>AWS (IAM, PaaS/IaaS)</li>
-          <li>Azure</li>
+          <li>AWS &amp; Azure attack surface</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>databases</h4>
+        <ul>
+          <li>Oracle</li>
+          <li>MySQL / PostgreSQL / MSSQL</li>
+          <li>Redis</li>
+          <li>Snowflake</li>
+          <li>NoSQL stores</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>infrastructure</h4>
+        <ul>
+          <li>Windows &amp; Linux estates</li>
+          <li>VMware / ESXi</li>
+          <li>Firewalls &amp; network segments</li>
+          <li>SIEM (QRadar)</li>
+          <li>Internal &amp; external networks</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>industries</h4>
+        <ul>
+          <li>BigTech &amp; SaaS</li>
+          <li>Financial services / FinTech</li>
+          <li>Banking</li>
+          <li>Telecommunications</li>
+          <li>Healthcare</li>
         </ul>
       </div>
     </div>
@@ -399,7 +553,7 @@ footer a:hover{color:var(--ink)}
 <section id="platforms">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">06</span>
       <span class="sec-title">Profiles</span>
       <span class="sec-sub">Public track record and continuous hands-on practice</span>
     </div>
